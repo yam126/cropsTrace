@@ -1,0 +1,25 @@
+﻿p {
+    text-align: center;
+    padding-bottom: 10px;
+    background-color: #a82a36;
+    padding-left: auto;
+    padding-right: auto;
+    color: #ffffff;
+    padding-top: 10px;
+}
+
+#title_bar {
+    font-size: 18px;
+}
+
+#video_panel {
+    color: white;
+}
+
+#myPlayer1 {
+    object-fit: fill;
+    width: 86%;
+    height: 95%;
+    margin-left: 7%;
+    margin-top: 3%;
+}

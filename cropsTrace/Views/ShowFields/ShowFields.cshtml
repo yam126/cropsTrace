@@ -1,0 +1,108 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutList.cshtml";
+}
+<div id="ShowFieldsMain">
+    <!--搜索层-->
+    <div class="search-container">
+        <div class="txtSearch">
+            <el-input id="txtSearch" v-model="showFieldsSearchWhere" placeholder="请输入搜索词"></el-input>
+        </div>
+        <el-dropdown v-model="searchCondition.text" id="ddlSearchCondition">
+            <el-button id="ddlSearchConditionButton" type="primary">
+                {{searchCondition.text}}<i class="el-icon-arrow-down el-icon--right"></i>
+            </el-button>
+            <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item @@click.native="ddlSearchConditionChange(item)" v-for="(item,index) in showFieldsCondition" :key="index" :command="item.value">{{item.text}}</el-dropdown-item>
+            </el-dropdown-menu>
+        </el-dropdown>
+        <el-button id="btnSearh" @@click="showFieldsSearch" style="margin-left:3vw" type="primary" icon="el-icon-search">搜索</el-button>
+        <el-button id="btnAcceptInterfaceData" @@click="showAddParamterDialog" typeof="primary">添加参数</el-button>
+        <el-button id="btnSaveData" @@click="saveShowFieldsSetting" typeof="primary">保存设置</el-button>
+    </div>
+    <!--/搜索层-->
+    <!--搜索结果层-->
+    <div class="search-result-container">
+        <!--:key的值是用于刷新-->
+        <el-table ref="showFieldsTable" :data="ShowFields.PageData"
+                  :key="num"
+                  tooltip-effect="dark"
+                  class="el-datatable el-search-table"
+                  empty-text="暂无数据">
+            <el-table-column show-overflow-tooltip :render-header="renderHeader" label="全选" type="selection" width="50"></el-table-column>
+            <el-table-column label="删除">
+                <template slot-scope="scope">
+                    <div style="width:10vw">
+                        <el-button @@click="deleteShowFields(scope.row)" type="danger" round>删除</el-button>
+                    </div>
+                </template>
+            </el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="recordId" label="记录编号"></el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="companyId" label="公司编号"></el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="device" label="设备"></el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="pointId" label="测点"></el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="fieldName" label="字段名"></el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="showFieldName" label="界面显示名称"></el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="unit" label="单位"></el-table-column>
+        </el-table>
+        <div class="search-result-page-control">
+            <el-pagination class="el-pagination-center"
+                           :total="ShowFields.RecordCount"
+                           :page-sizes="[10, 15, 20]"
+                           :page-size="ShowFields.PageSize"
+                           :page-count="ShowFields.PageCount"
+                           :current-page="ShowFields.PageIndex"
+                           @@current-change="showFieldsChangePage"
+                           @@size-change="showFieldsChangePageSize"
+                           layout="total, sizes, prev, pager, next, jumper">
+            </el-pagination>
+        </div>
+    </div>
+    <!--/搜索结果层-->
+    <!--添加参数对话框-->
+    <el-dialog :visible.sync="dialogShowParameterIsShow" custom-class="dialogShowParameter" title="参数对话框">
+        <div class="dialog-search-container">
+            <div class="txtSearch">
+                <el-input v-model="showFieldsApiSearchKey" placeholder="请输入搜索词"></el-input>
+            </div>
+            <el-button @@click="loadInterfacePoints" style="margin-left:0.2vw;margin-top:0.5vh;border-radius:20px;cursor:pointer;" type="primary" icon="el-icon-search">搜索</el-button>
+        </div>
+        <div class="dialog-container">
+            <el-table :data="ShowFieldsApiData"
+                      :key="ShowFieldsApiDataNum"
+                      tooltip-effect="dark"
+                      class="el-datatable el-search-table"
+                      @@current-change="chroseShowFieldsApi"
+                      empty-text="暂无数据">
+                <el-table-column label="选择" width="55">
+                    <template slot-scope="scope">
+                        <el-radio v-model="ShowFieldsApiDataChoose" :label="scope.row"><i></i></el-radio>
+                    </template>
+                </el-table-column>
+                <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="id" label="id"></el-table-column>
+                @*<el-table-column show-overflow-tooltip :render-header="renderHeader" prop="name" width="75" label="名称"></el-table-column>*@
+                <el-table-column label="名称">
+                    <template slot-scope="scope">
+                        <div style="width:10vw">
+                            {{scope.row.name}}
+                        </div>
+                    </template>
+                </el-table-column>
+                @*<el-table-column show-overflow-tooltip :render-header="renderHeader" prop="signalType" label="信号类型"></el-table-column>
+                    <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="dataType" label="数据类型"></el-table-column>
+                    <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="rwMode" label="读写方式"></el-table-column>*@
+                <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="value" label="值"></el-table-column>
+                <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="unit" label="单位"></el-table-column>
+                <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="updateTime" label="更新时间"></el-table-column>
+                @*<el-table-column show-overflow-tooltip :render-header="renderHeader" prop="deviceId" label="设备Id"></el-table-column>*@
+                <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="deviceCode" label="设备编码"></el-table-column>
+                <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="deviceName" label="设备名称"></el-table-column>
+                @*<el-table-column show-overflow-tooltip :render-header="renderHeader" prop="deviceType" label="设备类型"></el-table-column>
+                    <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="deviceTypeId" label="设备类型Id"></el-table-column>
+                    <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="deviceStatus" label="设备状态"></el-table-column>
+                    <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="devicePower" label="设备电量"></el-table-column>
+                    <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="deviceSignal" label="设备信号强度"></el-table-column>*@
+            </el-table>
+        </div>
+    </el-dialog>
+    <!--/添加参数-->
+</div>

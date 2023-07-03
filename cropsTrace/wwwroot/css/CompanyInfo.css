@@ -1,0 +1,211 @@
+﻿#CompanyInfo {
+    width: 100%;
+    height: 100%;
+    margin: 0 0;
+    border: 0px solid red;
+}
+
+    #CompanyInfo .search-container {
+        width: 98%;
+        height: 5vh;
+        margin-left: 1%;
+        margin-top: 1%;
+        border: 0px solid red;
+    }
+
+#txtSearch {
+    width: 100%;
+    height: 4.3vh;
+    font-family: 'Microsoft YaHei UI';
+    color: #fbf9f9;
+    font-size: 0.8vw;
+    text-align: left;
+    text-indent: 1%;
+    background-color: #f7f7f754;
+    border-radius: 25px;
+}
+
+    #txtSearch placeholder {
+        font-family: 'Microsoft YaHei UI';
+        color: #fbf9f9;
+        font-size: 1vw;
+        text-align: left;
+        text-indent: 1%;
+    }
+
+#txtSearchStartTime {
+    width: 100%;
+    height: 4.3vh;
+    text-align: left;
+    text-indent: 1%;
+    background-color: #f7f7f754;
+    border-radius: 25px;
+    font-family: 'Microsoft YaHei UI';
+    color: #fbf9f9;
+    font-size: 1vw;
+}
+
+#btnSearh {
+    border-radius: 20px;
+    background-color: #eddc78;
+    margin-top: 0.3vh;
+    margin-left: 0.2vw;
+    color: #8f1414;
+    font-family: 'Microsoft YaHei UI';
+    font-size: 0.8vw;
+    font-weight: 700;
+    height: 4.3vh;
+    width: 5vw;
+}
+
+#btnAdd {
+    border-radius: 20px;
+    background-color: #78b9ed;
+    margin-top: 0.3vh;
+    margin-left: 0.2vw;
+    color: #efe9e9;
+    font-family: 'Microsoft YaHei UI';
+    font-size: 0.8vw;
+    font-weight: 700;
+    height: 4.3vh;
+    width: 5vw;
+}
+
+#btnDelete {
+    border-radius: 20px;
+    background-color: #f1464a;
+    margin-top: 0.3vh;
+    margin-left: 0.2vw;
+    color: #fff3f3;
+    font-family: 'Microsoft YaHei UI';
+    font-size: 0.8vw;
+    font-weight: 700;
+    height: 4.3vh;
+    width: 5vw;
+}
+
+#CompanyInfo .search-container .txtSearch {
+    width: 15vw;
+    height: 4.3vh;
+    margin-top: 0.3vh;
+    margin-left: 0.2vw;
+    float: left;
+}
+
+#CompanyInfo .search-result-container {
+    width: 98%;
+    height: 79.8vh;
+    margin-left: 1%;
+    margin-top: 1%;
+    background-color: #00beff26;
+    border: 1px solid #0097ff;
+    float: left;
+}
+
+    #CompanyInfo .search-result-container .el-search-table {
+        width: 98%;
+        height: 71vh;
+        margin: 0 auto;
+        margin-top: 1vh;
+        border: 1px solid #0097ff;
+    }
+
+.dialogEdit {
+    width: 38vw;
+    height: 60vh;
+    border: 1px solid #12d8f3;
+    margin: 0 auto;
+}
+
+#CompanyInfoEditDialog {
+    width: 98%;
+    height: 48vh;
+    margin-left: 1%;
+    border: 0px solid red;
+    float: left;
+}
+
+    #CompanyInfoEditDialog .line-container {
+        width: 96%;
+        min-height: 37px;
+        height: auto !important;
+        margin-left: 2%;
+        margin-top: 1%;
+        border: 0px solid red;
+        float: left;
+    }
+
+    #CompanyInfoEditDialog .qrcode-container {
+        width: 96%;
+        height: 27vh;
+        margin-left: 2%;
+        margin-top: 1%;
+        border: 0px solid red;
+        float: left;
+    }
+
+        #CompanyInfoEditDialog .qrcode-container .upload-container {
+            width: 39%;
+            height: 19vh;
+            margin-left: 10vw;
+            margin-top: 2vh;
+            border: 0px solid red;
+            float: left;
+        }
+
+        #CompanyInfoEditDialog .qrcode-container .tips-container {
+            width: 39%;
+            height: 3vh;
+            line-height: 3vh;
+            font-family: 'Microsoft YaHei UI';
+            font-size: 0.8vw;
+            color: #fff;
+            text-align: center;
+            margin-left: 10vw;
+            margin-top: 2vh;
+            border: 0px solid red;
+            float: left;
+        }
+
+
+    #CompanyInfoEditDialog .avatar-uploader {
+        width: 100%;
+        height: 19vh;
+        background-color: #ffffff;
+        overflow:hidden;
+        border-radius: 15px;
+        border: 1px dashed black;
+        float: left;
+    }
+
+        #CompanyInfoEditDialog .avatar-uploader .el-icon-plus {
+            width: 6vw;
+            height: 5vh;
+            font-size: 3.3vw;
+            margin-left: 3.5vw;
+            margin-top: 5.6vh;
+            float: left;
+        }
+
+    #CompanyInfoEditDialog .btnSave {
+        width: 5vw;
+        height: 3.7vh;
+        line-height: 3.7vh;
+        margin-left: 14vw;
+        margin-right: 1vh;
+        margin-top: 0.5vh;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 1vw;
+        color: #f6eeee;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: #26d8ea;
+        float: left;
+    }
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    margin-top: 1vh
+}

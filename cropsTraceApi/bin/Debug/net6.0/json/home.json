@@ -1,0 +1,44 @@
+{
+  "pumpHouse": [
+    {
+      "pumpHouseInfo": {
+        "pumpId": "",
+        "companyId": "",
+        "pumpHouseName": "",
+        "pumpHouseClass": "",
+        "personIinCharge": "",
+        "createdDateTime": "",
+        "modifiedDateTime": ""
+      },
+      "seedInfo": {
+        "seedInfo": {
+          "cropsId": "",
+          "companyId": "",
+          "seedName": "",
+          "seedVariety": "",
+          "seedClass": "",
+          "plantArea": "",
+          "createdDateTime": "",
+          "modifiedDateTime": "",
+          "introduce": "",
+          "soilType": ""
+        },
+        "landName": "",
+        "seedInfoFiles": [
+          {
+            "fileInfo": {
+              "fileId": "",
+              "cropsId": "",
+              "growthRecordId": "",
+              "fileName": "",
+              "fileUrl": "",
+              "fileLength": "",
+              "createdDateTime": "",
+              "showParamJson": ""
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

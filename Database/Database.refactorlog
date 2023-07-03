@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="737daa42-7aa3-414e-808e-0978d9515eba" ChangeDateTime="07/29/2022 07:11:10">
+    <Property Name="ElementName" Value="[dbo].[GrowthInfo].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GrowthInfo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RecordId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="185293b1-fc08-437e-a4df-e21b7601a5c1" ChangeDateTime="07/29/2022 08:03:05">
+    <Property Name="ElementName" Value="[dbo].[SeedInfo].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SeedInfo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CropsId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d66a2b3e-2dae-452e-9bce-879848a7bc58" ChangeDateTime="07/29/2022 08:12:58">
+    <Property Name="ElementName" Value="[dbo].[FileInfo].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[FileInfo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FileId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="adca9527-355a-44c2-b4bf-6c4c732e5e90" ChangeDateTime="07/29/2022 08:23:01">
+    <Property Name="ElementName" Value="[dbo].[StorageInfo].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[StorageInfo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CropsId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4424c3ef-835b-413b-8157-5bed19cceea9" ChangeDateTime="07/29/2022 08:32:48">
+    <Property Name="ElementName" Value="[dbo].[PumpHouseInfo].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PumpHouseInfo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PumpId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="175f072e-5597-4ae5-bd93-bc520eb51a48" ChangeDateTime="07/29/2022 09:05:56">
+    <Property Name="ElementName" Value="[dbo].[ShowFields].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ShowFields]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RecordId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d3d1b9ac-7e9f-4432-8e52-e6fe506a2af2" ChangeDateTime="08/02/2022 07:07:59">
+    <Property Name="ElementName" Value="[dbo].[ImageParamValue].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ImageParamValue]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RecordId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0c604d2e-0d4a-4732-b10a-bb599d962a24" ChangeDateTime="05/26/2023 10:27:35">
+    <Property Name="ElementName" Value="[dbo].[CompanyInfo].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompanyInfo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="companyId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="69fd7ce4-f993-4361-ab27-901655768b8b" ChangeDateTime="05/26/2023 10:30:28">
+    <Property Name="ElementName" Value="[dbo].[CompanyInfo].[backUp]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CompanyInfo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Backup01" />
+  </Operation>
+</Operations>

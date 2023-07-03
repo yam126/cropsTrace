@@ -1,0 +1,747 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #001355;
+    overflow: hidden;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#app {
+    width: 100%;
+    min-height: 30vh !important;
+    height: auto;
+    overflow: hidden;
+    border: 0px solid red;
+    float: left;
+}
+
+    #app .title {
+        width: 98%;
+        height: 5vh;
+        line-height: 5vh;
+        margin-top: 1vh;
+        margin-left: 1%;
+        font-family: 'Microsoft YaHei UI';
+        color: #06BCEC;
+        font-size: 3vw;
+        text-align: center;
+        border: 0px solid red;
+        float: left;
+    }
+
+    #app .cropsInfo {
+        width: 98%;
+        min-height: 17vh !important;
+        height: auto;
+        margin-top: 1vh;
+        margin-left: 1%;
+        border: 0px solid red;
+        float: left;
+    }
+
+        #app .cropsInfo .cropsInfo-Item {
+            min-width: 31% !important;
+            width: auto;
+            min-height: 3vh !important;
+            line-height: 3vh;
+            width: auto;
+            font-family: 'Microsoft YaHei UI';
+            font-size: 1vw;
+            color: #fff;
+            font-weight: bold;
+            text-align: left;
+            text-indent: 1%;
+            margin-top: 1vh;
+            margin-left: 1vh;
+            border: 0px solid red;
+            word-wrap: break-word;
+            word-break: normal;
+            display: 'inline-block';
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            float: left;
+        }
+
+@media (max-width:345px) {
+    #app .cropsInfo .cropsInfo-Item {
+        min-width: 21% !important;
+        width: auto;
+        min-height: 3vh !important;
+        width: auto;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 0.2vw;
+        color: #fff;
+        font-weight: bold;
+        text-align: left;
+        text-indent: 1%;
+        margin-top: 1vh;
+        margin-left: 1vh;
+        border: 0px solid red;
+        word-wrap: break-word;
+        word-break: normal;
+        display: 'inline-block';
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        float: left;
+    }
+}
+
+@media (max-width:464px) {
+    #app .cropsInfo .cropsInfo-Item {
+        min-width: 30% !important;
+        width: auto;
+        min-height: 3vh !important;
+        line-height: 3vh;
+        width: auto;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 2vw;
+        color: #fff;
+        font-weight: bold;
+        text-align: left;
+        text-indent: 1%;
+        margin-top: 1vh;
+        margin-left: 1vh;
+        border: 0px solid red;
+        word-wrap: break-word;
+        word-break: normal;
+        display: 'inline-block';
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        float: left;
+    }
+}
+
+@media (max-width:466px) {
+    #app .cropsInfo .cropsInfo-Item {
+        min-width: 30% !important;
+        width: auto;
+        min-height: 3vh !important;
+        line-height: 3vh;
+        width: auto;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 2vw;
+        color: #fff;
+        font-weight: bold;
+        text-align: left;
+        text-indent: 1%;
+        margin-top: 1vh;
+        margin-left: 1vh;
+        border: 0px solid red;
+        word-wrap: break-word;
+        word-break: normal;
+        display: 'inline-block';
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        float: left;
+    }
+}
+
+@media (max-width:462px) {
+    #app .cropsInfo .cropsInfo-Item {
+        min-width: 30% !important;
+        width: auto;
+        min-height: 3vh !important;
+        line-height: 3vh;
+        width: auto;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 2vw;
+        color: #fff;
+        font-weight: bold;
+        text-align: left;
+        text-indent: 1%;
+        margin-top: 1vh;
+        margin-left: 1vh;
+        border: 0px solid red;
+        word-wrap: break-word;
+        word-break: normal;
+        display: 'inline-block';
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        float: left;
+    }
+}
+
+@media (max-width:424px) {
+    #app .cropsInfo .cropsInfo-Item {
+        min-width: 45% !important;
+        width: auto;
+        min-height: 3vh !important;
+        line-height: 3vh;
+        width: auto;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 2vw;
+        color: #fff;
+        font-weight: bold;
+        text-align: left;
+        text-indent: 1%;
+        margin-top: 1vh;
+        margin-left: 1vh;
+        border: 0px solid red;
+        word-wrap: break-word;
+        word-break: normal;
+        display: 'inline-block';
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        float: left;
+    }
+}
+
+@media (max-width:376px) {
+    #app .cropsInfo .cropsInfo-Item {
+        min-width: 45% !important;
+        width: auto;
+        min-height: 3vh !important;
+        line-height: 3vh;
+        width: auto;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 2vw;
+        color: #fff;
+        font-weight: bold;
+        text-align: left;
+        text-indent: 1%;
+        margin-top: 1vh;
+        margin-left: 1vh;
+        border: 0px solid red;
+        word-wrap: break-word;
+        word-break: normal;
+        display: 'inline-block';
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        float: left;
+    }
+}
+
+@media (max-width:329px) {
+    #app .cropsInfo .cropsInfo-Item {
+        min-width: 30% !important;
+        width: auto;
+        min-height: 3vh !important;
+        line-height: 3vh;
+        width: auto;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 2vw;
+        color: #fff;
+        font-weight: bold;
+        text-align: left;
+        text-indent: 1%;
+        margin-top: 1vh;
+        margin-left: 1vh;
+        border: 0px solid red;
+        word-wrap: break-word;
+        word-break: normal;
+        display: 'inline-block';
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        float: left;
+    }
+}
+
+@media (max-width:328px) {
+    #app .cropsInfo .cropsInfo-Item {
+        min-width: 45% !important;
+        width: auto;
+        min-height: 3vh !important;
+        line-height: 3vh;
+        width: auto;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 2vw;
+        color: #fff;
+        font-weight: bold;
+        text-align: left;
+        text-indent: 1%;
+        margin-top: 1vh;
+        margin-left: 1vh;
+        border: 0px solid red;
+        word-wrap: break-word;
+        word-break: normal;
+        display: 'inline-block';
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        float: left;
+    }
+}
+
+@media (max-width:320px) {
+    #app .cropsInfo .cropsInfo-Item {
+        min-width: 45% !important;
+        width: auto;
+        min-height: 3vh !important;
+        line-height: 3vh;
+        width: auto;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 2vw;
+        color: #fff;
+        font-weight: bold;
+        text-align: left;
+        text-indent: 1%;
+        margin-top: 1vh;
+        margin-left: 1vh;
+        border: 0px solid red;
+        word-wrap: break-word;
+        word-break: normal;
+        display: 'inline-block';
+        float: left;
+    }
+}
+
+#app .cropsInfo .cropsInfo-Item .label {
+    min-width: 15vw !important;
+    width: auto;
+    min-height: 3vh !important;
+    height: auto;
+    font-family: 'Microsoft YaHei UI';
+    font-size: 1vw;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+    text-indent: 1%;
+    margin-top: 1vh;
+    margin-left: 1vh;
+    border: 0px solid red;
+    display: 'inline-block';
+    float: left;
+}
+
+#app .cropsInfo .cropsInfo-Item .value {
+    min-width: 12vw !important;
+    width: auto;
+    min-height: 3vh !important;
+    height: auto;
+    font-family: 'Microsoft YaHei UI';
+    font-size: 1vw;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+    text-indent: 1%;
+    margin-top: 1vh;
+    margin-left: 1vh;
+    border: 0px solid red;
+    display: 'inline-block';
+    float: left;
+}
+
+#app .growthInfo-container {
+    width: 98%;
+    height: 73vh;
+    margin-top: 1vh;
+    margin-left: 1%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: 0px solid red;
+    float: left;
+}
+
+    #app .growthInfo-container .growthInfo-Item-container {
+        width: 98%;
+        min-height: 45vh !important;
+        height: auto;
+        margin-top: 1vh;
+        margin-left: 1%;
+        border: 0px solid red;
+        float: left;
+    }
+
+        #app .growthInfo-container .growthInfo-Item-container .left {
+            width: 7%;
+            min-height: 45vh !important;
+            height: auto;
+            margin-top: 0px;
+            margin-left: 0px;
+            border: 0px solid red;
+            float: left;
+        }
+
+        #app .growthInfo-container .growthInfo-Item-container .split {
+            width: 65%;
+            height: 0.2vh;
+            margin-top: 0.5vh;
+            margin-left: 17.5%;
+            background-color: #073873;
+            border: 0px solid red;
+            float: left;
+        }
+
+@media (max-width:710px) {
+    #app .growthInfo-container .growthInfo-Item-container .left {
+        width: 11%;
+        min-height: 45vh !important;
+        height: auto;
+        margin-top: 0px;
+        margin-left: 0px;
+        border: 0px solid red;
+        float: left;
+    }
+}
+
+@media (max-width:460px) {
+    #app .growthInfo-container .growthInfo-Item-container .left {
+        width: 15%;
+        min-height: 45vh !important;
+        height: auto;
+        margin-top: 0px;
+        margin-left: 0px;
+        border: 0px solid red;
+        float: left;
+    }
+}
+
+#app .growthInfo-container .growthInfo-Item-container .left .growthName {
+    width: 73%;
+    height: 10vh;
+    line-height: 10vh;
+    margin-top: 1vh;
+    margin-left: 13.5%;
+    font-family: 'Microsoft YaHei UI';
+    font-size: 1vw;
+    font-weight: 700;
+    color: #001063;
+    text-align: center;
+    background-color: #00B7F0;
+    border-radius: 235px;
+    float: left;
+}
+
+@media (max-width:1478px) {
+    #app .growthInfo-container .growthInfo-Item-container .left .growthName {
+        width: 73%;
+        height: 8vh;
+        line-height: 8vh;
+        margin-top: 1vh;
+        margin-left: 13.5%;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 1vw;
+        font-weight: 700;
+        color: #001063;
+        text-align: center;
+        background-color: #00B7F0;
+        border-radius: 235px;
+        float: left;
+    }
+}
+
+@media (max-width:1220px) {
+    #app .growthInfo-container .growthInfo-Item-container .left .growthName {
+        width: 73%;
+        height: 6vh;
+        line-height: 6vh;
+        margin-top: 1vh;
+        margin-left: 13.5%;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 1vw;
+        font-weight: 700;
+        color: #001063;
+        text-align: center;
+        background-color: #00B7F0;
+        border-radius: 235px;
+        float: left;
+    }
+}
+
+@media (max-width:800px) {
+    #app .growthInfo-container .growthInfo-Item-container .left .growthName {
+        width: 73%;
+        height: 6vh;
+        line-height: 6vh;
+        margin-top: 1vh;
+        margin-left: 13.5%;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 1vw;
+        font-weight: 700;
+        color: #001063;
+        text-align: center;
+        background-color: #00B7F0;
+        border-radius: 235px;
+        float: left;
+    }
+}
+
+@media (max-width:756px) {
+    #app .growthInfo-container .growthInfo-Item-container .left .growthName {
+        width: 73%;
+        height: 5vh;
+        line-height: 5vh;
+        margin-top: 1vh;
+        margin-left: 13.5%;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 0.0003vw;
+        font-weight: 700;
+        color: #001063;
+        text-align: center;
+        background-color: #00B7F0;
+        border-radius: 235px;
+        float: left;
+    }
+}
+
+#app .growthInfo-container .growthInfo-Item-container .left .line {
+    width: 3%;
+    height: 91%;
+    margin-left: 49%;
+    margin-top: 1vh;
+    background-color: #01B7E7;
+    float: left;
+}
+
+#app .growthInfo-container .growthInfo-Item-container .right {
+    width: 92%;
+    min-height: 45vh !important;
+    height: auto;
+    margin-top: 0px;
+    margin-left: 0px;
+    border: 0px solid red;
+    float: left;
+}
+
+@media (max-width:710px) {
+    #app .growthInfo-container .growthInfo-Item-container .right {
+        width: 85%;
+        min-height: 45vh !important;
+        height: auto;
+        margin-top: 0px;
+        margin-left: 0px;
+        border: 0px solid red;
+        float: left;
+    }
+}
+
+#app .growthInfo-container .growthInfo-Item-container .right .picture-Item-container {
+    width: 95%;
+    min-height: 17vh !important;
+    height: auto;
+    margin-left: 2.5%;
+    margin-top: 1vh;
+    border: 0px solid red;
+    float: left;
+}
+
+        #app .growthInfo-container .growthInfo-Item-container .right .picture-Item-container .ShootingTime {
+            width: 98%;
+            min-height: 3vh !important;
+            line-height: 3vh;
+            height: auto;
+            margin-left: 1%;
+            margin-top: 0.5vh;
+            font-family: "Microsoft YaHei UI";
+            font-size: 1vw;
+            color: #11D8DF;
+            text-align: left;
+            text-indent: 1%;
+            border: 0px solid red;
+            float: left;
+        }
+
+        #app .growthInfo-container .growthInfo-Item-container .right .picture-Item-container .pictureInfo-container {
+            width: 98%;
+            min-height: 12vh !important;
+            height: auto;
+            margin-left: 1%;
+            margin-top: 0.5vh;
+            border: 0px solid red;
+            float: left;
+        }
+
+            #app .growthInfo-container .growthInfo-Item-container .right .picture-Item-container .pictureInfo-container .picture-Image {
+                width: 10vw;
+                height: 10vh;
+                margin-left: 1vw;
+                margin-top: 1vh;
+                cursor:pointer;
+                float: left;
+            }
+
+@media (max-width:1220px) {
+    #app .growthInfo-container .growthInfo-Item-container .right .picture-Item-container .pictureInfo-container .picture-Image {
+        width: 7vw;
+        height: 7vh;
+        margin-left: 1vw;
+        margin-top: 1vh;
+        cursor: pointer;
+        float: left;
+    }
+}
+
+@media (max-width:800px) {
+    #app .growthInfo-container .growthInfo-Item-container .right .picture-Item-container .pictureInfo-container .picture-Image {
+        width: 14vw;
+        height: 12vh;
+        margin-left: 1vw;
+        margin-top: 1vh;
+        cursor: pointer;
+        float: left;
+    }
+}
+
+@media (max-width:552px) {
+    #app .growthInfo-container .growthInfo-Item-container .right .picture-Item-container .pictureInfo-container .picture-Image {
+        width: 14vw;
+        height: 12vh;
+        margin-left: 1vw;
+        margin-top: 1vh;
+        cursor: pointer;
+        float: left;
+    }
+}
+
+@media (max-width:488px) {
+    #app .growthInfo-container .growthInfo-Item-container .right .picture-Item-container .pictureInfo-container .picture-Image {
+        width: 18vw;
+        height: 12vh;
+        margin-left: 1vw;
+        margin-top: 1vh;
+        cursor: pointer;
+        float: left;
+    }
+}
+
+#app .growthInfo-container .growthInfo-Item-container .right .picture-Item-container .pictureInfo-container .picture-parameter-container {
+    width: 69vw;
+    min-height: 10vh !important;
+    height: auto;
+    margin-left: 1vw;
+    margin-top: 1vh;
+    border: 0px solid red;
+    float: left;
+}
+
+@media (max-width:800px) {
+    #app .growthInfo-container .growthInfo-Item-container .right .picture-Item-container .pictureInfo-container .picture-parameter-container {
+        width: 61vw;
+        min-height: 10vh !important;
+        height: auto;
+        margin-left: 1vw;
+        margin-top: 1vh;
+        border: 0px solid red;
+        float: left;
+    }
+}
+
+
+@media (max-width:710px) {
+    #app .growthInfo-container .growthInfo-Item-container .right .picture-Item-container .pictureInfo-container .picture-parameter-container {
+        width: 51vw;
+        min-height: 10vh !important;
+        height: auto;
+        margin-left: 1vw;
+        margin-top: 1vh;
+        border: 0px solid red;
+        float: left;
+    }
+}
+
+@media (max-width:370px) {
+    #app .growthInfo-container .growthInfo-Item-container .right .picture-Item-container .pictureInfo-container .picture-parameter-container {
+        width: 53vw;
+        min-height: 10vh !important;
+        height: auto;
+        margin-left: 1vw;
+        margin-top: 1vh;
+        border: 0px solid red;
+        float: left;
+    }
+}
+
+#app .growthInfo-container .growthInfo-Item-container .right .picture-Item-container .pictureInfo-container .picture-parameter-container .parameter-item-container {
+    width: 21vw;
+    min-height: 3vh !important;
+    height: auto;
+    margin-left: 1vw;
+    margin-top: 1vh;
+    font-family: "Microsoft YaHei UI";
+    font-size: 1vw;
+    color: #fff;
+    text-align: left;
+    text-indent: 1%;
+    border: 0px solid red;
+    float: left;
+}
+
+@media (max-width:370px) {
+    #app .growthInfo-container .growthInfo-Item-container .right .picture-Item-container .pictureInfo-container .picture-parameter-container .parameter-item-container {
+        width: 25vw;
+        min-height: 3vh !important;
+        height: auto;
+        margin-left: 1vw;
+        margin-top: 1vh;
+        font-family: "Microsoft YaHei UI";
+        font-size: 0.03vw;
+        color: #fff;
+        text-align: left;
+        text-indent: 1%;
+        border: 0px solid red;
+        float: left;
+    }
+}
+
+#traceNo {
+    width: 52vw;
+    min-height: 3vh !important;
+    line-height: 3vh;
+    font-family: 'Microsoft YaHei UI';
+    font-size: 1vw;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+    text-indent: 1%;
+    margin-top: 1vh;
+    margin-left: 1vh;
+    border: 0px solid red;
+    word-wrap: break-word;
+    word-break: normal;
+    display: 'inline-block';
+    float: left;
+}
+
+#app .bigPictureView-container {
+    width: 98%;
+    height: 95vh;
+    display: none;
+    margin: 1% auto;
+    border: 0px solid red;
+}
+
+    #app .bigPictureView-container .return-container {
+        width: 98%;
+        height: 7vh;
+        margin: 1% auto;
+        border: 0px solid red;
+    }
+
+    #app .bigPictureView-container .bigPictureView-Image {
+        width: 98%;
+        height: 82vh;
+        margin: 1% 1%;
+    }
+
+    #btnReturnBack {
+        width: 12vw;
+        height: 5vh;
+        line-height: 5vh;
+        font-family: "Microsoft YaHei UI";
+        font-size: 1.5vw;
+        color: #fff;
+        text-align: center;
+        background-color: #33b2d4;
+        border-radius: 25px;
+        cursor: pointer;
+        overflow: hidden;
+        margin-top: 1vh;
+        margin-left: 1vw;
+    }

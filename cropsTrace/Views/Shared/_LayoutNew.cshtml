@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>溯源系统一张图-@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/datamanage.css" />
+    <link rel="stylesheet" href="~/lib/element-ui/theme-chalk/index.css" />
+    <link rel="stylesheet" href="~/css/futureWeather.css" />
+    <link rel="stylesheet" href="~/css/queryInfo.css" />
+    <link rel="stylesheet" href="~/css/warningQuery.css" />
+    <link rel="stylesheet" href="~/css/NewHome.css" />
+    <link rel="stylesheet" href="~/lib/jquerySmilebar/css/jquery.smilebar.css" />
+    <link rel="stylesheet" href="~/lib/jquery-focusImage/css/jquery.focus.image.css" />
+    <link rel="stylesheet" href="~/css/layoutList.css" />
+    <link rel="stylesheet" href="~/css/element-ui-global.css" />
+    <link rel="stylesheet" href="~/css/loading.css"/>
+    <script src="~/js/jquery.min.js">
+        import { time } from "console";
+    </script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/lib/vue/vue.js"></script>
+    <script type="text/javascript" src="~/lib/element-ui/index.js"></script>
+    <script src="~/lib/axios/axios.js"></script>
+    <script src="~/js/request.js"></script>
+    <script src="~/lib/linq/linq.js"></script>
+    <script src="~/js/json.js"></script>
+    <script src="~/js/apiHelper.js"></script>
+    <script src="~/lib/moment/moment.js"></script>
+    <script src="~/js/cookieHelper.js"></script>
+    <link href="~/css/index.css" rel="stylesheet" />
+    <link href="~/css/video-js.css" rel="stylesheet">
+    <link href="~/css/tableColumnDrag.css" rel="stylesheet" />
+    <script type="text/javascript" src='~/js/video.js'></script>
+    <script type="text/javascript" src='~/js/videojs-contrib-hls.js' ></script>
+    <script type="text/javascript" src="~/lib/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="~/js/echarts-collections.js"></script>
+    <script type="text/javascript" src="~/js/menu.js"></script>
+    <script type="text/javascript" src="~/js/library.js"></script>
+    <script type="text/javascript" src="~/lib/jquerySmilebar/js/jquery.smilebar.js"></script>
+    <script type="text/javascript" src="~/lib/jquery-ajaxFileUpload/ajaxfileupload.js"></script>
+    <script type="text/javascript" src="~/js/ezuikit.js"></script>
+    <script type="text/javascript" src="~/js/DateDiffMethod.js"></script>
+    <script type="text/javascript" src="~/js/urlEncodeAndDecode.js"></script>
+    <script type="text/javascript" src="~/js/pumpHouseInfoObj.js"></script>
+    <script type="text/javascript" src="~/js/tableColumnDrag.js"></script>
+    @*<script type="text/javascript" src="~/js/liveplayer-element.min.js"></script>*@
+    <style type="text/css">
+        #crops-list {
+            width: 39%;
+            position: absolute;
+            min-height: 35px;
+            height: auto !important;
+            top: 5vh;
+            font-family: "Microsoft YaHei UI";
+            font-size: 1vw;
+            /* color: #51B0E8; */
+            font-weight: 700;
+            display: none;
+            left: 9vw;
+            border-radius: 27px;
+            border: 2px solid #15aae1fc;
+            background-color: #00165a;
+            z-index: 50;
+            float: left;
+        }
+
+            #crops-list .crops-item {
+                width: 98%;
+                height: 5%;
+                margin-top: 0.5%;
+                margin-left: 1%;
+                margin-bottom: 0.6%;
+                font-family: 'Microsoft YaHei';
+                font-size: 1.1vw;
+                color: #11b1e1a6;
+                cursor: pointer;
+                text-align: center;
+                font-weight: 700;
+                margin: 0 auto;
+            }
+
+                #crops-list .crops-item:hover {
+                    color: #e42020;
+                }
+
+        #year-list {
+            width: 39%;
+            position: absolute;
+            min-height: 35px;
+            height: auto !important;
+            top: 5vh;
+            font-family: "Microsoft YaHei UI";
+            font-size: 1vw;
+            /* color: #51B0E8; */
+            font-weight: 700;
+            display: none;
+            left: 1vw;
+            border-radius: 27px;
+            border: 2px solid #15aae1fc;
+            background-color: #00165a;
+            z-index: 50;
+            float: left;
+        }
+
+            #year-list .year-item {
+                width: 98%;
+                height: 5%;
+                margin-top: 0.5%;
+                margin-left: 1%;
+                margin-bottom: 0.6%;
+                font-family: 'Microsoft YaHei';
+                font-size: 1.1vw;
+                color: #11b1e1a6;
+                cursor: pointer;
+                text-align: center;
+                font-weight: 700;
+                margin: 0 auto;
+            }
+
+                #year-list .year-item:hover {
+                    color: #e42020;
+                }
+
+        [v-cloak] {
+            display:none;
+        }
+    </style>
+    @RenderSection("Head")
+</head>
+<!--主页面和主菜单-->
+<body>
+    <div style="margin-top:0.6%;" id="app" v-cloak>
+        <el-container>
+            <el-header>
+                <div class="logo">
+                    <div id="titleLeft">
+                        <div class="time-container">
+                            <div class="time-text">
+                                {{timestr}}
+                            </div>
+                            <div class="date-text">
+                                {{datestr}}
+                            </div>
+                        </div>
+                        <div v-if="menuModels!=null&&menuModels.length>0" :class="menuModels[0].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                            @*<a href="http://8.142.16.236:6004/" target="_self">产业一张图</a>*@
+                            <a :href="menuModels[0].uri" target="_self">{{menuModels[0].name}}</a>
+                        </div>
+                        <div v-if="menuModels!=null&&menuModels.length>0" :class="menuModels[1].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                            @*<a href="http://8.142.16.236:6006/" target="_self">智慧大田</a>*@
+                            <a :href="menuModels[1].uri" target="_self">{{menuModels[1].name}}</a>
+                        </div>
+                        <div v-if="menuModels!=null&&menuModels.length>0" :class="menuModels[2].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                            @*<a href="http://8.142.16.236:6009/" target="_self">智慧大棚</a>*@
+                            <a :href="menuModels[2].uri" target="_self">{{menuModels[2].name}}</a>
+                        </div>
+                    </div>
+                    <div id="homeTitle">
+                        <div class="centerTitle"></div>
+                    </div>
+                    <div id="titleRight">
+                        <div v-if="menuModels!=null&&menuModels.length>0" :class="menuModels[3].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                            <a :href="menuModels[3].id==currentModelsId?'#':menuModels[3].uri" target="_self">{{menuModels[3].name}}</a>
+                        </div>
+                        <div v-if="menuModels!=null&&menuModels.length>0" :class="menuModels[4].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                            <a :href="menuModels[4].id==currentModelsId?'#':menuModels[4].uri" target="_self">{{menuModels[4].name}}</a>
+                        </div>
+                        <div @@mouseover="showMoreMenu" id="more-menu" class="title_nav_normal">
+                            更多管理&#9660;
+                            <div @@mouseout="hideMoreMenu" class="pop-more-maste-menu">
+                                <div v-for="(item,index) in hideMenus" class="menu-item">
+                                    <a :href="item.uri" target="_self">
+                                       {{item.name}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-container">
+                            <img src="~/images/newhome/account.png" />
+                            <div :title="userName" class="content">
+                                {{userName}}
+                            </div>
+                            <div class="arrow">
+                                &#9660;
+                            </div>
+                            <!--弹出菜单-->
+                            <div class="pop-menu">
+                                <div @@click="exitLogin" class="pop-menu-item">
+                                    退出
+                                </div>
+                            </div>
+                            <!--/弹出菜单-->
+                        </div>
+                    </div>
+                </div>
+            </el-header>
+        </el-container>
+        @RenderSection("Body")
+    </div>
+    <!--加载提示-->
+    <div class="is-loading">
+        <div class="curtain">
+            <div class="loader">
+            </div>
+        </div>
+    </div>
+    <!--/加载提示-->
+</body>
+</html>
+@{
+    string CurrentAction = Convert.ToString(ViewData["Action"]);
+}
+<script>
+    $(document).ready(function(){
+        var currentPage='@CurrentAction';
+        if(currentPage=='Home')
+        {
+            var myVideo = videojs('myPlayer1', {
+                bigPlayButton: true,
+                textTrackDisplay: false,
+                posterImage: false,
+                errorDisplay: false
+            });
+            myVideo.play();
+        }
+    });
+</script>
+@RenderSection("VueScript")

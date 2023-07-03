@@ -1,0 +1,56 @@
+﻿#calendarDiv {
+    width: 98%;
+    height: 98%;
+    margin: 0 auto;
+    margin-left: 1%;
+}
+
+    #calendarDiv thead tr th {
+        border-width: 0.01px;
+        border-style: solid;
+        border-color: #ffffff3b;
+        text-align: center;
+        width:10%;
+        height: 10%;
+        font-family: STSong;
+        font-size: 1rem;
+        color: #f0e6e6;
+    }
+
+    #calendarDiv tbody tr td {
+        border-width: 0.01px;
+        border-style: solid;
+        border-color: #ffffff3b;
+        text-align: center;
+        height: 15%;
+        font-family: STSong;
+        font-size: 1rem;
+        color: #f0e6e6;
+    }
+
+        #calendarDiv tbody tr td .dayNumber {
+            width: 98%;
+            height: 31%;
+            text-align: center;
+            font-family: STSong;
+            font-size: 1rem;
+            margin: 0 auto;
+            margin-top: 0%;
+            border: 0px solid red;
+        }
+
+        #calendarDiv tbody tr td .weatherPanel {
+            width: 98%;
+            height: 31%;
+            text-align: center;
+            font-family: STSong;
+            font-size: 0.8rem;
+            margin: 0 auto;
+            margin-top: 1%;
+            border: 0px solid red;
+        }
+
+            #calendarDiv tbody tr td .weatherPanel img {
+                width: 10%;
+                height: 98%;
+            }

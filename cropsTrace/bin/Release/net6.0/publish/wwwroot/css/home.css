@@ -1,0 +1,84 @@
+﻿#mainDiv {
+    width: 100%;
+    height: 93%;
+    float: left;
+    margin-top: 1%;
+    background: rgba(0,36,115,0.6);
+    border: 1px solid #0174c3;
+    margin-left: 0%;
+    box-sizing: border-box;
+}
+
+    #mainDiv .row-container {
+        width: 49%;
+        height: 98%;
+        float: left;
+        margin-left: 1%;
+        margin-top: 1%;
+        border: 0px solid red;
+    }
+
+.tabIconPanel {
+    width: 30%;
+    height: 7%;
+    float: left;
+    border: 0px solid red;
+}
+
+    .tabIconPanel .tabIconPanelItem {
+        width: 21%;
+        height: 50%;
+        float: left;
+        font-family: STSong;
+        color: #07DB0D;
+        font-size: 2.2vh;
+        text-align: left;
+        text-indent: 5%;
+        border: 0px solid blue;
+        margin-left: 3%;
+        margin-top: 2.5%;
+        cursor: pointer;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+        .tabIconPanel .tabIconPanelItem img {
+            width: 20%;
+            height: 80%;
+            float: left;
+            margin-left: 5%;
+            margin-top: 2.2%;
+        }
+
+#alertDiv-container {
+    width: 100%;
+    height: 30rem;
+    border: 0px solid red;
+}
+
+    #alertDiv-container .line-container {
+        width: 96%;
+        min-height: 37px;
+        height: auto !important;
+        margin-left: 2%;
+        margin-top: 1%;
+        border: 0px solid red;
+    }
+
+    #alertDiv-container .alert-content {
+        width: 96%;
+        height: 313px;
+        margin-left: 2%;
+        margin-top: 1%;
+        word-break: break-all;
+        overflow-x: hidden;
+        overflow-y: auto;
+        border-radius: 10px;
+        text-indent: 5%;
+        font-family: STSong;
+        font-size: 17px;
+        font-weight: 700;
+        border: 1px solid #3651bc;
+        color: #ebe4e4d1;
+        line-height: 25px;
+    }

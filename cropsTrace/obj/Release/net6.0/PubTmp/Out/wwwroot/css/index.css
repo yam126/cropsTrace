@@ -1,0 +1,740 @@
+﻿.middle-container .traceability-container {
+    width: 98.7%;
+    height: 55vh;
+    margin-left: 0.3%;
+    margin-top: 0.2%;
+    border: 1px solid #00bbff;
+    background-color: #238bb929;
+    float: left;
+}
+
+    .middle-container .traceability-container .bottom-container {
+        width: 95%;
+        height: 46vh;
+        line-height: 4.3vh;
+        position: relative;
+        font-family: 'Microsoft YaHei';
+        font-size: 2vh;
+        font-weight: 700;
+        text-align: left;
+        color: #DDEAFE;
+        text-align: center;
+        margin: 1vh auto;
+        border: 0px solid red;
+    }
+
+        .middle-container .traceability-container .bottom-container .focus-image-container {
+            width: 31vw;
+            height: 44vh;
+            margin-left: 0.3vw;
+            margin-top: 1vh;
+            border: 1px solid #00bbff;
+            background-color: #238bb929;
+            float: left;
+        }
+
+        .middle-container .traceability-container .bottom-container .parameter-container {
+            width: 42vw;
+            height: 44vh;
+            margin-left: 0.3vw;
+            margin-top: 1vh;
+            border: 0px solid red;
+            float: left;
+        }
+
+            .middle-container .traceability-container .bottom-container .parameter-container .top-container {
+                width: 39vw;
+                height: 13vh;
+                background-color: #377dd557;
+                margin-top: 1vh;
+                margin: 0 auto;
+            }
+
+                .middle-container .traceability-container .bottom-container .parameter-container .top-container .parameter-item {
+                    width: 18vw;
+                    height: 5vh;
+                    font-family: "Microsoft YaHei UI";
+                    font-size: 1vw;
+                    text-align: left;
+                    text-indent: 3%;
+                    font-weight: 100;
+                    border: 0px solid red;
+                    margin-left: 1vw;
+                    margin-top: 1vh;
+                    float: left;
+                }
+
+                    .middle-container .traceability-container .bottom-container .parameter-container .top-container .parameter-item .label-color {
+                        color: #00FAF2;
+                    }
+
+            .middle-container .traceability-container .bottom-container .parameter-container .parameter-detail-container {
+                width: 43vw;
+                height: 33vh;
+                border: 0px solid red;
+                margin-top: 1vh;
+                margin: 0 auto;
+            }
+
+                .middle-container .traceability-container .bottom-container .parameter-container .parameter-detail-container .parm-detail-item {
+                    width: 18.8vw;
+                    height: 9.3vh;
+                    line-height: 8.3vh;
+                    font-family: "Microsoft YaHei UI";
+                    font-size: 1vw;
+                    text-align: left;
+                    text-indent: 8.5%;
+                    font-weight: 100;
+                    margin-top: 1vh;
+                    margin-left: 1.4vw;
+                    background-color: #377dd557;
+                    white-space: nowrap; /*内容超宽后禁止换行显示*/
+                    overflow: hidden; /*超出部分隐藏*/
+                    text-overflow: ellipsis; /*文字超出部分以省略号显示*/
+                    float: left;
+                }
+
+                    .middle-container .traceability-container .bottom-container .parameter-container .parameter-detail-container .parm-detail-item .label-color {
+                        color: #00FAF2;
+                    }
+
+    .middle-container .traceability-container .title-container {
+        width: 95%;
+        height: 5vh;
+        line-height: 4.3vh;
+        position: relative;
+        font-family: 'Microsoft YaHei';
+        font-size: 2vh;
+        font-weight: 700;
+        text-align: left;
+        color: #DDEAFE;
+        text-align: center;
+        margin: 1vh auto;
+        border: 0px solid red;
+    }
+
+        .middle-container .traceability-container .title-container .button-container {
+            width: 70vw;
+            height: 4.7vh;
+            top: 0.1vh;
+            position: absolute;
+            left: 0.2vw;
+            border: 0px solid red;
+        }
+
+            .middle-container .traceability-container .title-container .button-container .btnGrowthCycle-click {
+                width: 5.6vw;
+                height: 3vh;
+                line-height: 2.8vh;
+                margin-left: 0.5vw;
+                margin-top: 1%;
+                font-family: 'Microsoft YaHei';
+                font-size: 0.9vw;
+                color: #00F0FF;
+                text-align: center;
+                cursor: pointer;
+                box-shadow: 14px 15px 14px 1px #377dd557 inset, 5px -17px 20px 1px #377dd557 inset, -3px 20px 20px 1px #377dd557 inset;
+                border: 1px solid #008cff;
+                float: left;
+            }
+
+            .middle-container .traceability-container .title-container .button-container .btnGrowthCycle-normal {
+                width: 5.6vw;
+                height: 3vh;
+                line-height: 2.8vh;
+                margin-left: 0.5vw;
+                margin-top: 1%;
+                font-family: 'Microsoft YaHei';
+                font-size: 0.9vw;
+                color: #faf2f2;
+                text-align: center;
+                cursor: pointer;
+                box-shadow: 4px 4px 6px 1px #377dd557 inset, -6px -8px 12px 1px #377dd557 inset, 3px 4px 11px 1px #377dd557 inset;
+                border: 1px solid #008cff;
+                float: left;
+            }
+
+        .middle-container .traceability-container .title-container .btnEdit {
+            width: 3vw;
+            height: 6vh;
+            position: absolute;
+            top: -0.5vh;
+            left: 71vw;
+            cursor: pointer;
+            float: left;
+        }
+
+.middle-container .Info-Introduction-container {
+    width: 73.9%;
+    height: 33.5vh;
+    position:relative;
+    margin-left: -0.7%;
+    margin-top: 0.4%;
+    background-image: url(/images/newhome/middle.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 98% 98%;
+    float: left;
+}
+
+    .middle-container .Info-Introduction-container .btnMoreDetail {
+        width: 7vw;
+        height: 2vh;
+        position: absolute;
+        top: 5.5vh;
+        left: 48vw;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 0.001vw;
+        text-align: center;
+        color: #ffffff;
+        font-weight: 700;
+        box-shadow: 4px 4px 6px 1px #2b87bd73 inset, -6px -8px 12px 1px #3b6cdb70 inset, -3px -1px 11px 1px #207ccbc7 inset;
+        border: 1px solid #008cff;
+        background-color: #008cff6e;
+        border-radius: 10vw;
+        cursor: pointer;
+    } 
+
+    .middle-container .Info-Introduction-container .title-container .title-text {
+        width: 44%;
+        height: 51%;
+        line-height: 162%;
+        margin-top: 2.3%;
+        margin-left: 5%;
+        border: 0px solid red;
+        font-family: 'Microsoft YaHei';
+        font-size: 2vh;
+        font-weight: 700;
+        text-align: left;
+        color: #DDEAFE;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .middle-container .Info-Introduction-container .info-content-container {
+        width: 94%;
+        height: 23.3vh;
+        border: 0px solid red;
+        margin: 1.3vh auto;
+    }
+
+        .middle-container .Info-Introduction-container .info-content-container .qrcodeImg {
+            width: 11vw;
+            height: 21vh;
+            margin-left: 1vw;
+            margin-top: 1vh;
+            float: left;
+        }
+
+        .middle-container .Info-Introduction-container .info-content-container .Introduction-text {
+            width: 18vw;
+            height: 21vh;
+            font-family: Microsoft YaHei;
+            font-size: 2vh;
+            color: white;
+            border: 0px solid red;
+            margin-left: 1vw;
+            margin-top: 1vh;
+            text-indent: 5%;
+            overflow: hidden;
+            float: left;
+        }
+
+        .middle-container .Info-Introduction-container .info-content-container .GrowthState {
+            width: 23vw;
+            height: 21vh;
+            position:relative;
+            font-family: Microsoft YaHei;
+            font-size: 2.1vh;
+            color: white;
+            border: 0px solid red;
+            margin-left: 0.5vw;
+            margin-top: 1vh;
+            text-indent: 5%;
+            overflow: hidden;
+            float: left;
+        }
+
+            .middle-container .Info-Introduction-container .info-content-container .GrowthState .cropsImage {
+                width: 8vw;
+                height: 15vh;
+                margin-left: 6.3vw;
+                margin-top: 2.6vh;
+            }
+
+.data1_box {
+    position: absolute;
+    left: 10%;
+    top: 20%;
+}
+
+.middle-container #site-monitoring {
+    width: 22.06vw;
+    height: 30vh;
+    margin-left: -1%;
+    margin-top: 0.6%;
+    float: left;
+}
+
+    .middle-container #site-monitoring .middle-container {
+        height: 24.5vh;
+    }
+
+    .middle-container #site-monitoring .title-container {
+        width: 99%;
+        height: 6vh;
+        float: left;
+        margin: 0 auto;
+        position: relative;
+        background-image: url(/images/newhome/border_top.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 99% 99%;
+    }
+
+        .middle-container #site-monitoring .title-container .title-text {
+            width: 44%;
+            height: 51%;
+            line-height: 162%;
+            margin-top: 5.5%;
+            margin-left: 7%;
+            border: 0px solid red;
+            font-family: 'Microsoft YaHei';
+            font-size: 2vh;
+            font-weight: 700;
+            text-align: left;
+            color: #DDEAFE;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+.content-container .middle-container .year-dropdownlist-container {
+    min-width: 7vw;
+    position: relative;
+    width: auto !important;
+    height: 5%;
+    line-height: 3.5vh;
+    font-family: 'Microsoft YaHei';
+    font-size: 1.02vw;
+    color: #15aae1fc;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 27px;
+    margin-top: 3%;
+    margin-left: 6%;
+    border: 2px solid #15aae1fc;
+    float: left;
+}
+
+.content-container .middle-container .crops-dropdownlist-container {
+    min-width: 7vw;
+    position: relative;
+    width: auto !important;
+    height: 5%;
+    line-height: 3.5vh;
+    font-family: 'Microsoft YaHei';
+    font-size: 1.02vw;
+    color: #15aae1fc;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 27px;
+    margin-top: 3%;
+    margin-left: 6%;
+    border: 2px solid #15aae1fc;
+    float: left;
+}
+
+.content-container .middle-container .search-container {
+    width: 82%;
+    height: 5vh;
+    margin-top: 2%;
+    margin-left: 5.5%;
+    border-radius: 27px;
+    border: 2px solid #15aae1fc;
+    float: left;
+}
+
+.content-container .middle-container .search-icon {
+    width: 1.5vw;
+    height: 3vh;
+    margin-left: 3%;
+    margin-top: 2.2%;
+    cursor:pointer;
+    float: left;
+}
+
+.content-container .middle-container .txt-search {
+    width: 11vw;
+    height: 3.6vh;
+    margin-left: 7%;
+    margin-top: 1.5%;
+    font-family: 'Microsoft YaHei UI';
+    font-size: 1vw;
+    color: #15aae1fc;
+    font-weight: 700;
+    text-align: left;
+    text-indent: 1%;
+    background-color: transparent;
+    border: 0px solid red;
+    float: left;
+}
+
+    .content-container .middle-container .txt-search::-webkit-input-placeholder {
+        font-family: 'Microsoft YaHei UI';
+        font-size: 1vw;
+        color: #15aae1fc;
+        font-weight: 700;
+    }
+
+    .content-container .middle-container .txt-search:-moz-placeholder {
+        font-family: 'Microsoft YaHei UI';
+        font-size: 1vw;
+        color: #15aae1fc;
+        font-weight: 700;
+    }
+
+    .content-container .middle-container .txt-search:-ms-input-placeholder {
+        font-family: 'Microsoft YaHei UI';
+        font-size: 1vw;
+        color: #15aae1fc;
+        font-weight: 700;
+    }
+
+.content-container .middle-container .Process-List-Container {
+    width: 82%;
+    height: 68vh;
+    margin-top: 2%;
+    margin-left: 6%;
+    border: 0px solid red;
+    float: left;
+}
+
+.content-container .middle-container .process-normal-container {
+    width: 86%;
+    height: 4.3vh;
+    position: relative;
+    border: 1px solid #0F51C9;
+    background-color: #00377791;
+    cursor: pointer;
+    margin: 6% auto;
+}
+
+    .content-container .middle-container .process-normal-container .top-left-corner {
+        width: 0.3vw;
+        height: 0.5vh;
+        position: absolute;
+        top: -0.3vh;
+        left: -0.2vw;
+        background-color: #0F51C9;
+    }
+
+    .content-container .middle-container .process-normal-container .bottom-left-corner {
+        width: 0.3vw;
+        height: 0.5vh;
+        position: absolute;
+        top: 3.9vh;
+        left: -0.2vw;
+        background-color: #0F51C9;
+    }
+
+    .content-container .middle-container .process-normal-container .top-right-corner {
+        width: 0.3vw;
+        height: 0.5vh;
+        position: absolute;
+        top: -0.3vh;
+        left: 12.75vw;
+        background-color: #0F51C9;
+    }
+
+    .content-container .middle-container .process-normal-container .bottom-right-corner {
+        width: 0.3vw;
+        height: 0.5vh;
+        position: absolute;
+        top: 3.9vh;
+        left: 12.75vw;
+        background-color: #0F51C9;
+    }
+
+    .content-container .middle-container .process-normal-container .center-container {
+        width: 5vw;
+        height: 3vh;
+        /* line-height: 1vh; */
+        font-family: 'Microsoft YaHei UI';
+        font-size: 1vw;
+        color: white;
+        font-weight: 700;
+        text-align: left;
+        border: 0px solid red;
+        margin: 0.5vh auto;
+        text-indent: 5%;
+    }
+
+        .content-container .middle-container .process-normal-container .center-container .icon {
+            width: 1.2vw;
+            height: 2vh;
+            margin-left: 5%;
+            margin-top: 6%;
+            float: left;
+        }
+
+.content-container .middle-container .process-click-container {
+    width: 86%;
+    height: 4.3vh;
+    position: relative;
+    border: 1px solid #1153C4;
+    background-color: #014AB1;
+    cursor: pointer;
+    margin: 6% auto;
+}
+
+    .content-container .middle-container .process-click-container .top-left-corner {
+        width: 0.3vw;
+        height: 0.5vh;
+        position: absolute;
+        top: -0.3vh;
+        left: -0.2vw;
+        background-color: #1153C4;
+    }
+
+    .content-container .middle-container .process-click-container .bottom-left-corner {
+        width: 0.3vw;
+        height: 0.5vh;
+        position: absolute;
+        top: 3.9vh;
+        left: -0.2vw;
+        background-color: #1153C4;
+    }
+
+    .content-container .middle-container .process-click-container .top-right-corner {
+        width: 0.3vw;
+        height: 0.5vh;
+        position: absolute;
+        top: -0.3vh;
+        left: 12.75vw;
+        background-color: #1153C4;
+    }
+
+    .content-container .middle-container .process-click-container .bottom-right-corner {
+        width: 0.3vw;
+        height: 0.5vh;
+        position: absolute;
+        top: 3.9vh;
+        left: 12.75vw;
+        background-color: #1153C4;
+    }
+
+    .content-container .middle-container .process-click-container .center-container {
+        width: 5vw;
+        height: 3vh;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 1vw;
+        color: #08A5DA;
+        font-weight: 700;
+        text-align: left;
+        border: 0px solid red;
+        margin: 0.5vh auto;
+        text-indent: 7%;
+    }
+
+        .content-container .middle-container .process-click-container .center-container .icon {
+            width: 1.2vw;
+            height: 2vh;
+            margin-left: 5%;
+            margin-top: 6%;
+            float: left;
+        }
+
+.content-container .middle-container .split-line {
+    width: 0.1vw;
+    height: 2.3vh;
+    border: 1px solid #01D3EA;
+    background-color: #01D3EA;
+    margin: 0% auto;
+}
+
+.data1_box {
+    min-width: 5vw !important;
+    width:auto;
+    height: 3vh;
+    /* border: 1px solid red; */
+    position: absolute;
+    left: 2vw;
+    top: 3vh;
+    float:left;
+}
+
+    .data1_box .bevel {
+        display: inline-block;
+        width: 24px;
+        height: 1px;
+        border-bottom: 1px solid #004DAF;
+        transform: rotate( 25deg);
+        margin-left: 5vw;
+        margin-bottom: 3vh;
+    }
+
+    .data1_box .data1_val {
+        display: inline-block;
+        border-bottom: #004DAF 1px solid;
+        color: white;
+        font-size: 1.5vh;
+        min-width: 6vw;
+        width: auto !important;
+        float: left;
+        height: 3vh;
+        margin-bottom: 0.3vh;
+    }
+
+.data1_val span {
+    color: #1AEAF6;
+}
+
+.data2_box {
+    min-width: 5vw !important;
+    width: auto;
+    height: 3vh;
+    /* border: 1px solid red; */
+    position: absolute;
+    left: 2vw;
+    top: 12vh;
+    float: left;
+}
+
+    .data2_box .bevel {
+        display: inline-block;
+        width: 24px;
+        height: 1px;
+        border-bottom: 1px solid #004DAF;
+        transform: rotate( 329deg);
+        margin-left: 5vw;
+        margin-bottom: 3vh;
+    }
+
+    .data2_box .data2_val {
+        display: inline-block;
+        border-bottom: #004DAF 1px solid;
+        color: white;
+        font-size: 1.5vh;
+        min-width: 6vw;
+        width: auto !important;
+        float: left;
+        height: 3vh;
+        margin-bottom: -0.6vh;
+    }
+
+.data2_val span {
+    color: #1AEAF6;
+}
+
+.data3_box {
+    min-width: 5vw !important;
+    width: auto;
+    height: 3vh;
+    /* border: 1px solid red; */
+    position: absolute;
+    left: 15vw;
+    top: 3vh;
+    float:left;
+}
+
+    .data3_box .bevel {
+        display: inline-block;
+        width: 24px;
+        height: 1px;
+        border-bottom: 1px solid #004DAF;
+        transform: rotate( 334deg);
+        margin-left: -0.9vw;
+        margin-bottom: 1vh;
+    }
+
+    .data3_box .data3_val {
+        display: inline-block;
+        border-bottom: #004DAF 1px solid;
+        color: white;
+        text-indent: 1vw;
+        font-size: 1.5vh;
+        min-width: 6vw;
+        width: auto !important;
+        float:left;
+        height: 3vh;
+        margin-bottom: -0.6vh;
+    }
+
+.data3_val span {
+    color: #1AEAF6;
+}
+
+.data4_box {
+    min-width: 5vw !important;
+    width: auto;
+    height: 3vh;
+    position: absolute;
+    left: 15vw;
+    top: 12vh;
+    float:left;
+}
+
+    .data4_box .bevel {
+        display: inline-block;
+        width: 24px;
+        height: 1px;
+        border-bottom: 1px solid #004DAF;
+        transform: rotate( 27deg);
+        margin-left: -0.9vw;
+        margin-bottom: 2.2vh
+    }
+
+    .data4_box .data4_val {
+        display: inline-block;
+        border-bottom: #004DAF 1px solid;
+        color: white;
+        text-indent: 1vw;
+        font-size: 1.5vh;
+        min-width: 6vw;
+        width:auto !important;
+        height: 3vh;
+        margin-bottom: -0.6vh;
+        float:left;
+    }
+
+.data4_val span {
+    color: #1AEAF6;
+}
+
+#example_video {
+    height: 95%;
+    width: 90%;
+    margin: 3% 0 0 5%;
+}
+
+/*去除upload组件过渡效果*/
+.el-upload-list__item {
+    transition: none !important;
+}
+
+.crops-trace-detail-dialog {
+    width: 51vw;
+    height: 75vh;
+    overflow: hidden;
+}
+
+    .crops-trace-detail-dialog .iframePage {
+        width: 99%;
+        height: 39rem;
+        overflow: hidden;
+        border: 0px solid red;
+    }
+
+.bigPictureViewDialog {
+    width: 93vw;
+    height: 82vh;
+    overflow:hidden;
+}
+
+    .bigPictureViewDialog .PreviewImage {
+        width: 100%;
+        height: 72vh;
+        margin:0 auto;
+    }

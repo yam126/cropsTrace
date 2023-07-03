@@ -1,0 +1,93 @@
+﻿#dataManage-main {
+    height: 100%;
+    width: 100%;
+    background: rgba(0,36,115,0.6);
+    border: 1px solid #0174c3;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.alarm-header {
+    text-align: left;
+    padding-left: 27px;
+    box-sizing: border-box;
+    padding-left: 0;
+    margin-bottom: 10px;
+}
+
+.el-input {
+    position: relative;
+    font-size: 14px;
+    display: inline-block;
+    width: 100%;
+}
+
+.el-input__inner {
+    -webkit-appearance: none;
+    background-color: rgba(255,0,0,0);
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #409EFF;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #fff;
+    display: inline-block;
+    font-size: inherit;
+    height: 40px;
+    line-height: 40px;
+    outline: 0;
+    padding: 0 15px;
+    -webkit-transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    width: 100%;
+}
+
+.el-datatable {
+    width: 100%;
+    border: 1px solid #004dac;
+    background-color: rgba(4,0,99,0.38);
+}
+
+.search-container {
+    height: 8%;
+}
+
+.search-result-container {
+    height: 83%;
+}
+
+.search-page-container {
+    height:15%;
+}
+
+.el-pagination-center {
+    text-align:center;
+}
+
+.editDialog {
+    width: 100%;
+    height: 210px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    border: 0px solid red;
+}
+
+.editDialog .elFrom {
+    width:100%;
+    height:100%;
+}
+
+    .editDialog .elForm .line-container {
+        width: 97%;
+        min-height: 70px;
+        height: auto;
+        margin: 0 auto;
+        border: 0px solid red;
+    }
+
+.editDialog-button-container {
+    width:100%;
+    height:18%;
+    text-align:center;
+    border: 0px solid red;
+}

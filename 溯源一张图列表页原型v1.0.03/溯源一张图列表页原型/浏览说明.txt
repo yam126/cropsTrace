@@ -1,0 +1,4 @@
+直接浏览index.html查看
+chrome浏览器需要安装插件
+axure-chrome-extension 这个文件夹里面是chrome浏览器需要的插件
+chrome浏览器浏览说明.doc里面有如何安装插件的说明

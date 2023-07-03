@@ -1,0 +1,15 @@
+﻿#warningQuery {
+    width: 98%;
+    height: 95%;
+    margin: 0 auto;
+    margin-top: 1%;
+    border: 0px solid red;
+}
+
+.search-container {
+    width: 98%;
+    height: 8%;
+    margin: 0 auto;
+    margin-top: 1%;
+    border: 0px solid red;
+}

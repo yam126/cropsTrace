@@ -1,0 +1,62 @@
+﻿ul {
+    list-style: none;
+}
+
+.box {
+    width: 346px;
+    height: 300px;
+    margin: 200px auto 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.box_img {
+    width: 346px;
+    height: 250px;
+    overflow: hidden;
+}
+
+    .box_img ul li {
+        position: absolute;
+        display: none;
+    }
+
+        .box_img ul li a {
+            display: block;
+            width: 29vw;
+            height: 38vh;
+            margin-left: 1vw;
+            margin-top: 2vh;
+            font-size: 100px;
+            text-align: center;
+            line-height: 250px;
+            color: #fff;
+        }
+
+            .box_img ul li a img {
+                width:100%;
+                height:100%;
+                border:0px;
+            }
+
+            .box_tab {
+                position: absolute;
+                bottom: 1vh;
+                text-align: center;
+                width: 31vw;
+            }
+
+    .box_tab a {
+        display: inline-block;
+        padding: 5px 5px;
+        font-size: 1px;
+        background: #00C2BE;
+        margin: 0 5px;
+        color: #333;
+        border-radius: 25px;
+    }
+
+        .box_tab a.active {
+            background: #FFE712;
+            color: #fff;
+        }

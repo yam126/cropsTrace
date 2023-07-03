@@ -1,0 +1,12 @@
+E:\conding\cropsTrace\Snowflake.Net\bin\Release\net6.0\Snowflake.Net.deps.json
+E:\conding\cropsTrace\Snowflake.Net\bin\Release\net6.0\Snowflake.Net.dll
+E:\conding\cropsTrace\Snowflake.Net\bin\Release\net6.0\Snowflake.Net.pdb
+E:\conding\cropsTrace\Snowflake.Net\obj\Release\net6.0\Snowflake.Net.csproj.AssemblyReference.cache
+E:\conding\cropsTrace\Snowflake.Net\obj\Release\net6.0\Snowflake.Net.GeneratedMSBuildEditorConfig.editorconfig
+E:\conding\cropsTrace\Snowflake.Net\obj\Release\net6.0\Snowflake.Net.AssemblyInfoInputs.cache
+E:\conding\cropsTrace\Snowflake.Net\obj\Release\net6.0\Snowflake.Net.AssemblyInfo.cs
+E:\conding\cropsTrace\Snowflake.Net\obj\Release\net6.0\Snowflake.Net.csproj.CoreCompileInputs.cache
+E:\conding\cropsTrace\Snowflake.Net\obj\Release\net6.0\Snowflake.Net.dll
+E:\conding\cropsTrace\Snowflake.Net\obj\Release\net6.0\refint\Snowflake.Net.dll
+E:\conding\cropsTrace\Snowflake.Net\obj\Release\net6.0\Snowflake.Net.pdb
+E:\conding\cropsTrace\Snowflake.Net\obj\Release\net6.0\ref\Snowflake.Net.dll

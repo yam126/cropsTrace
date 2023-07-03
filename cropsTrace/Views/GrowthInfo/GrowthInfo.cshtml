@@ -1,0 +1,293 @@
+﻿@using Microsoft.Extensions.Configuration
+@{
+    Layout = "~/Views/Shared/_LayoutList.cshtml";
+    IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+    string apiUrlHost = configuration["ApiHost:Url"];
+    var urlHeader = $"{apiUrlHost}";
+}
+<!--生长信息页面-->
+<div id="GrowthInfoMain">
+    <!--搜索层-->
+    <div class="search-container">
+        <div class="txtSearch">
+            <el-input v-model="growthinfoSearchWhere" id="txtSearch" placeholder="泵房编号/泵房名称/农作物名称模糊搜索"></el-input>
+        </div>
+        <div class="txtInputTime">
+            <el-date-picker id="txtSearchStartTime" v-model="growthinfoSearchStartTime" type="date" placeholder="录入开始日期"></el-date-picker>
+        </div>
+        <div class="txtInputTime">
+            <el-date-picker id="txtSearchStartTime" v-model="growthinfoSearchEndTime" type="date" placeholder="录入结束日期"></el-date-picker>
+        </div>
+        <el-button @@click="growthInfoSearch" id="btnSearh" type="primary" icon="el-icon-search">搜索</el-button>
+        <el-button @@click="growthInfoDialogShow('Add')" id="btnAdd" typeof="primary">添加</el-button>
+        <el-button @@click="deleteGrowthInfo" id="btnDelete" typeof="primary">删除</el-button>
+    </div>
+    <!--/搜索层-->
+    <!--搜索结果层-->
+    <div class="search-result-container">
+        <el-table id="PageDataTable" :data="GrowthInfo.PageData"
+                    tooltip-effect="dark"
+                    @@selection-change="handleGrowthInfoSelectionChange"
+                    class="el-datatable el-search-table"
+                    empty-text="暂无数据">
+            <el-table-column label="全选" type="selection" width="50"></el-table-column>
+            <el-table-column label="操作" width="180">
+                <template slot-scope="scope">
+                    <!--这个是整行设置序号-->
+                    <!--<span style="margin-left: 10px">{{scope.$index + 1}}</span>-->
+                    <el-button @@click="editGrowthInfoDialog(scope.row)" class="seedInfo-eltable-button" type="primary">修改</el-button>
+                </template>
+            </el-table-column>
+            <el-table-column show-overflow-tooltip prop="recordId" label="记录编号"></el-table-column>
+            <el-table-column show-overflow-tooltip prop="pumpId" label="泵房编号"></el-table-column>
+            <el-table-column show-overflow-tooltip prop="cropsId" label="农作物编号"></el-table-column>
+            <el-table-column show-overflow-tooltip prop="seedName" label="农作物名称"></el-table-column>
+            <el-table-column show-overflow-tooltip prop="growthName" label="周期名称"></el-table-column>
+            <el-table-column show-overflow-tooltip prop="plantHeight" label="株高"></el-table-column>
+            <el-table-column show-overflow-tooltip prop="dbh" label="胸径"></el-table-column>
+            <el-table-column show-overflow-tooltip prop="numberOfBlades" label="叶片数"></el-table-column>
+            <el-table-column show-overflow-tooltip prop="emergenceRate" label="出苗率"></el-table-column>
+            <el-table-column show-overflow-tooltip prop="landName" label="位置"></el-table-column>
+            <el-table-column show-overflow-tooltip prop="createdDateTime" label="创建时间"></el-table-column>
+            <el-table-column show-overflow-tooltip prop="modifiedDateTime" label="修改时间"></el-table-column>
+        </el-table>
+        <div id="box" style="display: none; width: 160px; left: 139px; top: 0px;"></div>
+        <!--分页控制-->
+        <div class="search-result-page-control">
+            <el-pagination class="el-pagination-center"
+                           :total="GrowthInfo.RecordCount"
+                           :page-sizes="[10, 15, 20]"
+                           :page-size="GrowthInfo.pageSize"
+                           :page-count="GrowthInfo.PageCount"
+                           :current-page="GrowthInfo.pageIndex"
+                           @@current-change="growthInfoChangePage"
+                           @@size-change="growthInfoChangePageSize"
+                           layout="total, sizes, prev, pager, next, jumper">
+            </el-pagination>
+        </div>
+        <!--/分页控制-->
+    </div>
+    <!--/搜索结果层-->
+    <!--对话框层-->
+    <el-dialog :model="growthEditData" :visible.sync="growthinfoDialog" custom-class="growthInfoEditDialog" title="编辑生长信息">
+        <div class="dialogdiv">
+            <div class="tab-container">
+                <div style="top:1.1vh;left:1vw;" @@click="changeGrowthTab('parameter')" :class="currentGrowthTab=='parameter'?'tab-click-item':'tab-normal-item'">
+                    参数设置
+                </div>
+                <div style="top:1.1vh;left:8vw;" @@click="changeGrowthTab('uploadImage')" :class="currentGrowthTab=='uploadImage'?'tab-click-item':'tab-normal-item'">
+                    上传图片
+                </div>
+            </div>
+            <div class="tab-main-container">
+                <!--间距-->
+                <div class="margin-container"></div>
+                <!--/间距-->
+                <!--参数设置对话框-->
+                <div class="parameter-container">
+                    <!--泵房编号-->
+                    <div class="item-container">
+                        <div class="must-label">
+                            泵房选择
+                        </div>
+                        <div class="pump-select">
+                            <el-select filterable
+                                       remote
+                                       :remote-method="pumpHouseAutoComplate"
+                                       id="pumpSelect"
+                                       @@change="pumpHouseSelectedChange"
+                                       v-model="growthEditData.pumpId"
+                                       value-key="growthEditData.pumpId"
+                                       placeholder="请输入泵房编号/名称/种类">
+                                <el-option v-for="item in pumpData"
+                                           :key="item.value"
+                                           :label="item.label" 
+                                           :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+                    </div>
+                    <!--/泵房编号-->
+                    <!--农作物编号-->
+                    <div class="item-container">
+                        <div class="must-label">
+                            农作物选择
+                        </div>
+                        <div class="pump-select">
+                            <el-select filterable
+                                       remote
+                                       :remote-method="seedInfoAutoComplate"
+                                       @@change="seedInfoSelectedChange"
+                                       id="seedSelect"
+                                       v-model="growthEditData.cropsId"
+                                       value-key="growthEditData.cropsId"
+                                       placeholder="请输入农作物编号/名称">
+                                <el-option v-for="item in seedInfoData" :key="item.value" :label="item.label" :value="item.value">
+                                </el-option>
+                            </el-select>
+                        </div>
+                    </div>
+                    <!--/农作物编号-->
+                    <!--农作物名称-->
+                    <div style="margin-top:1.4vh;" class="item-container">
+                        <el-input class="txtCropsName" v-model="growthEditData.seedName" :readonly="true" placeholder="请输入农作物名称">
+                            <template slot="prepend">
+                                <span class="mustInputSpan">
+                                    农作物名称
+                                </span>
+                            </template>
+                        </el-input>
+                    </div>
+                    <!--/农作物名称-->
+                    <!--农作物编号-->
+                    <div class="item-container">
+                        <div class="must-label">
+                            周期名称
+                        </div>
+                        <div class="pump-select">
+                            <el-select v-model="growthEditData.growthName" id="pumpSelect" placeholder="请选择生长周期">
+                                <el-option v-for="(item,index) in growthFixedValue" :key="index" :label="item.showName" :value="item.showName">
+                                </el-option>
+                            </el-select>
+                        </div>
+                    </div>
+                    <!--/农作物编号-->
+                    <!--位置-->
+                    <div style="margin-top:1.4vh;" class="item-container">
+                        <el-input v-model="growthEditData.landName" class="txtLandName" placeholder="位置">
+                            <template slot="prepend">
+                                <span>
+                                    位置
+                                </span>
+                            </template>
+                        </el-input>
+                    </div>
+                    <!--/位置-->
+                    <!--录入时间-->
+                    <div style="margin-top:-5vh;" class="item-container">
+                        <div style="margin-top:-0.1vh;" class="must-label">
+                            录入时间
+                        </div>
+                        <div class="pump-select">
+                            <el-date-picker v-model="growthEditData.createdDateTime" type="date" placeholder="录入时间"></el-date-picker>
+                        </div>
+                    </div>
+                    <!--/录入时间-->
+                    <!--株高-->
+                    <div class="item-container">
+                        <el-input v-model="growthEditData.plantHeight" class="txtLandName" placeholder="株高">
+                            <template slot="prepend">
+                                <span>
+                                    株高
+                                </span>
+                            </template>
+                        </el-input>
+                    </div>
+                    <!--/株高-->
+                    <!--胸径-->
+                    <div class="item-container">
+                        <el-input v-model="growthEditData.dbh" class="txtLandName" placeholder="胸径">
+                            <template slot="prepend">
+                                <span>
+                                    胸径
+                                </span>
+                            </template>
+                        </el-input>
+                    </div>
+                    <!--/胸径-->
+                    <!--叶片数-->
+                    <div class="item-container">
+                        <el-input v-model="growthEditData.numberOfBlades" class="txtNumberOfBlades" placeholder="叶片数">
+                            <template slot="prepend">
+                                <span>
+                                    叶片数
+                                </span>
+                            </template>
+                        </el-input>
+                    </div>
+                    <!--/叶片数-->
+                    <!--提示信息-->
+                    <div class="tips-container">
+                        红字为必填项目
+                    </div>
+                    <!--/提示信息-->
+                </div>
+                <!--/参数设置对话框-->
+                <!--上传图片对话框-->
+                <div class="uploadImage-container">
+                    <!--文件上传控件层-->
+                    <div class="uploadFile-container">
+                        <div class="label">
+                            选择图片
+                            <div class="tips">
+                                注意:只能上传jpg/png文件，且不超过10mb,并且一次最多上传9张，每个生长周期最多9张图
+                            </div>
+                        </div>                    
+                        <el-upload class="upload-demo"
+                                   action="http://8.142.16.236:6060/images?path=cropsTraceFiles"
+                                   :headers="headers"
+                                   :on-success="uploadSuccess"
+                                   :before-upload="beforeAvatarUpload"
+                                   :limit="9"
+                                   :file-list="growthFileList"
+                                   :on-remove="(file, fileList) => {uploadFileRemove(file, fileList, index)}"
+                                   :on-exceed="isUploadLimitMax"
+                                   list-type="picture-card">
+                                   <i slot="default" class="el-icon-plus"></i>
+                            @*<div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>*@                           
+                        </el-upload>
+                        @*<div class="btnUploadNew">
+                            <i class="el-icon-upload2">
+                                <br/>保存文件
+                            </i>
+                        </div>*@
+                    </div>
+                    <!--/文件上传控件层-->
+                    <!--文件列表层-->
+                    <div class="filelist-container">
+                        <el-table :data="growthFileData" tooltip-effect="dark" class="el-datatable el-search-table" empty-text="暂无数据">
+                            <el-table-column label="操作" width="180">
+                                <template slot-scope="scope">
+                                    <!--这个是整行设置序号-->
+                                    <!--<span style="margin-left: 10px">{{scope.$index + 1}}</span>-->
+                                    <el-button @@click="deleteFile(scope.row.fileName)" class="seedInfo-eltable-button" type="danger">删除</el-button>
+                                </template>
+                            </el-table-column>
+                            <el-table-column label="文件预览">
+                                <template slot-scope="scope">
+                                    <a v-if="scope.row.fileUrl!=''" target="_blank" :href="'@urlHeader'+scope.row.fileUrl">
+                                        <img v-if="scope.row.fileUrl!=''" :src="scope.row.fileUrl" class="growthFileview" />
+                                    </a>
+                                    <a v-if="scope.row.fileUrl==''" href="#">
+                                        <img v-if="scope.row.fileUrl==''" src="~/images/defaultImage.png" class="growthFileview" />
+                                    </a>
+                                </template>
+                            </el-table-column>
+                            <el-table-column show-overflow-tooltip prop="fileId" label="记录编号"></el-table-column>
+                            <el-table-column show-overflow-tooltip prop="cropsId" label="农作物编号"></el-table-column>
+                            <el-table-column show-overflow-tooltip prop="fileName" label="文件名"></el-table-column>
+                            <el-table-column show-overflow-tooltip prop="showParamJson" label="参数信息"></el-table-column>
+                            <el-table-column show-overflow-tooltip prop="fileLength" label="文件大小"></el-table-column>
+                            <el-table-column show-overflow-tooltip prop="createdDateTime" label="上传时间"></el-table-column>
+                        </el-table>
+                    </div>
+                    <!--/文件列表层-->
+                </div>
+                <!--/上传图片对话框-->
+            </div>
+            <div class="button-container">
+                <div @@click="saveGrowthInfo" class="btnSave">
+                    保存数据
+                </div>
+                <div style="display:none" class="btnLoadData">
+                    读取数据
+                </div>
+                <div @@click="clearGrowthInfo" class="btnCleanInput">
+                    清空对话框
+                </div>
+            </div>
+        </div>
+    </el-dialog>
+    <!--/对话框层-->
+</div>
+

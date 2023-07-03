@@ -1,0 +1,458 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["Title"] = "公司信息";
+}
+@section Head {
+    <link rel="stylesheet" href="~/css/CompanyInfo.css" />
+    <script type="text/javascript" src="~/js/CompanyInfo.js" ></script>
+}
+@section Body {
+    <div id="CompanyInfo">
+        <!--搜索层-->
+        <div class="search-container">
+            <div class="txtSearch">
+                <el-input v-model="SearchWhere" id="txtSearch" placeholder="请输入公司名称"></el-input>
+            </div>
+            <el-button id="btnSearh" @@click="Search" type="primary" icon="el-icon-search">搜索</el-button>
+            <el-button id="btnAdd" @@click="showEditDialog" typeof="primary">添加</el-button>
+            <el-button id="btnDelete" typeof="primary">删除</el-button>
+        </div>
+        <!--/搜索层-->
+        <!--搜索结果层-->
+        <div class="search-result-container">
+            <el-table 
+                :data="PageData"
+                tooltip-effect="dark"
+                class="el-datatable el-search-table"
+                empty-text="暂无数据"
+            >
+                <el-table-column label="全选" type="selection" width="50"></el-table-column>
+                <el-table-column label="操作" width="180">
+                    <template slot-scope="scope">
+                        <!--这个是整行设置序号-->
+                        <!--<span style="margin-left: 10px">{{scope.$index + 1}}</span>-->
+                        <el-button @@click="editDialog(scope.row)" class="seedInfo-eltable-button" type="primary">修改</el-button>
+                    </template>
+                </el-table-column>
+                <el-table-column show-overflow-tooltip prop="companyId" label="公司编号"></el-table-column>
+                <el-table-column show-overflow-tooltip prop="companyName" label="公司名称"></el-table-column>
+                <el-table-column show-overflow-tooltip prop="barcodeUrl" label="二维码URL"></el-table-column>
+                <el-table-column show-overflow-tooltip prop="created" label="创建人"></el-table-column>
+                <el-table-column show-overflow-tooltip prop="createdTime" label="创建时间"></el-table-column>
+                <el-table-column show-overflow-tooltip prop="modifier" label="修改人"></el-table-column>
+                <el-table-column show-overflow-tooltip prop="modifiedTime" label="修改时间"></el-table-column>
+            </el-table>
+            <!--分页控制-->
+            <div class="search-result-page-control">
+                <el-pagination class="el-pagination-center"
+                               :total="RecordCount"
+                               :page-sizes="[10, 15, 20]"
+                               :page-size="PageSize"
+                               :page-count="PageCount"
+                               :current-page="PageIndex"
+                               @@current-change="changePage"
+                               @@size-change="changePageSize"
+                               layout="total, sizes, prev, pager, next, jumper">
+                </el-pagination>
+            </div>
+            <!--/分页控制-->
+        </div>
+        <!--/搜索结果层-->
+        <!--对话框层-->
+        <el-dialog :visible.sync="dialogEditVisible" custom-class="dialogEdit" title="公司信息编辑" >
+            <div id="CompanyInfoEditDialog" >
+                <div class="line-container">
+                    <el-input v-model="companyId" :readonly="true" placeholder="请输入公司编号">
+                        <template slot="prepend">
+                            <span class="mustInput">
+                                公司编号
+                            </span>
+                        </template>
+                    </el-input>
+                </div>
+                <div class="line-container">
+                    <el-input v-model="companyName" placeholder="请输入公司名称">
+                        <template slot="prepend">
+                            <span class="mustInput">
+                                公司名称
+                            </span>
+                        </template>
+                    </el-input>
+                </div>
+                <div class="line-container">
+                    <el-input v-model="imageUrl" placeholder="请输入二维码URL">
+                        <template slot="prepend">
+                            <span class="mustInput">
+                                二维码URL
+                            </span>
+                        </template>
+                    </el-input>
+                </div>
+                <div class="qrcode-container">
+                    <div class="upload-container">
+                        <el-upload
+                          class="avatar-uploader"
+                          :action="baseUrl+'/file-info/qr-code/file'"
+                          :show-file-list="false"
+                          :on-success="uploadSuccess"
+                          :data="{ CompanyId:userInfo.CompanyId }"
+                          :before-upload="beforeAvatarUpload">
+                          <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                          <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                        </el-upload>
+                    </div>
+                    <div class="tips-container">
+                        点击上方上传二维码图片
+                    </div>
+                </div>
+                <div class="line-container">
+                    <div @@click="saveCompanyInfo" class="btnSave">
+                        保存数据
+                    </div>
+                </div>
+            </div>
+        </el-dialog>
+        <!--/对话框层-->
+    </div>
+}
+@{
+    string CurrentAction = Convert.ToString(ViewData["Action"]);
+}
+@section VueScript {
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            baseUrl:apiHelper.urlBase,
+            imageUrl:'',
+            dialogEditVisible:false,
+            currentAction:'@CurrentAction',
+            screenWidth:'',
+            screenHeight:'',
+            timestr:'',
+            datestr:'',
+            currentModelsId:15,//当前模块编号
+            menuModels:[],
+            hideMenus:[],
+            timeHandle:null,
+            userName:"",
+            SearchWhere:'',
+            SearchStartTime:'',
+            SearchEndTime:'',
+            PageIndex:1,
+            PageSize:10,
+            RecordCount:0,
+            PageCount:0,
+            sortField:'CreatedTime',
+            sortMethod:'DESC',
+            userInfo:{
+                Account:'',
+                CompanyId:'',
+                Level:''
+            },
+            PageData:[],
+            saveMethod:'Add',
+            companyId:'',
+            companyName:'',
+            editData:new CompanyInfo()
+        },
+        mounted:function(){
+            var _that=this;
+            _that.Refresh();
+            _that.initModules();
+            _that.showDateTimeClock();
+            _that.getPageData();
+            window.onresize = () => {
+                return (() => {
+                    _that.screenWidth = document.body.clientWidth;
+                    _that.screenHeight = document.body.clientHeight;
+                    _that.elTableScroll();
+                })();
+            };
+        },
+        methods:{
+            //#region 初始化页面模块
+            initModules() {
+                //this.clearCookie();
+                var _that=this;
+                var modules=window.localStorage[_that.userName+'modules'];
+                window.localStorage.removeItem(this.userName+'modules');
+                modules=null;
+                if(modules==null||modules.length<=0||typeof(modules)=='undefined')
+                {
+                    apiHelper.getModules(
+                        function(response){
+                            //console.log("getModules");
+                            //console.log(response);
+                            var modulesResult=response.data.result;
+                            if(response.data.status==0){
+                                if(modulesResult!=null&&modulesResult.length>0&&typeof(modulesResult)!='undefined')
+                                {
+                                    _that.menuModels=modulesResult;
+                                    _that.fillMenuModelsArray();
+                                    window.localStorage.setItem(_that.userName+'modules',JSON.stringify(_that.menuModels));
+                                }
+                                else
+                                {
+                                    _that.readLocalModules();
+                                    _that.fillMenuModelsArray();
+                                }
+                            }
+                        }
+                    );
+                }
+                else
+                {
+                    _that.menuModels=JSON.parse(modules);
+                    _that.fillMenuModelsArray();
+                }
+            },
+            readLocalModules(){
+                var _that=this;
+                $.getJSON(
+                    "/MainMenuModels.json",
+                    function(jsonData){
+                        console.log("readLocalModules");
+                        console.log(jsonData);
+                        _that.menuModels=jsonData.menuModels;
+                        _that.readLocalHideMenus();
+                    }
+                );
+            },
+            fillMenuModelsArray(){
+                var _that=this;
+                console.log("fillMenuModelsArray");
+                console.log(_that.menuModels);
+                if(_that.menuModels==null||typeof(_that.menuModels)=="undefined"||_that.menuModels.length<5)
+                    return false;
+                for(var i=5;i<_that.menuModels.length;i++){
+                    if(_that.currentModelsId==_that.menuModels[i].id){
+                        _that.menuModels[i].uri="#";
+                    }
+                    _that.hideMenus.push(_that.menuModels[i]);
+                }
+            },
+            readLocalHideMenus(){
+                var _that=this;
+                $.getJSON(
+                    "/HideMenus.json",
+                    function(jsonData){
+                        console.log("readLocalHideMenus");
+                        console.log(jsonData);
+                        _that.hideMenus=jsonData.hideMenus;
+                    }
+                );
+            },
+            //#endregion
+            editDialog(editObj){
+                var _that=this;
+                _that.companyId=editObj.companyId;
+                _that.companyName=editObj.companyName;
+                _that.imageUrl=editObj.barcodeUrl;
+                _that.saveMethod="Edit";
+                _that.dialogEditVisible=true;
+            },
+            saveCompanyInfo(){
+                var _that=this;
+                _that.editData.companyId=_that.companyId;
+                _that.editData.companyName=_that.companyName;
+                _that.editData.created=_that.userName;
+                _that.editData.modifier=_that.userName;
+                _that.editData.barcodeUrl=_that.imageUrl;
+                apiHelper.saveCompanyInfo(
+                    _that.editData,
+                    _that.saveMethod,
+                    function(response){
+                        console.log(response);
+                        if(response.data.status==0){
+                            alert('保存成功');
+                            _that.dialogEditVisible=false;
+                            _that.getPageData();
+                        }
+                        else
+                        {
+                            alert('保存失败,原因['+response.data.msg+']');
+                        }
+                    }
+                );
+            },
+            //上传成功代码
+            uploadSuccess(response,file,filesList){
+                console.log("response");
+                console.log(response);
+                console.log("file");
+                console.log(file);
+                console.log("filesList");
+                console.log(filesList);
+                this.imageUrl=apiHelper.urlHost+response.result;
+            },
+            //判断文件类型并且限制上传文件的大小
+            beforeAvatarUpload(file) {
+                const isJPG = file.type === "image/jpg";
+                const isPng = file.type==="image/png";
+                const isJpeg = file.type==="image/jpeg";
+
+                //1MB=1024*1024(1MB=1024KB 1KB=1024MB)
+                const is10mb = file.size/1024/1024<10;
+
+                //限制文件上传类型
+                if (!isJPG && !isPng && !isJpeg) {
+                    this.$message.error("上传图片只能是 png,jpg,jpeg 格式!");
+                    return false;
+                }
+
+                //限制文件上传大小
+                if (!is10mb) {
+                    this.$message.error("上传图片大小不能超过 10mb!");
+                    return false;
+                }
+                return true;
+            },
+            showEditDialog(){
+                this.companyId="";
+                this.companyName="";
+                this.imageUrl="";
+                this.saveMethod="Add";
+                this.dialogEditVisible=true;
+            },
+            Search() {
+                var _that = this;
+                _that.PageIndex = 1;
+                _that.getPageData();
+            },
+            //el-table 动态计算高度为了显示滚动条
+            elTableScroll() {
+                var _that=this;
+                _that.$nextTick(function() {
+                    if ($(".el-table__body-wrapper").length > 0 && $(".el-table__header-wrapper").length > 0) {
+                        $(".el-table__body-wrapper").each(function(index,element){
+                            var parentElement = $(element).parent().parent();
+                            var headerHeight = $(element).prev()[0].offsetHeight;
+                            var parentHeight = parentElement[0].offsetHeight;
+                            var elBodyHeight = parentHeight - headerHeight;
+                            $(element).css("height", elBodyHeight + "px");
+                        });
+                    }
+                });
+            },
+            changePageSize(pageSize) {
+                this.PageIndex = 1;
+                this.PageSize = pageSize;
+                this.getPageData();
+                this.elTableScroll();
+            },
+            changePage(pageIndex) {
+                this.PageIndex = pageIndex;
+                this.getPageData();
+                this.elTableScroll();
+            },
+            getPageData(){
+                var _that=this;
+                apiHelper.GetCompanyInfoPage(
+                    _that.SearchWhere,
+                    _that.PageIndex,
+                    _that.PageSize,
+                    _that.sortField,
+                    _that.sortMethod,
+                    function(){
+                        _that.$nextTick(()=>{
+                            $('.curtain').show();
+                        });
+                    },
+                    function(response){
+                        _that.$nextTick(()=>{
+                            $('.curtain').hide();
+                        });
+                        if(response.data.status==0){
+                            _that.PageData=response.data.result;
+                            _that.RecordCount=response.data.recordCount;
+                            _that.PageCount=response.data.pageCount;
+                        }
+                    }
+                );
+            },
+            gotoPage(UrlRoute) {
+                window.location = UrlRoute;
+            },
+            showDateTimeClock() {
+                var _that = this;
+                var nowDate = new Date();
+                var hours = _that.fixLeadingZero(nowDate.getHours(), 2);
+                var minutes = _that.fixLeadingZero(nowDate.getMinutes(), 2);
+                var seconds = _that.fixLeadingZero(nowDate.getSeconds(), 2);
+                var month = _that.fixLeadingZero(nowDate.getMonth() + 1, 2);
+                var day = _that.fixLeadingZero(nowDate.getDate(), 2);
+                if(_that.timeHandle!=null)
+                    window.clearInterval(_that.timeHandle);
+                _that.timestr = hours + ":" + minutes + ":" + seconds;
+                _that.datestr = nowDate.getFullYear() + "/" + month + "/" + day;
+                _that.timeHandle=window.setInterval(function() {
+                    _that.showDateTimeClock();
+                }, 1000);
+            },
+            fixLeadingZero(value, fixLength) {
+                var str = value.toString();
+                if (str.length < fixLength) {
+                    var len = fixLength - str.length;
+                    var tempStr = "";
+                    for (var i = 0; i < len; i++)
+                        tempStr += "0";
+                    str = tempStr + str;
+                }
+                return str;
+            },
+            getLoginAccountUserInfo() {
+                this.userInfo.Account = apiHelper.getCookie("account");
+                this.userInfo.CompanyId = apiHelper.getCookie("companyId");
+                this.userInfo.Level = apiHelper.getCookie("level");
+                this.userName = this.userInfo.Account;
+            },
+            Refresh() {
+                if (this.getToken()) {
+                    if (this.scrollAlertFirstDataTime != null)
+                        window.clearInterval(this.scrollAlertFirstDataTime);
+                    this.showDateTimeClock();
+                }
+                else {
+                    window.location = '/Login/Login';
+                }
+            },
+            getToken() {
+                this.getLoginAccountUserInfo();
+                var token = apiHelper.getCookie("token");
+                var level=apiHelper.getCookie("level");
+                var result = true;
+                if (this.userInfo.Account == null) {
+                    result = false;
+                } else {
+                    apiHelper.token = token;
+                    apiHelper.level = level;
+                    //console.log("apiHelper.level="+apiHelper.level);
+                    if(apiHelper.level>3){
+                        alert('用户权限不足');
+                        result=false;
+                    }
+                }
+                return result;
+            },
+            showMoreMenu(){
+                if ($(".pop-more-maste-menu").css("display") == "none")
+                    $(".pop-more-maste-menu").show();
+            },
+            hideMoreMenu(){
+                if ($(".pop-more-maste-menu").css("display") != "none")
+                    $(".pop-more-maste-menu").hide();
+            },
+            //退出登录，取消cookie有效时间
+            exitLogin() {
+                //console.log(123);
+                var exp = new Date();
+                exp.setTime(exp.getTime() - 10);
+                document.cookie = "token=" + escape('echo') + ";expires=" + exp.toGMTString() + ";path=/";
+                window.localStorage.removeItem(this.userName+'modules');
+                window.location = "/Login/Login";
+            }
+        }
+    });
+</script>
+}

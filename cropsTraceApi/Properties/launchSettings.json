@@ -1,0 +1,38 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      //"applicationUrl": "http://localhost:28920",
+      "applicationUrl": "http://localhost:28920",
+      //"applicationUrl": "http://192.168.3.97:28920",
+      "sslPort": 44342
+    }
+  },
+  "profiles": {
+    "cropsTraceApi": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      //"launchUrl": "api-doc/crops-trace",//发布时启用，开发时注释
+      "launchUrl": "swagger", //发布时注释，开发时启用
+      //"applicationUrl": "http://localhost:5329",
+      "applicationUrl": "http://localhost:5329",
+      //"applicationUrl": "http://192.168.1.23:5329",
+      //"applicationUrl": "http://192.168.3.97:5329",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      //"launchUrl": "api-doc/crops-trace",//发布时启用，开发时注释
+      "launchUrl": "swagger", //发布时注释，开发时启用
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

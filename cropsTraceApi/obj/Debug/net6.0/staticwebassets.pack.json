@@ -1,0 +1,633 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560294334929178624.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560294334929178624.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560294505775763456.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560294505775763456.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560444285906718720.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560444285906718720.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560445311137222656.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560445311137222656.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560445701782114304.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560445701782114304.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560447397019127808.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560447397019127808.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560449184597938176.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560449184597938176.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560449692196802560.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560449692196802560.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560451654728421376.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560451654728421376.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560451748089434112.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560451748089434112.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560466286859915264.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560466286859915264.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560466511414562816.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560466511414562816.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560466525700362240.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560466525700362240.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560466530960019456.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560466530960019456.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467218758766592.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467218758766592.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467222122598400.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467222122598400.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467224383328256.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467224383328256.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467226874744832.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467226874744832.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467229617819648.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467229617819648.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467232021155840.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467232021155840.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467234630012928.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467234630012928.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467235930247168.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467235930247168.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467237209509888.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467237209509888.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467238438440960.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467238438440960.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467239461851136.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467239461851136.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467698608115712.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467698608115712.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467701594460160.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467701594460160.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467703905521664.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467703905521664.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467706128502784.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467706128502784.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467708305346560.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467708305346560.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467709437808640.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467709437808640.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467710515744768.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467710515744768.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467711522377728.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467711522377728.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467712549982208.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467712549982208.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467713518866432.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467713518866432.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467714689077248.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467714689077248.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467715918008320.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467715918008320.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467764525797376.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467764525797376.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467767377924096.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467767377924096.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467769609293824.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467769609293824.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467771664502784.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467771664502784.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467773879095296.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467773879095296.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560467775716200448.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560467775716200448.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560474192653193216.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560474192653193216.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560474197044629504.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560474197044629504.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560474204334329856.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560474204334329856.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560474215784779776.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560474215784779776.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560496127365746688.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560496127365746688.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560496131971092480.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560496131971092480.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560506823818219520.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560506823818219520.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560506829216288768.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560506829216288768.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560506832768864256.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560506832768864256.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560506836518572032.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560506836518572032.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560506840469606400.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560506840469606400.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560506847197270016.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560506847197270016.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560507137988366336.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560507137988366336.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560507140806938624.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560507140806938624.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560507143889752064.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560507143889752064.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560507146620243968.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560507146620243968.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560507149640142848.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560507149640142848.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560507151166869504.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560507151166869504.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560507153377267712.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560507153377267712.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560507156485246976.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560507156485246976.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560507162487296000.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560507162487296000.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560508619756277760.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560508619756277760.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560508622964920320.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560508622964920320.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560509851262652416.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560509851262652416.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560509854106390528.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560509854106390528.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560509856325177344.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560509856325177344.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560509858107756544.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560509858107756544.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560509861215735808.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560509861215735808.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560511666779721728.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560511666779721728.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560511669271138304.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560511669271138304.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560511670340685824.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560511670340685824.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560511671527673856.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560511671527673856.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560511698278944768.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560511698278944768.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560513942042841088.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560513942042841088.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560513942747484160.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560513942747484160.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560513944911745024.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560513944911745024.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560513945951932416.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560513945951932416.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560513957708566528.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560513957708566528.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560515571378950144.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560515571378950144.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560515575720054784.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560515575720054784.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560515578815451136.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560515578815451136.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560515590484004864.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560515590484004864.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560515593482932224.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560515593482932224.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560516916248973312.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560516916248973312.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560516919478587392.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560516919478587392.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560516921512824832.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560516921512824832.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560516923450593280.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560516923450593280.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560520601398022144.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560520601398022144.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560520610717765632.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560520610717765632.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560520611518877696.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560520611518877696.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560520612378710016.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560520612378710016.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560520715940270080.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560520715940270080.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560520746952953856.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560520746952953856.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560533125308747776.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560533125308747776.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560533129377222656.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560533129377222656.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560533134846595072.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560533134846595072.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560533148440334336.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560533148440334336.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560533422399688704.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560533422399688704.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560533424798830592.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560533424798830592.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560533426027761664.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560533426027761664.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560533427156029440.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560533427156029440.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560533428233965568.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560533428233965568.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560533429269958656.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560533429269958656.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560533430314340352.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560533430314340352.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560533431312584704.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560533431312584704.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1560533433485234176.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1560533433485234176.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561349853550874624.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561349853550874624.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561352677491871744.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561352677491871744.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561352682596339712.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561352682596339712.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561352790201208832.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561352790201208832.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561352793569234944.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561352793569234944.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561352796027097088.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561352796027097088.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561352798396878848.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561352798396878848.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561352801668435968.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561352801668435968.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561352804063383552.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561352804063383552.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561352805137125376.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561352805137125376.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561352806152146944.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561352806152146944.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561352807142002688.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561352807142002688.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561955668884328448.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561955668884328448.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561955699213340672.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561955699213340672.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561955723766796288.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561955723766796288.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561955744637652992.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561955744637652992.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561955866083725312.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561955866083725312.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561955935646257152.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561955935646257152.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561955967896260608.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561955967896260608.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561956330217017344.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561956330217017344.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561956378690588672.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561956378690588672.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561956452631973888.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561956452631973888.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561956764981792768.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561956764981792768.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561956793452728320.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561956793452728320.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561956820199804928.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561956820199804928.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561956995379105792.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561956995379105792.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561957018435194880.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561957018435194880.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561957045702365184.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561957045702365184.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561957066959097856.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561957066959097856.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1561957219732426752.jpeg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1561957219732426752.jpeg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1663797692805025792.png",
+      "PackagePath": "staticwebassets\\uploadFiles\\1663797692805025792.png"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1663798265147166720.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1663798265147166720.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1663800551676186624.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1663800551676186624.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1663801480911654912.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1663801480911654912.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1663802175878467584.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1663802175878467584.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1663802430917316608.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1663802430917316608.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1663802887932874752.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1663802887932874752.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1663803204120481792.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1663803204120481792.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1663803217097658368.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1663803217097658368.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1663845633284509696.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1663845633284509696.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1663847746345504768.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1663847746345504768.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1663849645178228736.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1663849645178228736.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1663851374426853376.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1663851374426853376.jpg"
+    },
+    {
+      "Id": "D:\\tianzheng\\cropsTrace\\cropsTraceApi\\wwwroot\\uploadFiles\\1663852051249106944.jpg",
+      "PackagePath": "staticwebassets\\uploadFiles\\1663852051249106944.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.cropsTraceApi.props",
+      "PackagePath": "build\\cropsTraceApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.cropsTraceApi.props",
+      "PackagePath": "buildMultiTargeting\\cropsTraceApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.cropsTraceApi.props",
+      "PackagePath": "buildTransitive\\cropsTraceApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.cropsTraceApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

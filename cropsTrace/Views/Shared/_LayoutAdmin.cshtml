@@ -1,0 +1,101 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+@section Head {
+    @RenderSection("Head")
+}
+@section Body {
+<!--管理菜单页面-->
+<el-container id="managerMenu" class="elContainer">
+    <div class="left-container">
+        <div style="height:32%" class="content-container">
+            <!--管理菜单-->
+            <div class="title-container">
+                <div class="title-text">
+                    <img class="menuIcon" src=~/images/menuIcon.png />快捷菜单
+                </div>
+            </div>
+            <div class="middle-container">
+                <div id="adminMenu">
+                    <!--菜单项目-->
+                    <div @@click="gotoPage('/Home/Index')" class="menuItem-normal">
+                        <div class="top-left-corner"></div>
+                        <div class="top-right-corner"></div>
+                        <div class="bottom-left-corner"></div>
+                        <div class="bottom-right-corner"></div>
+                        <div class="center-container">
+                            返回首页
+                        </div>
+                    </div>
+                    <!--/菜单项目-->
+                    <!--菜单项目-->
+                    <div @@click="gotoPage('/PumpHouse/PumpHouse')" :class="currentAction=='PumpHouse'?'menuItem-click':'menuItem-normal'">
+                        <div class="top-left-corner"></div>
+                        <div class="top-right-corner"></div>
+                        <div class="bottom-left-corner"></div>
+                        <div class="bottom-right-corner"></div>
+                        <div class="center-container">
+                            泵房管理
+                        </div>
+                    </div>
+                    <!--/菜单项目-->
+                    <!--菜单项目-->
+                    <div @@click="gotoPage('/GrowthInfo/GrowthInfo')" :class="currentAction=='GrowthInfo'?'menuItem-click':'menuItem-normal'">
+                        <div class="top-left-corner"></div>
+                        <div class="top-right-corner"></div>
+                        <div class="bottom-left-corner"></div>
+                        <div class="bottom-right-corner"></div>
+                        <div class="center-container">
+                            生长信息
+                        </div>
+                    </div>
+                    <!--/菜单项目-->
+                    <!--菜单项目-->
+                    <div @@click="gotoPage('/SeedInfo/SeedInfo')" :class="currentAction=='SeedInfo'?'menuItem-click':'menuItem-normal'">
+                        <div class="top-left-corner"></div>
+                        <div class="top-right-corner"></div>
+                        <div class="bottom-left-corner"></div>
+                        <div class="bottom-right-corner"></div>
+                        <div class="center-container">
+                            农作物主数据
+                        </div>
+                    </div>
+                    <!--/菜单项目-->
+                    <!--菜单项目-->
+                    <div @@click="gotoPage('/ShowFields/ShowFields')" :class="currentAction=='ShowFields'?'menuItem-click':'menuItem-normal'">
+                        <div class="top-left-corner"></div>
+                        <div class="top-right-corner"></div>
+                        <div class="bottom-left-corner"></div>
+                        <div class="bottom-right-corner"></div>
+                        <div class="center-container">
+                            显示字段配置
+                        </div>
+                    </div>
+                    <!--/菜单项目-->
+                    <!--菜单项目-->
+                    <div @@click="gotoPage('/CompanyInfo/CompanyInfo')" :class="currentAction=='CompanyInfo'?'menuItem-click':'menuItem-normal'">
+                        <div class="top-left-corner"></div>
+                        <div class="top-right-corner"></div>
+                        <div class="bottom-left-corner"></div>
+                        <div class="bottom-right-corner"></div>
+                        <div class="center-container">
+                            公司信息管理
+                        </div>
+                    </div>
+                    <!--/菜单项目-->
+                </div>
+            </div>
+            <!--底部层-->
+            <div class="bottom-container"></div>
+            <!--/底部层-->
+            <!--/管理菜单-->
+        </div>
+    </div>
+    <div id="adminPage">
+        @RenderSection("Body")
+    </div>
+    </el-container>
+}
+@section VueScript {
+    @RenderSection("VueScript")
+}

@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cropsTrace", "cropsTrace.csproj", "{3E04EFD2-7B76-4B73-A072-82A5F2E2D873}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "..\Database\Database.sqlproj", "{1821FC58-D0F4-4266-8F74-CE514415C5EB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cropsTraceDataAccess", "..\cropsTraceDataAccess\cropsTraceDataAccess.csproj", "{59AB5E90-26D5-454B-9E88-2AE3EA46277A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snowflake.Net", "..\Snowflake.Net\Snowflake.Net.csproj", "{865C1BA9-C3CF-47DC-8B16-FC5AFBF7D398}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cropsTraceApi", "..\cropsTraceApi\cropsTraceApi.csproj", "{AB1DB8C1-5808-4288-890C-75D21FAD7545}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "..\Common\Common.csproj", "{0C671390-D476-46B6-B735-490111C18DB5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsertTestData", "..\InsertTestData\InsertTestData.csproj", "{A359CF58-101C-472E-A2E9-1714ED08CDA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E04EFD2-7B76-4B73-A072-82A5F2E2D873}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E04EFD2-7B76-4B73-A072-82A5F2E2D873}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E04EFD2-7B76-4B73-A072-82A5F2E2D873}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E04EFD2-7B76-4B73-A072-82A5F2E2D873}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1821FC58-D0F4-4266-8F74-CE514415C5EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1821FC58-D0F4-4266-8F74-CE514415C5EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1821FC58-D0F4-4266-8F74-CE514415C5EB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1821FC58-D0F4-4266-8F74-CE514415C5EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1821FC58-D0F4-4266-8F74-CE514415C5EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1821FC58-D0F4-4266-8F74-CE514415C5EB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{59AB5E90-26D5-454B-9E88-2AE3EA46277A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59AB5E90-26D5-454B-9E88-2AE3EA46277A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59AB5E90-26D5-454B-9E88-2AE3EA46277A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59AB5E90-26D5-454B-9E88-2AE3EA46277A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{865C1BA9-C3CF-47DC-8B16-FC5AFBF7D398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{865C1BA9-C3CF-47DC-8B16-FC5AFBF7D398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{865C1BA9-C3CF-47DC-8B16-FC5AFBF7D398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{865C1BA9-C3CF-47DC-8B16-FC5AFBF7D398}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB1DB8C1-5808-4288-890C-75D21FAD7545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB1DB8C1-5808-4288-890C-75D21FAD7545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB1DB8C1-5808-4288-890C-75D21FAD7545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB1DB8C1-5808-4288-890C-75D21FAD7545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C671390-D476-46B6-B735-490111C18DB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C671390-D476-46B6-B735-490111C18DB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C671390-D476-46B6-B735-490111C18DB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C671390-D476-46B6-B735-490111C18DB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A359CF58-101C-472E-A2E9-1714ED08CDA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A359CF58-101C-472E-A2E9-1714ED08CDA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A359CF58-101C-472E-A2E9-1714ED08CDA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A359CF58-101C-472E-A2E9-1714ED08CDA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D16B54CC-68A2-470C-8713-9CEDD5033AA0}
+	EndGlobalSection
+EndGlobal

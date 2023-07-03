@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>溯源系统一张图</title>
+    <link rel="stylesheet" href="~/lib/element-ui/theme-chalk/index.css" />
+    <link rel="stylesheet" href="~/css/element-ui-global.css" />
+    <link rel="stylesheet" href="~/css/MobilePage.css" />
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/lib/vue/vue.js"></script>
+    <script type="text/javascript" src="~/lib/element-ui/index.js"></script>
+    <script src="~/lib/linq/linq.js"></script>
+    <script src="~/js/json.js"></script>
+    <script src="~/js/apiHelper.js"></script>
+    <script src="~/js/cookieHelper.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--标题-->
+        <div class="title">
+            作物生长档案
+        </div>
+        <!--/标题-->
+        <!--农作物信息-->
+        <div class="cropsInfo">
+            <div class="cropsInfo-Item">
+                作物种类:{{apiResult.seedName}}
+            </div>
+            <div class="cropsInfo-Item">
+                种植年份:{{apiResult.plantYear}}
+            </div>
+            <div class="cropsInfo-Item">
+                种植面积:{{apiResult.plantArea}}亩
+            </div>
+            <div class="cropsInfo-Item">
+                种植位置:{{apiResult.landName}}
+            </div>
+            <div class="cropsInfo-Item">
+                土壤类型:{{apiResult.soilType}}
+            </div>
+            <div class="cropsInfo-Item">
+                所属首部:{{apiResult.pumpHouseName}}
+            </div>
+            <div style="overflow:hidden;white-space: nowrap;text-overflow: ellipsis;" class="cropsInfo-Item">
+                溯源编号:{{apiResult.traceNo}}
+            </div>
+        </div>
+        <!--/农作物信息-->
+        <!--生长信息列表-->
+        <div class="growthInfo-container">
+            <!--单个生长信息模板-->
+            <div v-for="(growthItem,index) in apiResult.growthInfoResults" :key="index" class="growthInfo-Item-container">
+                <div class="left">
+                    <div class="growthName">
+                        {{growthItem.growthName}}
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="right">
+                    <!--单个图片模板-->
+                    <div v-for="(fileItem,fileIndex) in growthItem.fileInfoResults" :key="fileIndex" class="picture-Item-container">
+                        <div class="ShootingTime">
+                            拍摄时间:{{fileItem.createdDateTime}}
+                        </div>
+                        <div class="pictureInfo-container">
+                            <img @@click="showPreviewImageDialog(fileItem.fileUrl)" :src="fileItem.fileUrl" class="picture-Image" />
+                            <!--参数-->
+                            <div class="picture-parameter-container">
+                                <div v-for="(parameter,parameterIndex) in fileItem.showParamJson" :key="parameterIndex" class="parameter-item-container">
+                                    {{parameter.parameterName}}:{{parameter.parameterValue}}
+                                </div>
+                            </div>
+                            <!--/参数-->
+                        </div>
+                    </div>
+                    <!--/单个图片模板-->
+                </div>
+                <div class="split"></div>
+            </div>
+            <!--/单个生长信息模板-->
+        </div>
+        <!--/生长信息列表-->
+        <!--大图预览层-->
+        <div class="bigPictureView-container">
+            <div class="return-container">
+                <div id="btnReturnBack" @@click="returnDataList" >&#9668;返回列表</div>
+            </div>
+            <img class="bigPictureView-Image" :src="bigPictureImageSrc" />
+        </div>
+        <!--/大图预览层-->
+    </div>
+</body>
+@{
+    string companyId=ViewData["companyId"]==null?string.Empty:Convert.ToString(ViewData["companyId"]);
+    string year=ViewData["year"]==null?string.Empty:Convert.ToString(ViewData["year"]);
+    string cropsId=ViewData["cropsId"]==null?string.Empty:Convert.ToString(ViewData["cropsId"]);
+    string pumpHouseID=ViewData["pumpHouseID"]==null?string.Empty:Convert.ToString(ViewData["pumpHouseID"]);
+}
+<script>
+    var app = new Vue({
+        el: "#app",
+        data:{
+            screenWidth: null,
+            screenHeight: null,
+            bigPictureImageSrc:'',
+            Parameters:{
+                companyId:"@companyId",
+                year:"@year",
+                cropsId:"@cropsId",
+                pumpHouseID: "@pumpHouseID"
+            },
+            apiResult:{
+                seedName: "",
+                plantYear: "",
+                plantArea: "",
+                landName: "",
+                soilType: "",
+                pumpHouseName: "",
+                traceNo: "",
+                growthInfoResults:[
+                    {
+                        growthName: "",
+                        fileInfoResults: [
+                            {
+                                fileName: "",
+                                fileUrl: "",
+                                fileLength: "",
+                                createdDateTime: "",
+                                showParamJson:[]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        mounted: function() {
+            var _that=this;
+            _that.screenWidth = document.body.clientWidth;
+            _that.screenHeight = document.body.clientHeight;
+            _that.initMobilePage();
+            _that.fillTimeLine();
+            window.onresize = () => {
+                return (() => {
+                    _that.screenWidth = document.body.clientWidth;
+                    _that.screenHeight = document.body.clientHeight;
+                    _that.fillTimeLine();
+                })();
+            };
+        },
+        methods:{
+            fillTimeLine(){
+                $(".growthInfo-Item-container").each(function(index,element){
+                    var leftDiv=$(element).children(".left");
+                    var rightDiv=$(element).children(".right");
+                    leftDiv.css("height",rightDiv.css("height"));
+                });
+            },
+            showPreviewImageDialog(imgSrc){
+                var _that=this;
+                $(".title").hide();
+                $(".cropsInfo").hide();
+                $(".growthInfo-container").hide();
+                $(".bigPictureView-container").show();
+                _that.bigPictureImageSrc=imgSrc;
+            },
+            returnDataList(){
+                var _that=this;
+                $(".title").show();
+                $(".cropsInfo").show();
+                $(".growthInfo-container").show();
+                $(".bigPictureView-container").hide();
+            },
+            initMobilePage(){
+                var _that=this;
+                apiHelper.InitMobilePage(
+                    _that.Parameters,
+                    function(response){
+                        if(response.data.status==0)
+                        {
+                            console.log(response);
+                            var result=response.data.result;
+                            _that.apiResult.seedName=result.seedName;
+                            _that.apiResult.plantYear=result.plantYear;
+                            _that.apiResult.plantArea=result.plantArea;
+                            _that.apiResult.landName=result.landName;
+                            _that.apiResult.soilType=result.soilType;
+                            _that.apiResult.pumpHouseName=result.pumpHouseName;
+                            _that.apiResult.traceNo=result.traceNo;
+                            _that.apiResult.growthInfoResults=[];
+                            for(var i=0;i<result.growthInfoResults.length;i++){
+                                var FileList=result.growthInfoResults[i].fileInfoResults;
+                                var fileResult=[];
+                                for(var f=0;f<FileList.length;f++){
+                                    var parameterAry=_that.pictureParameterAnalysis(FileList[f].showParamJson);
+                                    fileResult.push({
+                                        fileName:FileList[f].fileName,
+                                        fileUrl:FileList[f].fileUrl,
+                                        fileLength:FileList[f].fileLength,
+                                        createdDateTime:FileList[f].createdDateTime,
+                                        showParamJson:parameterAry
+                                    });
+                                }
+                                _that.apiResult.growthInfoResults.push({
+                                    growthName:result.growthInfoResults[i].growthName,
+                                    fileInfoResults:fileResult
+                                });
+                            }
+                            _that.$nextTick(function(){
+                                _that.fillTimeLine();
+                            });
+                        }
+                    }
+                );
+            },
+            pictureParameterAnalysis(parameterStr){
+                if(parameterStr==null||parameterStr==''||parameterStr==undefined)
+                   return;
+                var _that=this;
+                var parameterAry='';
+                var resultPictureArray=[];
+                try{
+                    parameterAry=JSON.parse(parameterStr);
+                    for(var ParameterName in parameterAry)
+                    {
+                        if(typeof(parameterAry[ParameterName])!="function")
+                        {
+                            resultPictureArray.push({
+                                 parameterName:ParameterName,
+                                 parameterValue:parameterAry[ParameterName]
+                            });
+                        }
+                    }
+                }catch(e){
+                    console.log(e);
+                }
+                console.log("parameterAry");
+                console.log(parameterAry);
+                return resultPictureArray;
+            }
+        }
+    });
+</script>
+</html>

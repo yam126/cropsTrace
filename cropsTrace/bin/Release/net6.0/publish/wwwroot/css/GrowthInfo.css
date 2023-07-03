@@ -1,0 +1,526 @@
+﻿#GrowthInfoMain {
+    width: 100%;
+    height: 100%;
+    margin: 0 0;
+    border: 0px solid red;
+}
+
+    #GrowthInfoMain .search-container {
+        width: 98%;
+        height: 5vh;
+        margin-left: 1%;
+        margin-top: 1%;
+        border: 0px solid red;
+    }
+
+#txtSearch {
+    width: 100%;
+    height: 4.3vh;
+    font-family: 'Microsoft YaHei UI';
+    color: #fbf9f9;
+    font-size: 1vw;
+    text-align: left;
+    text-indent: 1%;
+    background-color: #f7f7f754;
+    border-radius: 25px;
+}
+
+    #txtSearch placeholder {
+        font-family: 'Microsoft YaHei UI';
+        color: #fbf9f9;
+        font-size: 1vw;
+        text-align: left;
+        text-indent: 1%;
+    }
+
+#txtSearchStartTime {
+    width: 100%;
+    height: 4.3vh;
+    text-align: left;
+    text-indent: 1%;
+    background-color: #f7f7f754;
+    border-radius: 25px;
+    font-family: 'Microsoft YaHei UI';
+    color: #fbf9f9;
+    font-size: 1vw;
+}
+
+#GrowthInfoMain .search-container .txtSearch {
+    width: 15vw;
+    height: 4.3vh;
+    margin-top: 0.3vh;
+    margin-left: 0.2vw;
+    float: left;
+}
+
+#GrowthInfoMain .search-container .txtInputTime {
+    width: 10vw;
+    height: 4.3vh;
+    margin-top: 0.3vh;
+    margin-left: 0.2vw;
+    float: left;
+}
+
+#btnSearh {
+    border-radius: 20px;
+    background-color: #eddc78;
+    margin-top: 0.3vh;
+    margin-left: 0.2vw;
+    color: #8f1414;
+    font-family: 'Microsoft YaHei UI';
+    font-size: 1vw;
+    font-weight: 700;
+    height: 4.3vh;
+    width: 5vw;
+}
+
+#btnAdd {
+    border-radius: 20px;
+    background-color: #78b9ed;
+    margin-top: 0.3vh;
+    margin-left: 0.2vw;
+    color: #efe9e9;
+    font-family: 'Microsoft YaHei UI';
+    font-size: 1vw;
+    font-weight: 700;
+    height: 4.3vh;
+    width: 5vw;
+}
+
+#btnDelete {
+    border-radius: 20px;
+    background-color: #f1464a;
+    margin-top: 0.3vh;
+    margin-left: 0.2vw;
+    color: #fff3f3;
+    font-family: 'Microsoft YaHei UI';
+    font-size: 1vw;
+    font-weight: 700;
+    height: 4.3vh;
+    width: 5vw;
+}
+
+#GrowthInfoMain .search-result-container {
+    width: 98%;
+    height: 79.8vh;
+    margin-left: 1%;
+    margin-top: 1%;
+    background-color: #00beff26;
+    border: 1px solid #0097ff;
+}
+
+    #GrowthInfoMain .search-result-container .el-search-table {
+        width: 98%;
+        height: 71vh;
+        margin: 0 auto;
+        margin-top: 1vh;
+        border: 1px solid #0097ff;
+    }
+
+    #GrowthInfoMain .search-result-container .search-result-page-control {
+        width: 98%;
+        height: 5vh;
+        margin: 0 auto;
+        margin-top: 1vh;
+        border: 1px solid #0097ff;
+    }
+
+.growthInfoEditDialog {
+    width: 65vw;
+    height: 80vh;
+    border: 1px solid #12d8f3;
+    margin: 0 auto;
+}
+
+    .growthInfoEditDialog .dialogdiv {
+        width: 100%;
+        height: 69vh;
+        border: 0px solid red;
+    }
+
+        .growthInfoEditDialog .dialogdiv .tab-container {
+            width: 94%;
+            height: 6vh;
+            position: relative;
+            margin: 1vh auto;
+            z-index: 10;
+            border-bottom: 1px solid #d1ddf6;
+        }
+
+            .growthInfoEditDialog .dialogdiv .tab-container .tab-click-item {
+                width: auto;
+                min-width: 7vw !important;
+                height: 5vh;
+                line-height: 5vh;
+                /*top: 1.1vh;*/
+                /*left: 1vw;*/
+                position: absolute;
+                z-index: 300;
+                font-family: 'Microsoft YaHei UI';
+                font-size: 2.5vh;
+                color: #fbf5f5;
+                text-align: center;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                border-top: 1px solid #d1ddf6;
+                border-left: 1px solid #d1ddf6;
+                border-right: 1px solid #d1ddf6;
+                background-image: linear-gradient(0deg, #2197fd 28%, #214eff 100%);
+                cursor: pointer;
+                float: left;
+            }
+
+                .growthInfoEditDialog .dialogdiv .tab-container .tab-click-item:hover {
+                    color: #1aed38;
+                }
+
+            .growthInfoEditDialog .dialogdiv .tab-container .tab-normal-item {
+                width: auto;
+                min-width: 7vw !important;
+                height: 4.8vh;
+                line-height: 4.8vh;
+                /*top: 1.1vh;*/
+                /*left: 8vw;*/
+                position: absolute;
+                z-index: 300;
+                font-family: 'Microsoft YaHei UI';
+                font-size: 2.5vh;
+                color: #84acb3;
+                text-align: center;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                border-top: 1px solid #d1ddf6;
+                border-left: 1px solid #d1ddf6;
+                border-right: 1px solid #d1ddf6;
+                background-image: linear-gradient(0deg, #2197fd87 28%, #214eff6b 100%);
+                cursor: pointer;
+                float: left;
+            }
+
+                .growthInfoEditDialog .dialogdiv .tab-container .tab-normal-item:hover {
+                    color: #1aed38;
+                }
+
+        .growthInfoEditDialog .dialogdiv .tab-main-container {
+            width: 95%;
+            height: 56vh;
+            margin: -1vh auto;
+            border-radius: 10px;
+            border-left: 1px solid #d1ddf6;
+            border-right: 1px solid #d1ddf6;
+            border-bottom: 1px solid #d1ddf6;
+        }
+
+        .growthInfoEditDialog .dialogdiv .button-container {
+            width: 35%;
+            height: 5vh;
+            margin: 2vh auto;
+            border: 0px solid red;
+        }
+
+            .growthInfoEditDialog .dialogdiv .button-container .btnSave {
+                width: 5vw;
+                height: 3.7vh;
+                line-height: 3.7vh;
+                margin-left: 1vw;
+                margin-right: 1vh;
+                margin-top: 0.5vh;
+                font-family: 'Microsoft YaHei UI';
+                font-size: 1vw;
+                color: #f6eeee;
+                text-align: center;
+                cursor: pointer;
+                border-radius: 5px;
+                background-color: #26d8ea;
+                float: left;
+            }
+
+                .growthInfoEditDialog .dialogdiv .button-container .btnSave:hover {
+                    color: #164c8f;
+                }
+
+            .growthInfoEditDialog .dialogdiv .button-container .btnLoadData {
+                width: 5vw;
+                height: 3.7vh;
+                line-height: 3.7vh;
+                margin-left: 1vw;
+                margin-right: 1vh;
+                margin-top: 0.5vh;
+                font-family: 'Microsoft YaHei UI';
+                font-size: 1vw;
+                color: #f6eeee;
+                text-align: center;
+                cursor: pointer;
+                border-radius: 5px;
+                background-color: #2ba2d7;
+                float: left;
+            }
+
+                .growthInfoEditDialog .dialogdiv .button-container .btnLoadData:hover {
+                    color: #1aed38;
+                }
+
+            .growthInfoEditDialog .dialogdiv .button-container .btnCleanInput {
+                width: 7vw;
+                height: 3.7vh;
+                line-height: 3.7vh;
+                margin-left: 1vw;
+                margin-right: 1vh;
+                margin-top: 0.5vh;
+                font-family: 'Microsoft YaHei UI';
+                font-size: 1vw;
+                color: #f6eeee;
+                text-align: center;
+                cursor: pointer;
+                border-radius: 5px;
+                background-color: #e12c2c;
+                float: left;
+            }
+
+                .growthInfoEditDialog .dialogdiv .button-container .btnCleanInput:hover {
+                    color: #1aed38;
+                }
+
+        .growthInfoEditDialog .dialogdiv .tab-main-container .margin-container {
+            width: 95%;
+            height: 2vh;
+            margin: 0 auto;
+            border: 0px solid red;
+        }
+
+        .growthInfoEditDialog .dialogdiv .tab-main-container .parameter-container {
+            width: 95%;
+            height: 51vh;
+            margin: 0 auto;
+            border: 0px solid red;
+        }
+
+            .growthInfoEditDialog .dialogdiv .tab-main-container .parameter-container .item-container {
+                width: 27vw;
+                height: 5vh;
+                margin-left: 1vw;
+                margin-top: 1vh;
+                border: 0px solid red;
+                float: left;
+            }
+
+.pump-select {
+    min-width: 21.5vw;
+    width: auto;
+    height: 5vh;
+    border: 0px solid red;
+    float: left;
+}
+
+    .pump-select .el-input__inner {
+        border-top-left-radius: 0px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 5px;
+    }
+
+.must-label {
+    width: 5vw;
+    height: 4.2vh;
+    line-height: 4.2vh;
+    margin-top: 0.3vh;
+    font-family: 'Microsoft YaHei UI';
+    font-size: 0.8vw;
+    color: red;
+    text-align: center;
+    background-color: #ffffff;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 0px solid red;
+    float: left;
+}
+
+#pumpSelect {
+    margin-top: 0.3vh;
+}
+
+.mustInputSpan {
+    color: red;
+}
+
+#txtCropsName {
+    width: 21vw;
+}
+
+.txtCropsName .el-input__inner {
+    width: 20.7vw;
+}
+
+.txtLandName .el-input__inner {
+    width: 22.9vw;
+}
+
+.txtNumberOfBlades .el-input__inner {
+    width: 22.2vw;
+}
+
+.growthInfoEditDialog .dialogdiv .tab-main-container .parameter-container .tips-container {
+    width: 55vw;
+    height: 3vh;
+    font-family: 'Microsoft YaHei UI';
+    font-size: 1vw;
+    color: #ee1111;
+    text-align: left;
+    text-indent: 1%;
+    margin-left: 1vw;
+    margin-top: 1vh;
+    border: 0px solid red;
+    float: left;
+}
+
+.growthInfoEditDialog .dialogdiv .tab-main-container .uploadImage-container {
+    width: 95%;
+    height: 51vh;
+    display: none;
+    margin: 0 auto;
+    border: 0px solid red;
+}
+
+    .growthInfoEditDialog .dialogdiv .tab-main-container .uploadImage-container .uploadFile-container {
+        width: 97%;
+        height: 11vh;
+        margin: 1vh auto;
+        background-color: #fbf7f7;
+        border-radius: 5px;
+    }
+
+        .growthInfoEditDialog .dialogdiv .tab-main-container .uploadImage-container .uploadFile-container .el-upload--picture-card {
+            width: 4vw;
+            height: 8vh;
+            border-radius: 10px;
+            margin-top: 1vh;
+            line-height: 9vh;
+            float: left;
+        }
+
+        .growthInfoEditDialog .dialogdiv .tab-main-container .uploadImage-container .uploadFile-container .el-upload-list--picture-card {
+            float: left;
+        }
+
+.el-upload-list__item-thumbnail {
+    width: 6vw;
+    height: 12vh;
+    border-radius: 10px;
+    /*margin-top: 1vh;*/
+    float: left;
+}
+
+.growthInfoEditDialog .dialogdiv .tab-main-container .uploadImage-container .uploadFile-container .el-upload--picture-card .el-icon-plus {
+    font-size: 3vh;
+}
+
+.growthInfoEditDialog .dialogdiv .tab-main-container .uploadImage-container .uploadFile-container .label {
+    width: 10vw;
+    height: 12vh;
+    line-height: 3vh;
+    font-family: 'Microsoft YaHei UI';
+    font-size: 0.5vw;
+    text-align: center;
+    color: #221010;
+    border: 0px solid red;
+    margin-top: 1vh;
+    float: left;
+}
+
+    .growthInfoEditDialog .dialogdiv .tab-main-container .uploadImage-container .uploadFile-container .label .tips {
+        width: 96%;
+        height: 8vh;
+        line-height: 2vh;
+        font-family: 'Microsoft YaHei UI';
+        font-size: 0.1vh;
+        color: red;
+        text-align: left;
+        text-indent: 2%;
+        margin: 0 auto;
+        border: 0px solid red;
+    }
+
+
+.growthInfoEditDialog .dialogdiv .tab-main-container .uploadImage-container .uploadFile-container input {
+    margin-top: 0.3vh;
+    width: 43vw;
+    height: 2.5vh;
+    border: 0px solid red;
+    float: left;
+}
+
+.growthInfoEditDialog .dialogdiv .tab-main-container .uploadImage-container .uploadFile-container button {
+    width: 5vw;
+    height: 4vh;
+    line-height: 2vh;
+    margin-left: 0.5vw;
+    margin-top: 0.2vh;
+    border: 0px;
+    background-color: #0097ff;
+    border-radius: 5px;
+    font-family: 'Microsoft YaHei UI';
+    font-size: 0.3vw;
+    color: #f7eded;
+    cursor: pointer;
+    text-align: center;
+    float: left;
+}
+
+.growthInfoEditDialog .dialogdiv .tab-main-container .uploadImage-container .uploadFile-container .btnUploadNew {
+    width: 6vw;
+    height: 12vh;
+    border-radius: 10px;
+    margin-top: 1vh;
+    margin-left: 0.3vw;
+    line-height: 13vh;
+    border-radius: 10px;
+    border: 1px solid #5b86e5;
+    cursor:pointer;
+    background: linear-gradient(to bottom, #36d1dc, #5b86e5);
+    float: left;
+}
+
+    .growthInfoEditDialog .dialogdiv .tab-main-container .uploadImage-container .uploadFile-container .btnUploadNew:hover {
+        background: linear-gradient(to bottom, #0cebeb, #20e3b2, #29ffc6);
+        border: 1px solid #29ffc6;
+    }
+
+    .growthInfoEditDialog .dialogdiv .tab-main-container .uploadImage-container .uploadFile-container .btnUploadNew i {
+        width: 7vw;
+        height: 5vh;
+        text-align: center;
+        font-size: 2vh;
+        color: white;
+        margin-left: -0.6vw;
+        margin-top: 0.6vh;
+    }
+
+    .growthInfoEditDialog .dialogdiv .tab-main-container .uploadImage-container .filelist-container {
+        width: 97%;
+        height: 35vh;
+        margin: 1vh auto;
+        /* background-color: #fbf7f7; */
+        border-radius: 10px;
+        border: 1px solid #bcc2c9;
+        overflow: hidden;
+    }
+
+.growthFileview {
+    border: 0px;
+    border-radius: 5px;
+    width: 5vw;
+    height: 10vh;
+}
+
+.upload-demo {
+    max-width: 67vw;
+    min-width: 6.5vw;
+    height: 11vh;
+    border: 0px solid red;
+    float: left;
+}
+
+.btnUpload {
+    width: 32vw;
+    height: 5vh;
+}

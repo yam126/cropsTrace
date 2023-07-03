@@ -1,0 +1,2409 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>溯源系统一张图</title>
+    <link rel="stylesheet" href="~/css/datamanage.css" />
+    <link rel="stylesheet" href="~/lib/element-ui/theme-chalk/index.css" />
+    <link rel="stylesheet" href="~/css/futureWeather.css" />
+    <link rel="stylesheet" href="~/css/queryInfo.css" />
+    <link rel="stylesheet" href="~/css/warningQuery.css" />
+    <link rel="stylesheet" href="~/css/NewHome.css" />
+    <link rel="stylesheet" href="~/lib/jquerySmilebar/css/jquery.smilebar.css" />
+    <link rel="stylesheet" href="~/lib/jquery-focusImage/css/jquery.focus.image.css" />
+    <link rel="stylesheet" href="~/css/layoutList.css" />
+    <link rel="stylesheet" href="~/css/GrowthInfo.css" />
+    <link rel="stylesheet" href="~/css/SeedInfo.css" />
+    <link rel="stylesheet" href="~/css/ShowFields.css" />
+    <link rel="stylesheet" href="~/css/PumpHouse.css" />
+    <link rel="stylesheet" href="~/css/element-ui-global.css" />
+    <link rel="stylesheet" href="~/css/loading.css"/>
+    <script src="~/js/jquery.min.js">
+        import { time } from "console";
+    </script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/lib/vue/vue.js"></script>
+    <script type="text/javascript" src="~/lib/element-ui/index.js"></script>
+    <script src="~/lib/axios/axios.js"></script>
+    <script src="~/js/request.js"></script>
+    <script src="~/lib/linq/linq.js"></script>
+    <script src="~/js/json.js"></script>
+    <script src="~/js/apiHelper.js"></script>
+    <script src="~/lib/moment/moment.js"></script>
+    <script src="~/js/cookieHelper.js"></script>
+    <link href="~/css/index.css" rel="stylesheet" />
+    <link href="~/css/video-js.css" rel="stylesheet">
+    <link href="~/css/tableColumnDrag.css" rel="stylesheet" />
+    <script type="text/javascript" src='~/js/video.js'></script>
+    <script type="text/javascript" src='~/js/videojs-contrib-hls.js' ></script>
+    <script type="text/javascript" src="~/lib/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="~/js/echarts-collections.js"></script>
+    <script type="text/javascript" src="~/js/menu.js"></script>
+    <script type="text/javascript" src="~/js/library.js"></script>
+    <script type="text/javascript" src="~/lib/jquerySmilebar/js/jquery.smilebar.js"></script>
+    <!--<script type="text/javascript" src="~/lib/jquery-focusImage/js/jquery.focus.image.js"></script>-->
+    <script type="text/javascript" src="~/js/SeedInfo.js"></script>
+    <script type="text/javascript" src="~/js/ShowFieldsPage.js"></script>
+    <script type="text/javascript" src="~/js/GrowthInfoPage.js"></script>
+    <script type="text/javascript" src="~/lib/jquery-ajaxFileUpload/ajaxfileupload.js"></script>
+    <script type="text/javascript" src="~/js/ezuikit.js"></script>
+    <script type="text/javascript" src="~/js/DateDiffMethod.js"></script>
+    <script type="text/javascript" src="~/js/urlEncodeAndDecode.js"></script>
+    <script type="text/javascript" src="~/js/pumpHouseInfoObj.js"></script>
+    <script type="text/javascript" src="~/js/tableColumnDrag.js"></script>
+    @*<script type="text/javascript" src="~/js/liveplayer-element.min.js"></script>*@
+    <style type="text/css">
+        #crops-list {
+            width: 39%;
+            position: absolute;
+            min-height: 35px;
+            height: auto !important;
+            top: 5vh;
+            font-family: "Microsoft YaHei UI";
+            font-size: 1vw;
+            /* color: #51B0E8; */
+            font-weight: 700;
+            display: none;
+            left: 9vw;
+            border-radius: 27px;
+            border: 2px solid #15aae1fc;
+            background-color: #00165a;
+            z-index: 50;
+            float: left;
+        }
+
+            #crops-list .crops-item {
+                width: 98%;
+                height: 5%;
+                margin-top: 0.5%;
+                margin-left: 1%;
+                margin-bottom: 0.6%;
+                font-family: 'Microsoft YaHei';
+                font-size: 1.1vw;
+                color: #11b1e1a6;
+                cursor: pointer;
+                text-align: center;
+                font-weight: 700;
+                margin: 0 auto;
+            }
+
+                #crops-list .crops-item:hover {
+                    color: #e42020;
+                }
+
+        #year-list {
+            width: 39%;
+            position: absolute;
+            min-height: 35px;
+            height: auto !important;
+            top: 5vh;
+            font-family: "Microsoft YaHei UI";
+            font-size: 1vw;
+            /* color: #51B0E8; */
+            font-weight: 700;
+            display: none;
+            left: 1vw;
+            border-radius: 27px;
+            border: 2px solid #15aae1fc;
+            background-color: #00165a;
+            z-index: 50;
+            float: left;
+        }
+
+            #year-list .year-item {
+                width: 98%;
+                height: 5%;
+                margin-top: 0.5%;
+                margin-left: 1%;
+                margin-bottom: 0.6%;
+                font-family: 'Microsoft YaHei';
+                font-size: 1.1vw;
+                color: #11b1e1a6;
+                cursor: pointer;
+                text-align: center;
+                font-weight: 700;
+                margin: 0 auto;
+            }
+
+                #year-list .year-item:hover {
+                    color: #e42020;
+                }
+
+        [v-cloak] {
+            display:none;
+        }
+    </style>
+</head>
+<!--主页面和主菜单-->
+<body>
+    <div style="margin-top:0.6%;" id="app" v-cloak>
+        <el-container>
+            <el-header>
+                <div class="logo">
+                    <div id="titleLeft">
+                        <div class="time-container">
+                            <div class="time-text">
+                                {{timestr}}
+                            </div>
+                            <div class="date-text">
+                                {{datestr}}
+                            </div>
+                        </div>
+                        <div v-show="menuModels[0]!=null" :class="menuModels[0].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                            @*<a href="http://8.142.16.236:6004/" target="_self">产业一张图</a>*@
+                            <a :href="menuModels[0].uri" target="_self">{{menuModels[0].name}}</a>
+                        </div>
+                        <div v-show="menuModels[1]!=null" :class="menuModels[1].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                            @*<a href="http://8.142.16.236:6006/" target="_self">智慧大田</a>*@
+                            <a :href="menuModels[1].uri" target="_self">{{menuModels[1].name}}</a>
+                        </div>
+                        <div v-show="menuModels[2]!=null" :class="menuModels[2].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                            @*<a href="http://8.142.16.236:6009/" target="_self">智慧大棚</a>*@
+                            <a :href="menuModels[2].uri" target="_self">{{menuModels[2].name}}</a>
+                        </div>
+                    </div>
+                    <div id="homeTitle">
+                        <div class="centerTitle"></div>
+                    </div>
+                    <div id="titleRight">
+                        <div :class="menuModels[3].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                            <a :href="menuModels[3].id==currentModelsId?'#':menuModels[3].uri" target="_self">{{menuModels[3].name}}</a>
+                        </div>
+                        <div :class="menuModels[4].id==currentModelsId?'title_nav_click':'title_nav_normal'">
+                            <a :href="menuModels[4].id==currentModelsId?'#':menuModels[4].uri" target="_self">{{menuModels[4].name}}</a>
+                        </div>
+                        <div @@mouseover="showMoreMenu" id="more-menu" class="title_nav_normal">
+                            更多管理&#9660;
+                            <div @@mouseout="hideMoreMenu" class="pop-more-maste-menu">
+                                @*<div class="menu-item">
+                                    <a href="http://8.142.16.236:6010/" target="_self">
+                                        农事管理
+                                    </a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="http://8.142.16.236:7002" target="_self">
+                                        水肥一体化
+                                    </a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="http://8.142.16.236:6018" target="_self">
+                                        人员管理
+                                    </a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="http://8.142.16.236:6017/" target="_self">
+                                        视频监控
+                                    </a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="http://8.142.16.236:6015/" target="_self">
+                                        灾害防控
+                                    </a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="http://8.142.16.236:6014/" target="_self">
+                                        智慧农机
+                                    </a>             
+                                </div>
+                                <div class="menu-item">
+                                    <a href="http://8.142.16.236:6020/" target="_self">
+                                        仓储管理
+                                    </a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="http://8.142.16.236:6011/" target="_self">
+                                        植保信息
+                                    </a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="http://8.142.16.236:6013/" target="_self">
+                                        农业专家
+                                    </a>
+                                </div>
+                                <div class="menu-item">
+                                    <a href="http://8.142.16.236:6019/" target="_self">
+                                        溯源系统
+                                    </a>
+                                </div>*@
+                                <div v-for="(item,index) in hideMenus" class="menu-item">
+                                    <a :href="item.uri" target="_self">
+                                       {{item.name}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-container">
+                            <img src="~/images/newhome/account.png" />
+                            <div :title="userName" class="content">
+                                {{userName}}
+                            </div>
+                            <div class="arrow">
+                                &#9660;
+                            </div>
+                            <!--弹出菜单-->
+                            <div class="pop-menu">
+                                <div @@click="exitLogin" class="pop-menu-item">
+                                    退出
+                                </div>
+                            </div>
+                            <!--/弹出菜单-->
+                        </div>
+                    </div>
+                </div>
+            </el-header>
+        </el-container>
+        @*模板页里面内容页的位置*@
+        @RenderBody()
+    </div>
+    <!--加载提示-->
+    <div class="is-loading">
+        <div class="curtain">
+            <div class="loader">
+            </div>
+        </div>
+    </div>
+    <!--/加载提示-->
+</body>
+</html>
+@{
+    string CurrentAction = Convert.ToString(ViewData["Action"]);
+}
+<script>
+    $(document).ready(function(){
+        var currentPage='@CurrentAction';
+        if(currentPage=='Home')
+        {
+            var myVideo = videojs('myPlayer1', {
+                bigPlayButton: true,
+                textTrackDisplay: false,
+                posterImage: false,
+                errorDisplay: false
+            });
+            myVideo.play();
+        }
+    });
+</script>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            currentAction: '@CurrentAction',
+            timestr: "",
+            datestr: "",
+            userName: '123',
+            chartType: 1,
+            growthinfoSearchWhere: '',
+            growthinfoSearchStartTime: '',
+            growthinfoSearchEndTime: '',
+            growthinfoSearchSortField: 'ModifiedDateTime',
+            growthinfoSearchSortMethod: 'DESC',
+            growthinfoPageData: [],
+            growthinfoDialog: false,
+            growthinfoSelectionIDStr: "",
+            cycleName: null,
+            seedInfoSearchWhere: '',
+            showFieldsSearchWhere: '',
+            seedInfoSearchStartTime: '',
+            seedInfoSearchEndTime: '',
+            seedInfoPageData: [],
+            seedInfoEditDialog: false,
+            seedInfoAction: 'Add',
+            seedInfoSelectionIDStr: "",
+            pumpInfoSelectionIDStr: "",
+            screenWidth: null,
+            screenHeight: null,
+            inputDateTime: '',
+            currentGrowthTab: 'parameter',
+            searchCondition: {
+                text: '请选择搜索条件',
+                value: ''
+            },
+            cycleArray: [
+                {
+                    label: '播种',
+                    value: '播种'
+                },
+                {
+                    label: '生长',
+                    value: '生长'
+                },
+                {
+                    label: '成熟',
+                    value: '成熟'
+                },
+                {
+                    label: '采收',
+                    value: '采收'
+                },
+                {
+                    label: '存储',
+                    value: '存储'
+                }
+            ],
+            selectedPumpValue: null,
+            pumpData: [
+                {
+                    label: '泵房信息',
+                    value: ''
+                }
+            ],
+            selectedSeedInfoValue: null,
+            selectedSeedInfoName: '',
+            seedInfoData: [
+                {
+                    label: '农作物信息',
+                    value: ''
+                }
+            ],
+            showFieldsCondition: [
+                {
+                    text: '请选择搜索条件',
+                    value: ''
+                },
+                {
+                    text: '记录编号',
+                    value: 'RecordId'
+                },
+                {
+                    text: '设备',
+                    value: 'Device'
+                },
+                {
+                    text: '测点',
+                    value: 'PointId'
+                },
+                {
+                    text: '字段名',
+                    value: 'FieldName'
+                },
+                {
+                    text: '显示名称',
+                    value: 'ShowFieldName'
+                },
+            ],
+            ShowFields: {
+                CompanyId: '',
+                Where: "",
+                Condition: "",
+                PageIndex: 1,
+                PageSize: 10,
+                PageData: [],
+                PageCount: 0,
+                RecordCount: 0,
+                SortField: "",
+                SortMethod: ""
+            },
+            ShowFieldsApiData:[],
+            ShowFieldsApiDataNum:0,
+            ShowFieldsApiDataChoose:null,
+            num: 0,
+            SeedInfo: {
+                StartTime: "",
+                EndTime: "",
+                QueryWhere: "",
+                PageIndex: 1,
+                PageSize: 10,
+                PageData: [],
+                PageCount: 0,
+                RecordCount: 0,
+                Action: 'Add',
+                apiData: {
+                    cropsId: "",
+                    companyId: "",
+                    seedName: "",
+                    seedVariety: "",
+                    seedClass: "",
+                    plantArea: "",
+                    createdDateTime: "",
+                    modifiedDateTime: "",
+                    introduce:"",
+                    soilType:""
+                }
+            },
+            GrowthInfo: {
+                CompanyId: '',
+                where: '',
+                startTime: '',
+                endTime: '',
+                sortField: '',
+                sortMethod: '',
+                pageIndex: 1,
+                pageSize: 10,
+                PageData: [],
+                PageCount: 0,
+                RecordCount: 0
+            },
+            growthInfoAction: 'Add',
+            //生长信息编辑数据
+            growthEditData: {
+                companyId: '',
+                recordId: '',
+                pumpId: '',
+                cropsId: '',
+                seedName: '',
+                growthName: '',
+                plantHeight: '',
+                dbh: '',
+                numberOfBlades: '',
+                emergenceRate: '',
+                landName: '',
+                pumpHouseName: '',
+                seedName: '',
+                createdDateTime: '',
+                modifiedDateTime: ''
+            },
+            SearchWhere: '',
+            SearchStartTime: '',
+            SearchEndTime: '',
+            userInfo: {
+                Account: '',
+                CompanyId: '',
+                Level: ''
+            },
+            growthFileData: [],
+            cropsIndexList: [],
+            cropsDefaultYear: '2022',
+            //首页搜索框搜索值
+            homeSearchKeyWord:'',
+            //首页农作物下拉框选中值
+            cropsDefault: {
+                cropsId: '',
+                cropsName: ''
+            },
+            //首页年份下拉框选中值
+            growthCurrentYear:2022,
+            growthAllYear:[],
+            currentGrowth:{
+                growthName:'seedling',
+                showName:'播种'
+            },
+            homePictureParameter:[
+                {
+                    parameterName:'',
+                    parameterValue:''
+                }
+            ],
+            currentPumpHouse:{
+                pumpId:'',
+                pumpHouseName:'',
+                seedInfo:{
+                    seedInfo:{
+                        cropsId:'',
+                        companyId:'',
+                        seedName:'',
+                        seedVariety:'',
+                        seedClass:'',
+                        plantArea:'',
+                        createdDateTime:'',
+                        modifiedDateTime:'',
+                        introduce:'',
+                        soilType:''
+                    },
+                    landName:'',
+                    seedInfoFiles:[
+                        {
+                            fileInfo:{
+                                fileId:'',
+                                cropsId:'',
+                                growthRecordId: '',
+                                fileName:'',
+                                fileUrl:'',
+                                fileLength:'',
+                                createdDateTime: '',
+                                showParamJson: ''
+                            }
+                        }
+                    ]
+                },
+            },
+            //首页数据
+            HomeData:{
+                pumpHouse:[
+                    {
+                        pumpHouseInfo:{
+                            pumpId:'',
+                            companyId:'',
+                            pumpHouseName:'',
+                            pumpHouseClass: '',
+                            personIinCharge: '',
+                            createdDateTime: '',
+                            modifiedDateTime: ''
+                        },
+                        seedInfo:{
+                            seedInfo:{
+                                cropsId:'',
+                                companyId:'',
+                                seedName:'',
+                                seedVariety:'',
+                                seedClass:'',
+                                plantArea:'',
+                                createdDateTime:'',
+                                modifiedDateTime:'',
+                                introduce:'',
+                                soilType:''
+                            },
+                            landName:'',
+                            plantHeight:'',
+                            dbh:'',
+                            numberOfBlades:'',
+                            emergenceRate:'',
+                            seedInfoFiles:[
+                                {
+                                    fileInfo:{
+                                        fileId:'',
+                                        cropsId:'',
+                                        growthRecordId: '',
+                                        fileName:'',
+                                        fileUrl:'',
+                                        fileLength:'',
+                                        createdDateTime: '',
+                                        showParamJson: ''
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            getHomeParam:{
+                companyId:'',
+                year:'',
+                cropsId: '',
+                growthName: '',
+                pumpHouseID:'',
+                where: ''
+            },
+            focusTime:null,
+            focusIndex:0,
+            focusTimeStep:3000,
+            growthFixedValue:[
+                {
+                    growthName:'seedling',
+                    showName:'播种'
+                },
+                {
+                    growthName:'seedlingStage',
+                    showName:'苗期'
+                },
+                {
+                    growthName:'earStage',
+                    showName:'穗期'
+                },
+                {
+                    growthName:'florescence',
+                    showName:'花粒期'
+                },
+                {
+                    growthName:'maturePeriod',
+                    showName:'成熟期'
+                },
+                {
+                    growthName:'recovery',
+                    showName:'采收'
+                },
+                {
+                    growthName:'storage',
+                    showName:'存储'
+                }
+            ],
+            growthFileList:[],
+            headers:{
+               Authorization:"Bearer "+getCookie('token')
+            },
+            plantGrowthCycle:[],
+            growCyclesIndex:0,
+            growCyclesImage:'',
+            growCyclesName:'',
+            growCyclesId:'',
+            plantHeight:'',//株高
+            plantWidth:'',//胸径
+            leafNum:0,//叶片数
+            emeRate:0,//出苗率
+            growTemp:0,//温度
+            growHum:0,//湿度
+            isClickGrowCycles:false,
+            dialogShowParameterIsShow:false,
+            cropsTraceDetailDialog:false,
+            qrcodeUrl: '',
+            logoPath:'/images/logo.png',
+            qrcodeSize:10,//二维码尺寸
+            qrcodeRadom:0,
+            showFieldsApiSearchKey:'',
+            bigPictureViewDialog:false,
+            bigPictureViewSrc:'',
+            PumpHouseInfoPage:{
+                SearchWhere:'',
+                SearchStartTime:'',
+                SearchEndTime:'',
+                PageIndex:1,
+                PageCount:0,
+                PageSize:10,
+                RecordCount:0,
+                ShowEditDialog:false,
+                SortField:'ModifiedDateTime',
+                SortMethod:'DESC',
+                Action:'Add',
+                EditData:new pumpHouseInfoObj(),
+                PageData:[
+                    new pumpHouseInfoObj()
+                ]
+            },
+            currentModelsId:15,//当前模块编号
+            menuModels:[
+                {
+                    id: 1,
+                    name: "产业一张图",
+                    uri: "#"
+                },
+                {
+                    id: 2,
+                    name: "智慧大田",
+                    uri: "#"
+                },
+                {
+                    id: 3,
+                    name: "智慧大棚",
+                    uri: "#"
+                },
+                {
+                    id: 4,
+                    name: "智能预警",
+                    uri: "#"
+                },
+                {
+                    id: 5,
+                    name: "深思大脑",
+                    uri: "#"
+                }
+            ],
+            hideMenus:[],
+            timeHandle:null
+        },
+        mounted: function() {
+            var _that = this;
+            this.Refresh(true);
+            this.initModules();
+            this.screenWidth = document.body.clientWidth;
+            this.screenHeight = document.body.clientHeight;
+            window.onresize = () => {
+                return (() => {
+                    this.screenWidth = document.body.clientWidth;
+                    this.screenHeight = document.body.clientHeight;
+                    this.elTableScroll();
+                })();
+            };
+            $("#weatherWarningRecordListContent").mouseover(function() {
+                if (_that.scrollAlertFirstDataTime != null)
+                    window.clearInterval(_that.scrollAlertFirstDataTime);
+            });
+            $("#weatherWarningRecordListContent").mouseout(function() {
+                _that.scrollAlertFirstData();
+            });
+            this.elTableScroll();
+            switch (this.currentAction) {
+                case "SeedInfo":
+                     _that.$nextTick(()=>{
+                         $('.curtain').hide();
+                     });
+                     $('.curtain').hide();
+                    _that.SeedInfo = new SeedInfoPage();
+                    _that.InitSeedInfoPage();
+                    break;
+                case "ShowFields":
+                     _that.$nextTick(()=>{
+                         $('.curtain').hide();
+                     });
+                     if(_that.userInfo.Level>3)
+                        $(".button-container").hide();
+                     else
+                        $(".button-container").show();
+                     $('.curtain').hide();
+                    _that.ShowFields = new ShowFieldsPage();
+                    _that.InitShowFieldsPage();
+                    break;
+                case "GrowthInfo":
+                     if(_that.userInfo.Level>3)
+                        $(".button-container").hide();
+                     else
+                        $(".button-container").show();
+                     _that.$nextTick(()=>{
+                         $('.curtain').hide();
+                     });
+                     $('.curtain').hide();
+                    _that.GrowthInfo = new GrowthInfoPage();
+                    _that.InitGrowthInfoPage();
+                    _that.InitDropdownSeedInfo();
+                    _that.InitDropdownPumpHouseInfo();
+                    break;
+                case "Home":
+                     _that.$nextTick(()=>{
+                         $('.curtain').hide();
+                     });
+                    _that.InitIndexCrops();
+                    //_that.loadingInterfaceGrowCycles();
+                    _that.InitGrowthAllYear();
+                    _that.InitHome();
+                    break;
+                case "PumpHouse":
+                     _that.$nextTick(()=>{
+                         $('.curtain').hide();
+                     });
+                     $('.curtain').hide();
+                     _that.InitPumpHouseInfoPage();
+                    break;
+            }
+            this.$nextTick(function() {
+                if($("#PageDataTable").length>0)
+                   Drag("#PageDataTable");
+            });
+        },
+        methods: {
+            deletePumpHouse(){
+                var _that=this;
+                var IDStr = _that.pumpInfoSelectionIDStr;
+                this.getLoginAccountUserInfo();
+                if(this.userInfo.Level>3)
+                {
+                    alert('用户权限不足');
+                    return false;
+                }
+                if (IDStr == "") {
+                    alert("请先选择至少一条数据");
+                    return;
+                }
+                if (confirm("确定删除选中的数据吗[注意:删除泵房会同时删除泵房关联的数据]?")) {
+                    apiHelper.deletePumpInfo(
+                        IDStr,
+                        function(response) {
+                            console.log("deletePumpInfo");
+                            console.log(response);
+                            if (response.data.status == 0) {
+                                _that.PumpHouseInfoPage.PageIndex = 1;
+                                _that.InitPumpHouseInfoPage();
+                            }
+                        }
+                    );
+                }
+            },
+            clearPumpHouseDialog(){
+                var _that=this;
+                _that.PumpHouseInfoPage.EditData=new pumpHouseInfoObj();
+            },
+            savePumpHouse(){
+                var _that=this;
+                var CompanyId="";
+                var saveData=_that.PumpHouseInfoPage.EditData;
+                _that.getLoginAccountUserInfo();
+                pumpId=saveData.pumpId;
+                CompanyId=_that.userInfo.CompanyId;
+                saveData.companyId=CompanyId;
+                saveData.personIinCharge=_that.userInfo.Account;
+                if(saveData.companyId=='')
+                {
+                    alert('公司编号不能为空');
+                    return false;
+                }
+                if(saveData.pumpHouseName=='')
+                {
+                    alert('泵房名称不能为空');
+                    return false;
+                }
+                if(_that.PumpHouseInfoPage.Action=='Add'){                    
+                    apiHelper.addPumpHouse(
+                        saveData,
+                        function(response){
+                            if(response.data.status==0){
+                                alert('保存成功');
+                                _that.PumpHouseInfoPage.ShowEditDialog=false;
+                                _that.InitPumpHouseInfoPage();
+                            }
+                        });
+                }else if(_that.PumpHouseInfoPage.Action=='Edit'){
+                    apiHelper.editPumpHouse(
+                        pumpId,
+                        saveData,
+                        function(response){
+                            if(response.data.status==0){
+                                alert('保存成功');
+                                _that.PumpHouseInfoPage.ShowEditDialog=false;
+                                _that.InitPumpHouseInfoPage();
+                            }
+                        });
+                }
+            },
+            initModules() {
+                var _that=this;
+                var modules=window.localStorage[_that.userName+'modules'];
+                if(modules==null||modules.length<=0||typeof(modules)=='undefined')
+                {
+                    /*apiHelper.getModules(
+                        function(response){
+                            _that.menuModels=response.data.result;
+                            _that.fillMenuModelsArray();
+                            window.localStorage.setItem(_that.userName+'modules',JSON.stringify(_that.menuModels));
+                        }
+                    );*/
+                   _that.readLocalModules();
+                   _that.fillMenuModelsArray();
+                }
+                else
+                {
+                    _that.menuModels=JSON.parse(modules);
+                    _that.fillMenuModelsArray();
+                }
+            },
+            readLocalModules() {
+                var _that = this;
+                $.getJSON(
+                    "/MainMenuModels.json",
+                    function (jsonData) {
+                        console.log("readLocalModules");
+                        console.log(jsonData);
+                        _that.menuModels = jsonData.menuModels;
+                        _that.readLocalHideMenus();
+                    }
+                );
+            },
+            fillMenuModelsArray(){
+                var _that=this;
+                if(_that.menuModels==null||typeof(_that.menuModels)=="undefined"||_that.menuModels.length<5)
+                    return false;
+                for(var i=5;i<_that.menuModels.length;i++){
+                    if(_that.currentModelsId==_that.menuModels[i].id){
+                        _that.menuModels[i].uri="#";
+                    }
+                    _that.hideMenus.push(_that.menuModels[i]);
+                }
+            },
+            readLocalHideMenus() {
+                var _that = this;
+                $.getJSON(
+                    "/HideMenus.json",
+                    function (jsonData) {
+                        console.log("readLocalHideMenus");
+                        console.log(jsonData);
+                        _that.hideMenus = jsonData.hideMenus;
+                    }
+                );
+            },
+            editPumpHouseDialog(editData){
+                var _that=this;
+                //console.log("editPumpHouseDialog");
+                //console.log(editData);
+                _that.PumpHouseInfoPage.Action='Edit';
+                _that.PumpHouseInfoPage.EditData=editData;
+                _that.PumpHouseInfoPage.ShowEditDialog=true;
+            },
+            //保存农作物信息
+            saveSeedInfoData() {
+                var checkEmptyMessage = '';
+                var _that = this;
+                this.getLoginAccountUserInfo();
+                this.SeedInfo.apiData.companyId = this.userInfo.CompanyId;
+                if (this.SeedInfo.apiData.companyId == '')
+                    checkEmptyMessage += "公司编号、";
+                if (this.SeedInfo.apiData.SeedName == '')
+                    checkEmptyMessage += "农作物名称、";
+                if (this.seedInfoAction == "Edit") {
+                    if (this.SeedInfo.apiData.cropsId == '')
+                        checkEmptyMessage += "农作物编号、";
+                }
+                if (checkEmptyMessage != "") {
+                    checkEmptyMessage = checkEmptyMessage.substr(0, checkEmptyMessage.length - 1);
+                    alert("非空验证出错，原因[" + checkEmptyMessage + "]不能为空");
+                }
+                this.SeedInfo.apiHelper = apiHelper;
+                this.SeedInfo.Action = this.seedInfoAction;
+                this.SeedInfo.saveSeedInfo(
+                    function(response) {
+                        if (response.data.status == 0) {
+                            _that.seedInfoEditDialog = false;
+                            _that.SeedInfo.PageIndex = 1;
+                            _that.InitSeedInfoPage();
+                        }
+                    }
+                );
+            },
+            showPumpHouseDialog(){
+                this.getLoginAccountUserInfo();
+                if(this.userInfo.Level>3)
+                {
+                    alert('用户权限不足');
+                    return false;
+                }
+                this.PumpHouseInfoPage.EditData=new pumpHouseInfoObj();
+                this.PumpHouseInfoPage.Action='Add';
+                this.PumpHouseInfoPage.ShowEditDialog=true;
+            },
+            showAddParamterDialog(){
+                var _that=this;
+                if(_that.userInfo.Level>3)
+                {
+                    alert('用户权限不足');
+                    return false;
+                }
+                _that.dialogShowParameterIsShow=true;
+                _that.loadInterfacePoints();
+            },
+            showTraceDetailDialog(){
+                var _that=this;
+                _that.cropsTraceDetailDialog=true;
+            },
+            loadInterfacePoints(){
+                var _that=this;
+                apiHelper.InterfaceGetPoints(
+                  _that.showFieldsApiSearchKey,
+                  function(response){
+                      if(response.data.status==0){
+                          _that.ShowFieldsApiDataNum+=1;
+                          _that.ShowFieldsApiData=response.data.result;
+                          _that.elTableScroll();
+                      }
+                  }
+                );
+            },
+            chroseShowFieldsApi(ApiRowData){
+                var _that=this;
+                var addData={
+                    recordId: "",
+                    companyId: "",
+                    device: "",
+                    pointId: "",
+                    fieldName: "",
+                    showFieldName: "",
+                    unit: "",
+                    isShow: "",
+                    id: "",
+                    value: "",
+                    updateTime: "",
+                    deviceCode: "",
+                    deviceName: "",
+                    name: ""
+                };
+                _that.Refresh();
+                _that.getLoginAccountUserInfo();
+                if (_that.userInfo.CompanyId == null || _that.userInfo.CompanyId == undefined || _that.userInfo.CompanyId == "") {
+                    return;
+                }
+                //console.log("chroseShowFieldsApi");
+                //console.log("ApiRowData");
+                //console.log(ApiRowData);
+                addData.companyId=_that.userInfo.CompanyId;
+                addData.id=ApiRowData.id.toString();
+                addData.device=ApiRowData.deviceName;
+                addData.pointId=ApiRowData.id.toString();
+                addData.fieldName=ApiRowData.name;
+                addData.showFieldName=ApiRowData.name;
+                addData.unit=ApiRowData.unit;
+                addData.isShow="0";
+                addData.value=ApiRowData.value;
+                addData.updateTime=ApiRowData.updateTime;
+                addData.deviceCode=ApiRowData.deviceCode;
+                addData.deviceName=ApiRowData.deviceName;
+                addData.name=ApiRowData.name;
+                //console.log(addData);
+                _that.addShowFields(
+                   addData,
+                   function(response){
+                       if(response.data.status==0)
+                       {
+                          alert('添加成功');
+                          _that.showFieldsSearch();
+                          _that.dialogShowParameterIsShow=false;
+                       }
+                   }
+                );
+            },
+            addShowFields(addData,callback){
+                var _that=this;
+                apiHelper.addShowFields(
+                    addData,
+                    function(response){
+                        callback(response)
+                    }
+                );
+            },
+            showBigPictureViewDialog(imgSrc){
+                var _that=this;
+                _that.bigPictureViewSrc=imgSrc;
+                _that.bigPictureViewDialog=true;
+            },
+            InitDropdownPumpHouseInfo(){
+                var _that=this;
+                _that.Refresh();
+                _that.getLoginAccountUserInfo();
+                if (_that.userInfo.CompanyId == null || _that.userInfo.CompanyId == undefined || _that.userInfo.CompanyId == "") {
+                    return;
+                }
+                _that.pumpData=[];
+                apiHelper.pumpHouseAutoComplate(
+                    _that.userInfo.CompanyId,
+                    "all",
+                    10,
+                    function(response){
+                        if(response.data.status==0){
+                            var result=response.data.result;
+                            for(var i=0;i<result.length;i++)
+                            {
+                                _that.pumpData.push({
+                                    label:result[i].pumpHouseName,
+                                    value:result[i].pumpId
+                                });
+                            }
+                        }
+                    }
+                );
+            },
+            InitDropdownSeedInfo(){
+                var _that=this;
+                _that.Refresh();
+                _that.getLoginAccountUserInfo();
+                if (_that.userInfo.CompanyId == null || _that.userInfo.CompanyId == undefined || _that.userInfo.CompanyId == "") {
+                    return;
+                }
+                _that.seedInfoData=[];
+                apiHelper.seedInfoAutoComplate(
+                    _that.userInfo.CompanyId,
+                    "all",
+                    3,
+                    function(response){
+                        if(response.data.status==0){
+                            var result=response.data.result;
+                            for(var i=0;i<result.length;i++)
+                            {
+                                _that.seedInfoData.push({
+                                    label:result[i].seedName,
+                                    value:result[i].cropsId
+                                });
+                            }
+                        }
+                    }
+                );
+            },
+            //读取接口生长周期
+            loadingInterfaceGrowCycles(){
+                var _that=this;
+                var currentCropsId=_that.cropsDefault.cropsId;
+                //console.log("loadingInterfaceGrowCycles");
+                //console.log("currentCropsId="+currentCropsId);
+                //console.log("cropsDefault");
+                //console.log(_that.cropsDefault);
+                apiHelper.QueryGrowCycles(
+                    currentCropsId,
+                    function(response){
+                        if(response.data.status==0){
+                            //console.log(response.data.result);
+                            _that.plantGrowthCycle=response.data.result;
+                            _that.getCurrentPlantGrowthCycle();
+                        }
+                    }
+                );
+            },
+            InterfaceGrowCyclesData(growId){
+                var _that=this;
+                //console.log("_that.growCyclesIndex="+_that.growCyclesIndex);
+                //console.log("_that.growCyclesName="+_that.growCyclesName);
+                //console.log("_that.growCyclesImage="+_that.growCyclesImage);
+                //console.log("_that.growCyclesId="+_that.growCyclesId);
+                //console.log(growId);
+                apiHelper.InterfaceGrowCycles(
+                    growId,
+                    function(response){
+                        //console.log("_that.InterfaceGrowCyclesData");
+                        //console.log(response);
+                        if(response.data.status==0){
+                            var tempGrowInfoItem=response.data.result[0];
+                            if(tempGrowInfoItem!=null){
+                                //console.log("tempGrowInfoItem");
+                                //console.log(tempGrowInfoItem);
+                                _that.plantHeight=tempGrowInfoItem.plantHeight;
+                                _that.leafNum=tempGrowInfoItem.leafNum;
+                                _that.plantWidth=tempGrowInfoItem.plantWidth;
+                                _that.emeRate=tempGrowInfoItem.emeRate;
+                                _that.growTemp=tempGrowInfoItem.temp;
+                                _that.growHum=tempGrowInfoItem.hum;
+                            }
+                        }
+                    }
+                );
+            },
+            //判断生长周期
+            getCurrentPlantGrowthCycle(){
+                var _that=this;
+                var dateTimeNow=new Date();
+                var dateStr='';
+                var growthCycle=_that.plantGrowthCycle;
+                dateStr=dateTimeNow.getFullYear()+'-';
+                dateStr+=_that.fixLeadingZero(dateTimeNow.getMonth()+1,2)+'-';
+                dateStr+=_that.fixLeadingZero(dateTimeNow.getDate(),2);
+                if(growthCycle==null||(growthCycle.length==null||growthCycle.length<=0)){
+                    _that.growCyclesName="无数据";
+                    _that.growCyclesImage="";
+                   return false;
+                }
+                for(var i=0;i<growthCycle.length;i++){
+                    var startTime=growthCycle[i].startTime;
+                    var endTime=growthCycle[i].endTime;
+                    if(DateDiff("day",startTime,dateStr)<=0&&DateDiff("day",endTime,dateStr)>=0&&_that.isClickGrowCycles==false){
+                        _that.growCyclesIndex=i;
+                        _that.growCyclesId=growthCycle[i].id;
+                        _that.growCyclesName=growthCycle[i].name;
+                        _that.growCyclesImage="http://8.142.16.236:6010"+growthCycle[i].image;
+                        break;
+                    }
+                    else if(_that.isClickGrowCycles&&growthCycle[i].name.indexOf(_that.currentGrowth.showName)!=-1){
+                        _that.growCyclesIndex=i;
+                        _that.growCyclesId=growthCycle[i].id;
+                        _that.growCyclesName=growthCycle[i].name;
+                        _that.growCyclesImage="http://8.142.16.236:6010"+growthCycle[i].image;
+                        break;
+                    }
+                }
+                if(_that.growCyclesIndex==-1)
+                {
+                    _that.growCyclesName="无数据";
+                    _that.growCyclesImage="";
+                }
+                //console.log("_that.growCyclesIndex="+_that.growCyclesIndex);
+                //console.log("_that.growCyclesName="+_that.growCyclesName);
+                //console.log("_that.growCyclesImage="+_that.growCyclesImage);
+                //console.log("_that.growCyclesId="+_that.growCyclesId);
+                _that.InterfaceGrowCyclesData(_that.growCyclesId);
+                if(_that.isClickGrowCycles==false)
+                   _that.setGrowCycles();
+            },
+            setGrowCycles(){
+                var _that=this;
+                for(var i=0;i<_that.growthFixedValue.length;i++){
+                    var growFixedItem=_that.growthFixedValue[i];
+                    if(_that.growCyclesName.indexOf(growFixedItem.showName)!=-1)
+                    {
+                        _that.currentGrowth.growthName = growFixedItem.growthName;
+                        _that.currentGrowth.showName = growFixedItem.showName;
+                    }
+                }
+            },
+            //文件上传成功的函数
+            uploadSuccess(response,file,filesList){
+                var _that=this;
+                //console.log("uploadSuccess");
+                //console.log("response");
+                //console.log(response);
+                //console.log("file");
+                //console.log(file);
+                //console.log("filesList");
+                //console.log(filesList);
+                //console.log("growthFileList");
+                //console.log(_that.growthFileList);
+                if(filesList.length>=9)
+                   $(".el-upload--picture-card").hide();
+                if(filesList!=null&&filesList.length>0){
+                    if(_that.growthFileData==null)
+                       _that.growthFileData=[];
+                    if(_that.growthFileData.length>=0&&_that.growthFileData.length<=9)
+                    {
+                            _that.growthFileData.push({
+                               fileId:file.uid,
+                               cropsId:_that.growthEditData==null?'':_that.growthEditData.cropsId,
+                               growthRecordId:'',
+                               fileName:file.response.data.title,
+                               fileUrl:file.response.data.src,
+                               fileLength:file.size,
+                               createdDateTime:formatDate(new Date()),
+                               showParamJson:''
+                            });
+                    }
+                }
+                _that.elTableScroll();
+            },
+            //判断文件类型并且限制上传文件的大小
+            beforeAvatarUpload(file) {
+                const isJPG = file.type === "image/jpg";
+                const isPng = file.type==="image/png";
+                const isJpeg = file.type==="image/jpeg";
+
+                //1MB=1024*1024(1MB=1024KB 1KB=1024MB)
+                const is10mb = file.size/1024/1024<10;
+
+                //限制文件上传类型
+                if (!isJPG && !isPng && !isJpeg) {
+                    this.$message.error("上传图片只能是 png,jpg,jpeg 格式!");
+                    return false;
+                }
+
+                //限制文件上传大小
+                if (!is10mb) {
+                    this.$message.error("上传图片大小不能超过 10mb!");
+                    return false;
+                }
+                return true;
+            },
+            homeSearch(){
+                this.InitHome();
+            },
+            homeFocusImage(){
+                var _that=this;
+                var timejg = 3000; //轮播间隔时间
+                var size = 0;
+                if(_that.focusTime!=null)
+                    clearInterval(_that.focusTime);
+                _that.focusIndex=0;
+                if(_that.currentPumpHouse.seedInfo.seedInfoFiles==null||_that.currentPumpHouse.seedInfo.seedInfoFiles.length<=0)
+                   return;
+                size=_that.currentPumpHouse.seedInfo.seedInfoFiles.length;
+                //console.log("size:"+size);
+                //for (var i = 1; i <= size; i++) {
+                //    $('.box_tab').append('<a href="javascript:(void)"></a>');
+                //}
+                $('.box_img ul li').eq(0).show();
+                $('.box_tab a').eq(0).addClass('active')
+                $('.box_tab a').mouseover(function () {
+                    $(this).addClass('active').siblings().removeClass('active');
+                    //console.log(".box_tab a this");
+                    //console.log(this);
+                    var index = $(this).index();
+                    i = index;
+                    $('.box_img ul li').eq(index).stop().fadeIn(300).siblings().stop().fadeOut(300);
+                });
+                _that.focusIndex = 0;
+                //_that.focusTime = window.setInterval(_that.homeFocusMoveImage, timejg);
+                _that.homeFocusMoveImage();
+            },
+            homeFocusItemMouseOver(index){
+                var _that=this;
+                clearInterval(_that.focusTime);
+                _that.focusIndex=index;
+                var i=_that.focusIndex;
+                $('.box_tab a').eq(i).addClass('active').siblings().removeClass('active');
+                $('.box_img ul li').eq(i).fadeIn(300).siblings().fadeOut(300);
+                if(_that.currentPumpHouse.seedInfo.seedInfoFiles==null||_that.currentPumpHouse.seedInfo.seedInfoFiles.length<=0)
+                    return;
+                var parameterStr=_that.currentPumpHouse.seedInfo.seedInfoFiles[_that.focusIndex].fileInfo.showParamJson;
+                _that.pictureParameterAnalysis(parameterStr);
+            },
+            homeFocusItemMouseOut(){
+                this.homeFocusMoveImage();
+            },
+            //这个函数写解析图片参数
+            //focusIndex为序号
+            homeFocusMoveImage(){
+                var _that=this;
+                _that.focusTime = window.setInterval(function(){
+                    clearInterval(_that.focusTime);
+                    _that.focusIndex+=1;
+                    var size = 0;
+                    var parameterStr='';
+                    if(_that.currentPumpHouse.seedInfo.seedInfoFiles==null||_that.currentPumpHouse.seedInfo.seedInfoFiles.length<=0)
+                         return;
+                    size=_that.currentPumpHouse.seedInfo.seedInfoFiles.length;
+                    if (_that.focusIndex == size) {
+                        _that.focusIndex = 0;
+                    }
+                    parameterStr=_that.currentPumpHouse.seedInfo.seedInfoFiles[_that.focusIndex].fileInfo.showParamJson;
+                    //console.log("_that.focusIndex");
+                    //console.log(_that.focusIndex);
+                    //console.log("parameterStr")
+                    //console.log(parameterStr);
+                    _that.pictureParameterAnalysis(parameterStr);
+                    var i=_that.focusIndex;
+                    $('.box_tab a').eq(i).addClass('active').siblings().removeClass('active');
+                    $('.box_img ul li').eq(i).fadeIn(300).siblings().fadeOut(300);
+                    _that.homeFocusMoveImage();
+                },_that.focusTimeStep);
+            },
+            InitHome(){
+                var _that = this;
+                _that.getLoginAccountUserInfo();
+                if (_that.userInfo.CompanyId == null || _that.userInfo.CompanyId == undefined || _that.userInfo.CompanyId == "") {
+                    //alert("用户公司编号不能为空，或者登录过期请重新登录");
+                    return;
+                }
+                _that.getHomeParam.companyId=_that.userInfo.CompanyId;
+                _that.getHomeParam.year=_that.growthCurrentYear.toString();
+                _that.getHomeParam.cropsId=_that.cropsDefault.cropsId;
+                _that.getHomeParam.growthName=_that.currentGrowth.showName;
+                _that.getHomeParam.pumpHouseID='';
+                _that.getHomeParam.where=_that.homeSearchKeyWord;
+                //$('body').addClass('is-loading');
+                _that.$nextTick(()=>{
+                    $('.curtain').show();
+                });
+                apiHelper.getHome(
+                    _that.getHomeParam,
+                    function(){
+                        //加载代码
+                        _that.$nextTick(()=>{
+                            $('.curtain').show();
+                        });                        
+                    },
+                    function(response){
+                        _that.$nextTick(()=>{
+                            $('.curtain').hide();
+                        });
+                        $('.curtain').hide();
+                        if (response.data.status == 0){
+                            //console.log(response);
+                            _that.HomeData=response.data.result;
+                            //console.log("_that.HomeData");
+                            //console.log(_that.HomeData);
+                            if(_that.HomeData.pumpHouse!=null&&_that.HomeData.pumpHouse.length>0)
+                            {
+                                var firstPumpHouse=_that.HomeData.pumpHouse[0];
+                                _that.getHomeParam.pumpHouseID=firstPumpHouse.pumpHouseInfo.pumpId;
+                                _that.currentPumpHouse.pumpId=firstPumpHouse.pumpHouseInfo.pumpId;
+                                _that.currentPumpHouse.pumpHouseName=firstPumpHouse.pumpHouseInfo.pumpHouseName;
+                                _that.currentPumpHouse.seedInfo=firstPumpHouse.seedInfo;
+                                _that.currentPumpHouse.landName=firstPumpHouse.landName;
+                                _that.currentPumpHouse.seedInfo.seedInfoFiles=firstPumpHouse.seedInfo.seedInfoFiles;
+                                _that.homeFocusImage();
+                                _that.InitQRCodeImage();
+                                //console.log("firstPumpHouse");
+                                //console.log(firstPumpHouse);
+                                //console.log("_that.currentPumpHouse");
+                                //console.log(_that.currentPumpHouse);
+                            }
+                        }
+                    }
+                )
+            },
+            InitQRCodeImage() {
+                var _that = this;
+                _that.qrcodeUrl = '/Mobile/MobilePage?companyId=' + _that.getHomeParam.companyId;
+                _that.qrcodeUrl += '&year=' + _that.getHomeParam.year;
+                _that.qrcodeUrl += '&cropsId=' + _that.getHomeParam.cropsId;
+                _that.qrcodeUrl += '&pumpHouseID=' + _that.currentPumpHouse.pumpId;
+                //_that.qrcodeUrl = urlEndoceAndDecode.UrlEncode(_that.qrcodeUrl);
+                _that.qrcodeUrl = escape(_that.qrcodeUrl);
+                _that.qrcodeRadom = Math.round(Math.random()*10);
+            },
+            pictureParameterAnalysis(parameterStr){
+                if(parameterStr==null||parameterStr==''||parameterStr==undefined)
+                   return;
+                var _that=this;
+                var parameterAry='';
+                try{
+                    parameterAry=JSON.parse(parameterStr);
+                    _that.homePictureParameter=[];
+                    for(var ParameterName in parameterAry)
+                    {
+                        if(typeof(parameterAry[ParameterName])!="function")
+                        {
+                            _that.homePictureParameter.push({
+                                 parameterName:ParameterName,
+                                 parameterValue:parameterAry[ParameterName]
+                            });
+                        }
+                    }
+                }catch(e){
+                    //console.log(e);
+                }
+                //console.log("parameterAry");
+                //console.log(parameterAry);
+            },
+            changePumpHouseInfo(pumpHouseItem){
+                this.currentPumpHouse.pumpId=pumpHouseItem.pumpHouseInfo.pumpId;
+                this.currentPumpHouse.pumpHouseName=pumpHouseItem.pumpHouseInfo.pumpHouseName;
+                this.currentPumpHouse.seedInfo=pumpHouseItem.seedInfo;
+                this.currentPumpHouse.landName=pumpHouseItem.landName;
+                this.currentPumpHouse.seedInfo.seedInfoFiles=pumpHouseItem.seedInfo.seedInfoFiles;
+                this.homeFocusImage();
+                this.InitQRCodeImage();
+            },
+            changeGrowthInfo(growthInfo)
+            {
+                var _that=this;
+                //console.log("changeGrowthInfo");
+                //console.log("growthInfo");
+                //console.log(growthInfo);
+                //console.log("plantGrowthCycle");
+                //console.log(_that.plantGrowthCycle);
+                _that.currentGrowth.growthName = growthInfo.growthName;
+                _that.currentGrowth.showName = growthInfo.showName;
+                _that.isClickGrowCycles=true;
+                //console.log("currentGrowth");
+                //console.log(_that.currentGrowth.showName);
+                for(var i=0;i<_that.plantGrowthCycle.length;i++){
+                    if(_that.plantGrowthCycle[i].name.indexOf(_that.currentGrowth.showName)!=-1)
+                    {
+                       _that.growCyclesId=_that.plantGrowthCycle[i].id;
+                       _that.growCyclesIndex=i;
+                       _that.growCyclesName=_that.plantGrowthCycle[i].name;
+                       _that.growCyclesImage="http://8.142.16.236:6010"+_that.plantGrowthCycle[i].image;
+                       break;
+                    }
+                }
+                //console.log("_that.growCyclesIndex="+_that.growCyclesIndex);
+                //console.log("_that.growCyclesName="+_that.growCyclesName);
+                //console.log("_that.growCyclesImage="+_that.growCyclesImage);
+                //console.log("_that.growCyclesId="+_that.growCyclesId);
+                _that.InterfaceGrowCyclesData(_that.growCyclesId);
+                _that.$nextTick(()=>{
+                    $('.curtain').show();
+                });
+                $('.curtain').show();
+                this.InitHome();
+            },
+            InitGrowthAllYear() {
+                var _that = this;
+                _that.getLoginAccountUserInfo();
+                if (_that.userInfo.CompanyId == null || _that.userInfo.CompanyId == undefined || _that.userInfo.CompanyId == "") {
+                    //alert("用户公司编号不能为空，或者登录过期请重新登录");
+                    return;
+                }
+                apiHelper.getGrowthInfoAllYear(
+                    _that.userInfo.CompanyId,
+                    function(response) {
+                        if (response.data.status == 0)
+                        {
+                            var result = response.data.result;
+                            _that.growthAllYear = result;
+                            _that.growthCurrentYear = result[0];
+                        }
+                    }
+                );
+            },
+            InitIndexCrops() {
+                var _that = this;
+                _that.getLoginAccountUserInfo();
+                _that.cropsIndexList = [];
+                if (_that.userInfo.CompanyId == null || _that.userInfo.CompanyId == undefined || _that.userInfo.CompanyId == "") {
+                    //alert("用户公司编号不能为空，或者登录过期请重新登录");
+                    return;
+                }
+                apiHelper.queryAllSeedInfoByCompanyId(
+                    _that.userInfo.CompanyId,
+                    _that.cropsDefaultYear,
+                    function(response) {
+                        if (response.data.status == 0) {
+                            var result = response.data.result;
+                            _that.cropsDefault.cropsId = result[0].cropsId;
+                            _that.cropsDefault.cropsName = result[0].seedName;
+                            for (var i = 0; i < result.length; i++) {
+                                _that.cropsIndexList.push(result[i]);
+                            }
+                        }
+                    }
+                );
+            },
+            changeIndexCrops(cropsObj) {
+                var _that = this;
+                _that.cropsDefault.cropsId = cropsObj.cropsId;
+                _that.cropsDefault.cropsName = cropsObj.seedName;
+                //console.log("cropsDefault");
+                //console.log(_that.cropsDefault);
+                //_that.loadingInterfaceGrowCycles();
+                _that.$nextTick(()=>{
+                    $('.curtain').show();
+                });
+                $('.curtain').show();
+                _that.InitHome();
+                $("#crops-list").hide();
+            },
+            showIndexCropsList() {
+                if ($("#crops-list").css("display") == "none")
+                    $("#crops-list").show();
+                else
+                    $("#crops-list").hide();
+            },
+            changeCurrentYear(currentYear) {
+                var _that = this;
+                _that.growthCurrentYear = currentYear;
+                //_that.loadingInterfaceGrowCycles();
+                _that.$nextTick(()=>{
+                    $('.curtain').show();
+                });
+                $('.curtain').show();
+                _that.InitHome();
+                $("#year-list").hide();
+            },
+            showYearList() {
+                if ($("#year-list").css("display") == "none")
+                    $("#year-list").show();
+                else
+                    $("#year-list").hide();
+            },
+            //文件加载
+            loadFile(growthId) {
+                var _that = this;
+                _that.growthFileData = [];
+                _that.growthFileList=[];
+                apiHelper.queryFileInfoByGrowthId(
+                    growthId,
+                    function(response) {
+                        if (response.data.status == 0) {
+                            var result = response.data.result;
+                            for (var i = 0; i < result.length; i++){
+                                _that.growthFileData.push(result[i]);
+                                _that.growthFileList.push({
+                                    name:result[i].fileName,
+                                    url:result[i].fileUrl
+                                });
+                            }
+                            //console.log("loadFile");
+                            //console.log("result.length");
+                            //console.log(result.length);
+                            if(result.length>=9)
+                            {
+                               //console.log("el-upload--picture-card-hide");
+                               $(".el-upload--picture-card").hide();
+                            }
+                            else
+                            {
+                               //console.log("el-upload--picture-card-show");
+                               $(".el-upload--picture-card").show();
+                            }
+                            _that.elTableScroll();
+                        }
+                    }
+                );
+            },
+            isUploadLimitMax(files, fileList){
+               alert('请最多上传9个文件');
+            },
+            uploadFileRemove(file, fileList, index){
+                var _that = this;
+                //console.log("uploadFileRemove");
+                //console.log("file");
+                //console.log(file);
+                //console.log("index");
+                //console.log(index);
+                //console.log("fileList");
+                //console.log(fileList);
+                //console.log("growthFileList");
+                //console.log(_that.growthFileList);
+                _that.growthFileData.splice(index, 1);
+                if(_that.growthFileData.length<=9)
+                   $(".el-upload--picture-card").show();
+            },
+            deleteFile(serverFileName) {
+                var _that = this;
+                _that.syncGrowFileList();
+                if (confirm("确定要删除文件'" + serverFileName + "'吗?")) {
+                    //apiHelper.deleteFile(
+                        //serverFileName,
+                        //function(response) {
+                            //if (response.data.status == 0) {
+                                var deleteIndex = -1;
+                                if (_that.growthFileData != null && _that.growthFileData.length > 0) {
+                                    for (var i = 0; i < _that.growthFileData.length; i++) {
+                                        if (_that.growthFileData[i].fileName == serverFileName) {
+                                            deleteIndex = i;
+                                            break;
+                                        }
+                                    }
+                                    if (deleteIndex != -1)
+                                    {
+                                        //console.log("_that.growthFileList");
+                                        //console.log(_that.growthFileList);
+                                        //console.log("_that.growthFileData");
+                                        //console.log(_that.growthFileData);
+                                        _that.growthFileList.splice(deleteIndex, 1);
+                                        _that.growthFileData.splice(deleteIndex, 1);
+                                        //console.log("delete after");
+                                        //console.log("deleteIndex="+deleteIndex);
+                                        //console.log("_that.growthFileList");
+                                        //console.log(_that.growthFileList);
+                                        //console.log("_that.growthFileData");
+                                        //console.log(_that.growthFileData);
+                                    }
+                                    if(_that.growthFileList.length>=9)
+                                       $(".el-upload--picture-card").hide();
+                                    else
+                                       $(".el-upload--picture-card").show();
+                                }
+                            //}
+                        //}
+                    //);
+                }
+            },
+            syncGrowFileList(){
+               var _that=this;
+               if (_that.growthFileData != null && _that.growthFileData.length > 0) {
+                   _that.growthFileList=[];
+                   for (var i = 0; i < _that.growthFileData.length; i++) {
+                       var result=_that.growthFileData[i];
+                       _that.growthFileList.push({
+                           name:result.fileName,
+                           url:result.fileUrl
+                       });
+                   }
+               }
+            },
+            uploadFile() {
+                var _that = this;
+                _that.getLoginAccountUserInfo();
+                if (_that.userInfo.CompanyId == null || _that.userInfo.CompanyId == undefined || _that.userInfo.CompanyId == "") {
+                    //alert("用户公司编号不能为空，或者登录过期请重新登录");
+                    return;
+                }
+                apiHelper.fileUpload(
+                    _that.userInfo.CompanyId,
+                    "growthInfoUploadFile",
+                    function(response) {
+                        //console.log(response);
+                        if (response.data.status == 0) {
+                            _that.growthFileData.push(response.data.result);
+                            for (var i = 0; i < _that.growthFileData.length; i++) {
+                                _that.growthFileData[i].cropsId = _that.growthEditData.cropsId;
+                                _that.growthFileData[i].growthRecordId = _that.growthEditData.recordId;
+                            }
+                        }
+                    }
+                );
+            },
+            betchUploadFile(){
+                var _that=this;
+                _that.Refresh();
+
+            },
+            //保存生长信息
+            saveGrowthInfo() {
+                var _that = this;
+                _that.getLoginAccountUserInfo();
+                if (_that.userInfo.CompanyId == null || _that.userInfo.CompanyId == undefined || _that.userInfo.CompanyId == "") {
+                    alert("用户公司编号不能为空，或者登录过期请重新登录");
+                    return;
+                }
+                _that.growthEditData.companyId = _that.userInfo.CompanyId;
+                if (_that.growthFileData != null && _that.growthFileData.length > 0) {
+                    if (_that.growthFileData.length > 9) {
+                        alert('一条生长信息最多只能保存9张图片');
+                        return;
+                    }
+                }
+                switch (_that.growthInfoAction) {
+                    case "Add":
+                        apiHelper.addGrowthInfo(
+                            _that.growthEditData,
+                            function(){
+                                $(".curtain").show();
+                            },
+                            function(response) {
+                                $(".curtain").hide();
+                                $(".curtain").show();
+                                if (response.data.status == 0) {
+                                    var result = response.data.result;
+                                    _that.growthEditData.recordId = result.recordId;
+                                    _that.saveGrowthInfoFiles(
+                                        _that.growthEditData.companyId,
+                                        apiHelper.token,
+                                        function(response) {
+                                            $(".curtain").hide();
+                                            _that.growthinfoDialog = false;
+                                            _that.GrowthInfo.pageIndex = 1;
+                                            _that.InitGrowthInfoPage();
+                                        }
+                                    );
+                                }
+                            }
+                        );
+                        break;
+                    case "Edit":
+                        apiHelper.editGrowthInfo(
+                            _that.growthEditData,
+                            function(){
+                                $(".curtain").show();
+                            },
+                            function(response) {
+                                $(".curtain").hide();
+                                $(".curtain").show();
+                                if (response.data.status == 0) {
+                                    _that.saveGrowthInfoFiles(
+                                        _that.growthEditData.companyId,
+                                        apiHelper.token,
+                                        function(response) {
+                                            $(".curtain").hide();
+                                            _that.growthinfoDialog = false;
+                                            _that.GrowthInfo.pageIndex = 1;
+                                            _that.InitGrowthInfoPage();
+                                        }
+                                    );
+                                }
+                            }
+                        );
+                        break;
+                }
+            },
+            //批量保存上传的文件
+            saveGrowthInfoFiles(companyId,token,callback) {
+                var _that = this;
+                if (_that.growthFileData != null && _that.growthFileData.length > 0) {
+                    var saveParm = new BatchSaveFileInfoParameter();
+                    saveParm.cropsId = _that.growthEditData.cropsId;
+                    saveParm.growthInfoId = _that.growthEditData.recordId;
+                    saveParm.saveFilesData = _that.growthFileData;
+                    saveParm.companyId=companyId;
+                    saveParm.token=token;
+                    for (var i = 0; i < saveParm.saveFilesData.length; i++) {
+                        saveParm.saveFilesData[i].cropsId = saveParm.cropsId;
+                        saveParm.saveFilesData[i].growthRecordId = saveParm.growthRecordId;
+                    }
+                    apiHelper.batchSaveFileInfo(
+                        saveParm,
+                        function(response) {
+                            if (response.data.status == 0)
+                                callback(response);
+                        }
+                    );
+                }
+            },
+            editGrowthInfoDialog(editData) {
+                var _that = this;
+                _that.getLoginAccountUserInfo();
+                if(_that.userInfo.Level>3)
+                {
+                    alert('用户权限不足');
+                    return false;
+                }
+                _that.growthInfoAction = 'Edit';
+                _that.growthinfoDialog = true;
+                _that.growthEditData = editData;
+                //console.log("editData");
+                //console.log(editData);
+                _that.pumpData = [
+                    {
+                        label: editData.pumpId,
+                        value: editData.pumpId
+                    }
+                ];
+                _that.seedInfoData = [
+                    {
+                        label: editData.cropsId,
+                        value: editData.cropsId
+                    }
+                ];
+                _that.setSeedInfoSelectedValue(editData.cropsId);
+                _that.setPumpHouseSelectedValue(editData.pumpId);
+                _that.loadFile(editData.recordId);
+            },
+            pumpHouseAutoComplate(searchKey) {
+                var _that = this;
+                var resultCount = 10;
+                _that.pumpData = [];
+                _that.getLoginAccountUserInfo();
+                if (searchKey != "") {
+                    apiHelper.pumpHouseAutoComplate(
+                        _that.userInfo.CompanyId,
+                        searchKey,
+                        resultCount,
+                        function(response) {
+                            if (response.data.status == 0) {
+                                var resultData = response.data.result;
+                                if (resultData != null && resultData != undefined && resultData.length > 0) {
+                                    for (var i = 0; i < resultData.length; i++) {
+                                        _that.pumpData.push({
+                                            label: resultData[i].pumpHouseName,
+                                            value: resultData[i].pumpId
+                                        });
+                                    }
+                                }
+                            }
+                        }
+                    );
+                }
+            },
+            seedInfoAutoComplate(searchKey) {
+                var _that = this;
+                var resultCount = 10;
+                _that.seedInfoData = [];
+                _that.getLoginAccountUserInfo();
+                if (searchKey != "") {
+                    apiHelper.seedInfoAutoComplate(
+                        _that.userInfo.CompanyId,
+                        searchKey,
+                        resultCount,
+                        function(response) {
+                            if (response.data.status == 0) {
+                                var resultData = response.data.result;
+                                if (resultData != null && resultData != undefined && resultData.length > 0) {
+                                    for (var i = 0; i < resultData.length; i++) {
+                                        _that.seedInfoData.push({
+                                            label: resultData[i].seedName,
+                                            value: resultData[i].cropsId
+                                        });
+                                    }
+                                }
+                            }
+                        }
+                    );
+                }
+            },
+            seedInfoSelectedChange(value) {
+                var _that = this;
+                //console.log("_that.seedInfoData");
+                //console.log(_that.seedInfoData);
+                //console.log("value=" + value);
+                for (var i = 0; i < _that.seedInfoData.length; i++) {
+                    if (_that.seedInfoData[i].value == value) {
+                        _that.selectedSeedInfoName = _that.seedInfoData[i].label;
+                        _that.growthEditData.cropsId = value;
+                        _that.growthEditData.seedName = _that.selectedSeedInfoName;
+                        _that.setSeedInfoSelectedValue(value);
+                        break;
+                    }
+                }
+                //console.log("_that.selectedSeedInfoValue:" + _that.selectedSeedInfoValue);
+            },
+            setSeedInfoSelectedValue(value) {
+                var _that = this;
+                _that.selectedSeedInfoValue = value;
+                $("#seedSelect").val(value);
+                $("#seedSelect").attr("placeholder", value);
+            },
+            pumpHouseSelectedChange(value) {
+                var _that = this;
+                //console.log(value);
+                for (var i = 0; i < _that.pumpData.length; i++) {
+                    if (_that.pumpData[i].value == value) {
+                        _that.growthEditData.pumpId = value;
+                        _that.growthEditData.pumpHouseName = _that.pumpData[i].label;
+                        _that.setPumpHouseSelectedValue(value);
+                        break;
+                    }
+                }
+            },
+            setPumpHouseSelectedValue(value) {
+                var _that = this;
+                _that.selectedPumpValue = value;
+                $("#pumpSelect").val(value);
+                $("#pumpSelect").attr("placeholder", value);
+            },
+            //生长信息tab切换函数
+            //tabKey:切换关键字
+            changeGrowthTab(tabKey) {
+                var _that = this;
+                switch (tabKey) {
+                    case 'parameter':
+                        _that.currentGrowthTab = 'parameter';
+                        $('.parameter-container').show();
+                        $('.uploadImage-container').hide();
+                        break;
+                    case 'uploadImage':
+                        _that.currentGrowthTab = 'uploadImage';
+                        $('.parameter-container').hide();
+                        $('.uploadImage-container').show();
+                        break;
+                }
+            },
+            growthInfoDialogShow(Action) {
+                if (Action == 'Add') {
+                    this.getLoginAccountUserInfo();
+                    //console.log("this.userInfo.Level="+this.userInfo.Level);
+                    if(this.userInfo.Level>3)
+                    {
+                        alert('用户权限不足');
+                        return false;
+                    }
+                    else
+                    {
+                        this.growthInfoAction = Action;
+                        this.growthinfoDialog = true;
+                        this.growthFileData = [];
+                        this.growthFileList=[];
+                        this.clearGrowthInfo();
+                    }
+                }
+            },
+            clearGrowthInfo() {
+                this.growthEditData = {
+                    companyId: '',
+                    recordId: '',
+                    pumpId: '',
+                    cropsId: '',
+                    seedName: '',
+                    growthName: '',
+                    plantHeight: '',
+                    dbh: '',
+                    numberOfBlades: '',
+                    emergenceRate: '',
+                    landName: '',
+                    createdDateTime: '',
+                    modifiedDateTime: ''
+                };
+                this.setPumpHouseSelectedValue("");
+                this.setSeedInfoSelectedValue("");
+                this.growthFileData = [];
+            },
+            //el-table 动态计算高度为了显示滚动条
+            elTableScroll() {
+                this.$nextTick(function() {
+                    if ($(".el-table__body-wrapper").length > 0 && $(".el-table__header-wrapper").length > 0) {
+                        $(".el-table__body-wrapper").each(function(index,element){
+                            var parentElement = $(element).parent().parent();
+                            var headerHeight = $(element).prev()[0].offsetHeight;
+                            var parentHeight = parentElement[0].offsetHeight;
+                            var elBodyHeight = parentHeight - headerHeight;
+                            $(element).css("height", elBodyHeight + "px");
+                        });
+                    }
+                });
+            },
+            //保存显示的参数设置
+            saveShowFieldsSetting() {
+                var _that = this;
+                var selectedRow = this.$refs.showFieldsTable.selection;
+                var selectedRecords = [];
+                var unSelectedRecords = [];
+                var selectedRecordsStr = "";
+                _that.Refresh();
+                _that.getLoginAccountUserInfo();
+                if(_that.userInfo.Level>3)
+                {
+                    alert('用户权限不足');
+                    return false;
+                }
+                if (_that.userInfo.CompanyId == null || _that.userInfo.CompanyId == undefined || _that.userInfo.CompanyId == "") {
+                    alert("用户公司编号不能为空，或者登录过期请重新登录");
+                    return;
+                }
+                if (selectedRow == null || selectedRow == undefined || selectedRow.length <= 0) {
+                    alert('请选择至少一项');
+                    return;
+                }
+                if (selectedRow.length > 6) {
+                    alert("最多只能选择6项");
+                    return;
+                }
+                for (var i = 0; i < selectedRow.length; i++) {
+                    selectedRecords.push(selectedRow[i].recordId);
+                    selectedRecordsStr += selectedRow[i].recordId + ",";
+                }
+                //console.log("selectedRecordsStr:" + selectedRecordsStr);
+                for (var i = 0; i < _that.ShowFields.PageData.length; i++) {
+                    var recordId = _that.ShowFields.PageData[i].recordId;
+                    if (selectedRecordsStr.indexOf(recordId) == -1)
+                        unSelectedRecords.push(recordId);
+                }
+                //console.log("selectedRecords");
+                //console.log(selectedRecords);
+                //console.log("unSelectedRecords");
+                //console.log(unSelectedRecords);
+                var param = {
+                    companyId: _that.userInfo.CompanyId,
+                    recordIds: selectedRecords,
+                    unSelectedRecordIds: unSelectedRecords,
+                    isShow: "1"
+                };
+                apiHelper.setIsShowFields(
+                    param,
+                    function(response) {
+                        if (response.data.status == 0) {
+                            alert('保存成功');
+                            _that.InitShowFieldsPage();
+                        }
+                    }
+                );
+            },
+            //表头部重新渲染(此函数为eltable自适应宽高)
+            renderHeader(h, { column, $index }) {
+                //新建一个span
+                let span = document.createElement('span');
+                //设置表头名称
+                span.innerText = column.label;
+                //临时插入 document
+                document.body.appendChild(span);
+                //重点：获取 span 最小宽度，设置当前列，注意这里加了 20，字段较多时还是有挤压，且渲染后的 div 内左右 padding 都是 10，所以 +20 。（可能还有边距/边框等值，需要根据实际情况加上）
+                column.minWidth = span.getBoundingClientRect().width + 20;
+                // 移除 document 中临时的 span
+                document.body.removeChild(span);
+                return h('span', column.label);
+            },
+            ddlSearchConditionChange(selectedItem) {
+                this.searchCondition.text = selectedItem.text;
+                this.searchCondition.value = selectedItem.value;
+            },
+            editSeedInfo(row) {
+                this.seedInfoAction = "Edit";
+                this.SeedInfo.apiData = row;
+                this.seedInfoEditDialog = true;
+            },
+            InitSeedInfoPage() {
+                var _that = this;
+                _that.SeedInfo.apiHelper = apiHelper;
+                _that.SeedInfo.queryWhere = _that.seedInfoSearchWhere;
+                _that.SeedInfo.startTime = _that.dateTimeToString(_that.seedInfoSearchStartTime);
+                _that.SeedInfo.endTime = _that.dateTimeToString(_that.seedInfoSearchEndTime);
+                _that.SeedInfo.InitSeedInfoPage(
+                    function(response) {
+                        _that.SeedInfo.PageCount = response.data.pageCount;
+                        _that.SeedInfo.RecordCount = response.data.recordCount;
+                        _that.SeedInfo.PageData = response.data.result;
+                        _that.num += 1;
+                    }
+                );
+            },
+            growthInfoSearch() {
+                var _that = this;
+                _that.GrowthInfo.pageIndex = 1;
+                _that.InitGrowthInfoPage();
+            },
+            InitGrowthInfoPage() {
+                var _that = this;
+                _that.getLoginAccountUserInfo();
+                if (_that.userInfo.CompanyId == null || _that.userInfo.CompanyId == undefined || _that.userInfo.CompanyId == "") {
+                    alert("用户公司编号不能为空，或者登录过期请重新登录");
+                    return;
+                }
+                _that.GrowthInfo.apiHelper = apiHelper;
+                _that.GrowthInfo.where = _that.growthinfoSearchWhere;
+                _that.GrowthInfo.CompanyId = _that.userInfo.CompanyId;
+                _that.GrowthInfo.sortField = _that.growthinfoSearchSortField;
+                _that.GrowthInfo.sortMethod = _that.growthinfoSearchSortMethod;
+                _that.GrowthInfo.startTime = _that.dateTimeToString(_that.growthinfoSearchStartTime);
+                _that.GrowthInfo.endTime = _that.dateTimeToString(_that.growthinfoSearchEndTime);
+                _that.GrowthInfo.InitGrowthInfoPage(
+                    function(response) {
+                        _that.GrowthInfo.PageCount = response.data.pageCount;
+                        _that.GrowthInfo.RecordCount = response.data.recordCount;
+                        _that.GrowthInfo.PageData = response.data.result;
+                        _that.num += 1;
+                    }
+                );
+            },
+            InitPumpHouseInfoPage(){
+                var _that = this;
+                _that.getLoginAccountUserInfo();
+                if (_that.userInfo.CompanyId == null || _that.userInfo.CompanyId == undefined || _that.userInfo.CompanyId == "") {
+                    alert("用户公司编号不能为空，或者登录过期请重新登录");
+                    return;
+                }
+                /*PumpHouseInfoPage:{
+                    SearchWhere:'',
+                    SearchStartTime:'',
+                    SearchEndTime:'',
+                    PageIndex:1,
+                    PageCount:0,
+                    PageSize:10,
+                    RecordCount:0,
+                    SortField:'ModifiedDateTime',
+                    SortMethod:'DESC',
+                    PageData:[
+                        {
+                            pumpId:'',
+                            pumpHouseName:'',
+                            pumpHouseClass:'',
+                            personIinCharge:'',
+                            createdDateTime:'',
+                            modifiedDateTime:'',
+                            monitoringAddress:''
+                        }
+                    ]
+                }*/
+                apiHelper.queryPumpHouseInfoPage(
+                    {
+                        CompanyId:_that.userInfo.CompanyId,
+                        where: _that.PumpHouseInfoPage.SearchWhere,
+                        startTime: _that.PumpHouseInfoPage.SearchStartTime,
+                        endTime: _that.PumpHouseInfoPage.SearchEndTime,
+                        pageIndex: _that.PumpHouseInfoPage.PageIndex,
+                        pageSize: _that.PumpHouseInfoPage.PageCount,
+                        sortField: _that.PumpHouseInfoPage.SortField,
+                        sortMethod: _that.PumpHouseInfoPage.SortMethod
+                    },
+                    function(response){
+                        if(response.data.status==0){
+                            _that.PumpHouseInfoPage.PageData=response.data.result;
+                        }
+                    });
+            },
+            showFieldsSearch() {
+                var _that = this;
+                _that.ShowFields.PageIndex = 1;
+                _that.InitShowFieldsPage();
+            },
+            InitShowFieldsPage() {
+                var _that = this;
+                _that.getLoginAccountUserInfo();
+                if (_that.userInfo.CompanyId == null || _that.userInfo.CompanyId == undefined || _that.userInfo.CompanyId == "") {
+                    alert("用户公司编号不能为空，或者登录过期请重新登录");
+                    return;
+                }
+                _that.ShowFields.apiHelper = apiHelper;
+                _that.ShowFields.CompanyId = _that.userInfo.CompanyId;
+                _that.ShowFields.where = _that.showFieldsSearchWhere;
+                _that.ShowFields.condition = _that.searchCondition.value;
+                _that.ShowFields.InitShowFieldsPage(
+                    function(response) {
+                        _that.ShowFields.PageCount = response.data.pageCount;
+                        _that.ShowFields.RecordCount = response.data.recordCount;
+                        _that.ShowFields.PageData = response.data.result;
+                        _that.num += 1;
+                        _that.$nextTick(() => {
+                            for (var i = 0; i < _that.ShowFields.PageData.length; i++) {
+                                var row = _that.ShowFields.PageData[i];
+                                console.log("row.isShow=" + row.isShow);
+                                if (row.isShow == "1")
+                                    _that.$refs.showFieldsTable.toggleRowSelection(row, true);
+                            };
+                        });
+                    }
+                );
+            },
+            growthInfoChangePage(pageIndex) {
+                this.GrowthInfo.pageIndex = pageIndex;
+                this.InitGrowthInfoPage();
+            },
+            showFieldsChangePage(pageIndex) {
+                this.ShowFields.pageIndex = pageIndex;
+                this.InitShowFieldsPage();
+            },
+            showFieldsChangePageSize(pageSize) {
+                this.ShowFields.pageIndex = 1;
+                this.ShowFields.pageSize = pageSize;
+                this.InitShowFieldsPage();
+                this.elTableScroll();
+            },
+            growthInfoChangePageSize(pageSize) {
+                this.GrowthInfo.pageIndex = 1;
+                this.GrowthInfo.pageSize = pageSize;
+                this.InitGrowthInfoPage();
+                this.elTableScroll();
+            },
+            pumpHouseInfoChangePage(pageIndex){
+                this.PumpHouseInfoPage.PageIndex=pageIndex;
+                this.InitPumpHouseInfoPage();
+            },
+            pumpHouseInfoChangePageSize(pageSize) {
+                this.PumpHouseInfoPage.PageIndex = 1;
+                this.PumpHouseInfoPage.PageSize= pageSize;
+                this.InitPumpHouseInfoPage();
+                this.elTableScroll();
+            },
+            dateTimeToString(dateTime) {
+                var result = "";
+                var _that = this;
+                if (dateTime != null && dateTime != "" && dateTime != undefined) {
+                    result = dateTime.getFullYear() + "-";
+                    result += _that.fixLeadingZero(dateTime.getMonth() + 1) + "-";
+                    result += _that.fixLeadingZero(dateTime.getDate());
+                }
+                return result;
+            },
+            searchSeedInfo() {
+                var _that = this;
+                _that.SeedInfo.PageIndex = 1;
+                //console.log("search_that.SeedInfo");
+                //console.log(_that.SeedInfo);
+                _that.InitSeedInfoPage();
+            },
+            handleSeedInfoSelectionChange(val) {
+                var _that = this;
+                _that.seedInfoSelectionIDStr = "";
+                for (var i = 0; i < val.length; i++) {
+                    _that.seedInfoSelectionIDStr += val[i].cropsId + "-";
+                }
+                if (_that.seedInfoSelectionIDStr != "")
+                    _that.seedInfoSelectionIDStr = _that.seedInfoSelectionIDStr.substr(0, _that.seedInfoSelectionIDStr.length - 1);
+            },
+            handleGrowthInfoSelectionChange(val) {
+                var _that = this;
+                _that.growthinfoSelectionIDStr = "";
+                for (var i = 0; i < val.length; i++) {
+                    _that.growthinfoSelectionIDStr += val[i].recordId + "-";
+                }
+                if (_that.growthinfoSelectionIDStr != "")
+                    _that.growthinfoSelectionIDStr = _that.growthinfoSelectionIDStr.substr(0, _that.growthinfoSelectionIDStr.length - 1);
+            },
+            handlePumpInfoSelectionChange(val){
+                var _that=this;
+                _that.pumpInfoSelectionIDStr="";
+                for(var i=0;i<val.length;i++){
+                    _that.pumpInfoSelectionIDStr += val[i].pumpId + "-";
+                }
+                if (_that.pumpInfoSelectionIDStr != "")
+                    _that.pumpInfoSelectionIDStr = _that.pumpInfoSelectionIDStr.substr(0, _that.pumpInfoSelectionIDStr.length - 1);
+            },
+            deleteSeedInfo() {
+                var _that = this;
+                var IDStr = _that.seedInfoSelectionIDStr;
+                this.getLoginAccountUserInfo();
+                if(this.userInfo.Level>3)
+                {
+                    alert('用户权限不足');
+                    return false;
+                }
+                if (IDStr == "") {
+                    alert("请先选择至少一条数据");
+                    return;
+                }
+                if (confirm("确定删除选中的数据吗?")) {
+                    apiHelper.deleteSeedInfo(
+                        IDStr,
+                        function(response) {
+                            if (response.data.status == 0) {
+                                _that.SeedInfo.PageIndex = 1;
+                                _that.InitSeedInfoPage();
+                            }
+                        }
+                    );
+                }
+            },
+            deleteGrowthInfo() {
+                var _that = this;
+                var IDStr = _that.growthinfoSelectionIDStr;
+                _that.getLoginAccountUserInfo();
+                if(_that.userInfo.Level>3)
+                {
+                    alert('用户权限不足');
+                    return false;
+                }
+                if (IDStr == "") {
+                    alert("请先选择至少一条数据");
+                    return;
+                }
+                if (confirm("确定删除选中的数据吗?")) {
+                    apiHelper.deleteGrowthInfo(
+                        IDStr,
+                        function(response) {
+                            if (response.data.status == 0) {
+                                _that.GrowthInfo.pageIndex = 1;
+                                _that.InitGrowthInfoPage();
+                            }
+                        }
+                    );
+                }
+            },
+            deleteShowFields(dataRow){
+                var _that=this;
+                //console.log("deleteShowFields");
+                //console.log(dataRow);
+                _that.getLoginAccountUserInfo();
+                if(_that.userInfo.Level>3)
+                {
+                    alert('用户权限不足');
+                    return false;
+                }
+                if(dataRow!=null){
+                   if(confirm("确定要删除名称为["+dataRow.fieldName+"]的数据？")){
+                       apiHelper.deleteShowFields(
+                           dataRow.recordId,
+                           function(response){
+                               if (response.data.status == 0){
+                                   alert('删除成功');
+                                   _that.showFieldsSearch();
+                               }
+                           }
+                       );
+                    }
+                }
+            },
+            showSeedInfoDialog(Action) {
+                this.getLoginAccountUserInfo();
+                if(this.userInfo.Level>3)
+                {
+                    alert('用户权限不足');
+                    return false;
+                }
+                this.seedInfoAction = Action;
+                this.seedInfoEditDialog = true;
+            },
+            seedInfoChangePageSize(pageSize) {
+                this.SeedInfo.PageIndex = 1;
+                this.SeedInfo.PageSize = pageSize;
+                this.InitSeedInfoPage();
+                this.elTableScroll();
+            },
+            seedInfoChangePage(pageIndex) {
+                console.log("pageIndex=" + pageIndex);
+                this.SeedInfo.PageIndex = pageIndex;
+                this.InitSeedInfoPage();
+            },
+            Refresh() {
+                if (this.getToken()) {
+                    if (this.scrollAlertFirstDataTime != null)
+                        window.clearInterval(this.scrollAlertFirstDataTime);
+                    this.showDateTimeClock();
+                    //if(!apiHelper.checkLevel()){
+                    //   window.location = '/Login/Login';
+                    //}
+                }
+                else {
+                    window.location = '/Login/Login';
+                }
+            },
+            gotoPage(UrlRoute) {
+                window.location = UrlRoute;
+            },
+            showMoreMenu() {
+                if ($(".pop-more-maste-menu").css("display") == "none")
+                    $(".pop-more-maste-menu").show();
+            },
+            hideMoreMenu() {
+                if ($(".pop-more-maste-menu").css("display") != "none")
+                    $(".pop-more-maste-menu").hide();
+            },
+            showDateTimeClock() {
+                var _that = this;
+                var nowDate = new Date();
+                var hours = _that.fixLeadingZero(nowDate.getHours(), 2);
+                var minutes = _that.fixLeadingZero(nowDate.getMinutes(), 2);
+                var seconds = _that.fixLeadingZero(nowDate.getSeconds(), 2);
+                var month = _that.fixLeadingZero(nowDate.getMonth() + 1, 2);
+                var day = _that.fixLeadingZero(nowDate.getDate(), 2);
+                _that.timestr = hours + ":" + minutes + ":" + seconds;
+                _that.datestr = nowDate.getFullYear() + "/" + month + "/" + day;
+                if(_that.timeHandle!=null)
+                   window.clearInterval(_that.timeHandle);
+                _that.timeHandle=window.setInterval(function() {
+                    _that.showDateTimeClock();
+                }, 1000);
+            },
+            fixLeadingZero(value, fixLength) {
+                var str = value.toString();
+                if (str.length < fixLength) {
+                    var len = fixLength - str.length;
+                    var tempStr = "";
+                    for (var i = 0; i < len; i++)
+                        tempStr += "0";
+                    str = tempStr + str;
+                }
+                return str;
+            },
+            getLoginAccountUserInfo() {
+                this.userInfo.Account = apiHelper.getCookie("account");
+                this.userInfo.CompanyId = apiHelper.getCookie("companyId");
+                this.userInfo.Level = apiHelper.getCookie("level");
+                this.userName = this.userInfo.Account;
+            },
+            getToken() {
+                this.getLoginAccountUserInfo();
+                var token = apiHelper.getCookie("token");
+                var level=apiHelper.getCookie("level");
+                var result = true;
+                if (this.userInfo.Account == null) {
+                    result = false;
+                }
+                else {
+                    apiHelper.token = token;
+                    apiHelper.level = level;
+                    //console.log("apiHelper.level="+apiHelper.level);
+                }
+                return result;
+            },
+            getCookie(cookieName) {
+                var cookieString = document.cookie;
+                var start = cookieString.indexOf(cookieName + '=');
+                // 加上等号的原因是避免在某些 Cookie 的值里有
+                // // 与 cookieName 一样的字符串。
+                if (start == -1) // 找不到
+                    return null;
+                start += cookieName.length + 1;
+                var end = cookieString.indexOf(';', start);
+                if (end == -1)
+                    return unescape(cookieString.substring(start));
+                return unescape(cookieString.substring(start, end));
+            },
+            //退出登录，取消cookie有效时间
+            exitLogin() {
+                //console.log(123)
+                var exp = new Date();
+                exp.setTime(exp.getTime() - 10);
+                document.cookie = "token=" + escape('echo') + ";expires=" + exp.toGMTString() + ";path=/";
+                window.localStorage.removeItem(this.userName+'modules');
+                window.location = "/Login/Login";
+            }
+        }
+
+    });
+</script>

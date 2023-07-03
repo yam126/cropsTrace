@@ -1,0 +1,143 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutList.cshtml";
+}
+<!--农作物信息页面-->
+<div id="SeedInfoMain">
+    <!--搜索层-->
+    <div class="search-container">
+        <div class="txtSearch">
+            <el-input v-model="seedInfoSearchWhere" id="txtSearch" placeholder="农作物名称/品种/类型模糊搜索"></el-input>
+        </div>
+        <div class="txtInputTime">
+            <el-date-picker id="txtSearchStartTime" v-model="seedInfoSearchStartTime" type="date" placeholder="录入开始日期"></el-date-picker>
+        </div>
+        <div class="txtInputTime">
+            <el-date-picker id="txtSearchStartTime" v-model="seedInfoSearchEndTime" type="date" placeholder="录入结束日期"></el-date-picker>
+        </div>
+        <el-button id="btnSearh" @@click="searchSeedInfo" type="primary" icon="el-icon-search">搜索</el-button>
+        <el-button id="btnAdd" @@click="showSeedInfoDialog('Add')" typeof="primary">添加</el-button>
+        <el-button id="btnDelete" @@click="deleteSeedInfo" typeof="primary">删除</el-button>
+    </div>
+    <!--/搜索层-->
+    <!--搜索结果层-->
+    <div class="search-result-container">
+        <!--:key的值是用于刷新-->
+        <el-table 
+             :data="SeedInfo.PageData" 
+             :key="num" 
+             tooltip-effect="dark"
+             @@selection-change="handleSeedInfoSelectionChange"
+             class="el-datatable el-search-table" 
+             empty-text="暂无数据">
+            <el-table-column show-overflow-tooltip :render-header="renderHeader" label="全选" type="selection" width="50"></el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader"  label="操作" style="text-align:center" width="180">
+                <template slot-scope="scope">
+                    <!--这个是整行设置序号-->
+                    <!--<span style="margin-left: 10px">{{scope.$index + 1}}</span>-->
+                    <el-button @@click="editSeedInfo(scope.row)" class="seedInfo-eltable-button" type="primary">修改</el-button>
+                </template>
+            </el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader"  prop="cropsId" label="农作物编号"></el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader"  prop="seedName" label="农作物名称"></el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader"  prop="seedClass" label="农作物类型"></el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader"  prop="seedVariety" label="农作物品种"></el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader"  prop="plantArea" label="种植面积"></el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader"  prop="introduce" label="农作物介绍"></el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader"  prop="soilType" label="土壤类型"></el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader"  prop="createdDateTime" label="创建时间"></el-table-column>
+            <el-table-column show-overflow-tooltip :render-header="renderHeader" prop="modifiedDateTime" label="修改时间"></el-table-column>
+        </el-table>
+        <div class="search-result-page-control">
+                        <el-pagination class="el-pagination-center"
+                           :total="SeedInfo.RecordCount"
+                           :page-sizes="[10, 15, 20]"
+                           :page-size="SeedInfo.PageSize"
+                           :page-count="SeedInfo.PageCount"
+                           :current-page="SeedInfo.PageIndex"
+                           @@current-change="seedInfoChangePage"
+                           @@size-change="seedInfoChangePageSize"
+                           layout="total, sizes, prev, pager, next, jumper">
+            </el-pagination>
+        </div>
+    </div>
+    <!--/搜索结果层-->
+    <el-dialog :model="SeedInfo.apiData" :visible.sync="seedInfoEditDialog" title="编辑农作物信息">
+        <div id="seedInfoEditDialog">
+            <!--农作物编号-->
+            <div class="line-container">
+                <el-input :readonly="true" v-model="SeedInfo.apiData.cropsId" placeholder="请输入农作物编号">
+                    <template slot="prepend">
+                        <span class="mustInput">
+                            农作物编号
+                        </span>
+                    </template>
+                </el-input>
+            </div>
+            <!--/农作物编号-->
+            <!--农作物名称-->
+            <div class="line-container">
+                <el-input v-model="SeedInfo.apiData.seedName" placeholder="请输入农作物名称">
+                    <template slot="prepend">
+                        <span class="mustInput">
+                            农作物名称
+                        </span>
+                    </template>
+                </el-input>
+            </div>
+            <!--/农作物名称-->
+            <!--农作物类型-->
+            <div class="line-container">
+                <el-input v-model="SeedInfo.apiData.seedClass" placeholder="请输入农作物类型">
+                    <template slot="prepend">
+                        农作物类型
+                    </template>
+                </el-input>
+            </div>
+            <!--/农作物类型-->
+            <!--农作物品种-->
+            <div class="line-container">
+                <el-input v-model="SeedInfo.apiData.seedVariety" placeholder="请输入农作物品种">
+                    <template slot="prepend">
+                        农作物品种
+                    </template>
+                </el-input>
+            </div>
+            <!--/农作物品种-->
+            <!--种植面积-->
+            <div class="line-container">
+                <el-input v-model="SeedInfo.apiData.plantArea" placeholder="请输入种植面积">
+                    <template slot="prepend">
+                        种植面积
+                    </template>
+                </el-input>
+            </div>
+            <!--/种植面积-->
+            <!--农作物介绍-->
+            <div class="line-container">
+                <el-input v-model="SeedInfo.apiData.introduce" placeholder="请输入农作物介绍">
+                    <template slot="prepend">
+                        农作物介绍
+                    </template>
+                </el-input>
+            </div>
+            <!--/农作物介绍-->
+            <!--土壤类型-->
+            <div class="line-container">
+                <el-input v-model="SeedInfo.apiData.soilType" placeholder="请输入土壤类型">
+                    <template slot="prepend">
+                        土壤类型
+                    </template>
+                </el-input>
+            </div>
+            <!--/土壤类型-->
+            <!--按钮层-->
+            <div class="line-container">
+                <div class="button-container">
+                    <el-button @@click="saveSeedInfoData" id="btnSubmit" type="primary">保存数据</el-button>
+                    <el-button id="btnClear" type="primary">清空对话框</el-button>
+                </div>
+            </div>
+            <!--/按钮层-->
+        </div>
+    </el-dialog>
+</div>

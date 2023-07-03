@@ -1,0 +1,95 @@
+﻿.loader {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin: -0.2em 0 0 -0.2em;
+    text-indent: -9999em;
+    border-top: 0.3em solid rgba(0,0,0,0.1);
+    border-right: 0.3em solid rgba(0,0,0,0.1);
+    border-bottom: 0.3em solid rgba(0,0,0,0.1);
+    border-left: 0.3em solid #555;
+    -moz-transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -moz-animation: loader 300ms infinite linear;
+    -webkit-animation: loader 300ms infinite linear;
+    animation: loader 300ms infinite linear;
+    -moz-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+    .loader, .loader:after {
+        border-radius: 50%;
+        width: 2em;
+        height: 2em;
+    }
+
+.curtain {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: white;
+    -moz-transition: all 600ms ease;
+    -o-transition: all 600ms ease;
+    -webkit-transition: all 600ms ease;
+    transition: all 600ms ease;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+@-webkit-keyframes loader {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes loader {
+    0% {
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -moz-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.is-loading {
+    overflow: hidden;
+}
+
+    .is-loading .curtain {
+        filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+        opacity: 0.8;
+        z-index: 99;
+    }
+
+    .is-loading .loader {
+        filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+        opacity: 1;
+    }

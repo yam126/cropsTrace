@@ -1,0 +1,155 @@
+﻿.content-container .title-container .title-text .menuIcon {
+    width: 1vw;
+    height: 2vh;
+    margin-left: 1vw;
+    margin-top: 1.8vh;
+    margin-right: 0.5vw;
+    float: left;
+}
+
+#adminMenu {
+    width: 89%;
+    height: 78vh;
+    margin: 0 auto;
+    margin-top: 1vh;
+    border: 0px solid red;
+}
+
+    #adminMenu .menuItem-normal {
+        width: 98%;
+        height: 3.7vh;
+        margin: 0 auto;
+        margin-top: 1vh;
+        position: relative;
+        cursor: pointer;
+        border: 1px solid #0F51C9;
+        background-color: #00377791;
+    }
+
+        #adminMenu .menuItem-normal .top-left-corner {
+            width: 0.3vw;
+            height: 0.5vh;
+            position: absolute;
+            top: -0.3vh;
+            left: -0.2vw;
+            background-color: #0F51C9;
+        }
+
+        #adminMenu .menuItem-normal .top-right-corner {
+            width: 0.3vw;
+            height: 0.5vh;
+            position: absolute;
+            top: -0.3vh;
+            left: 15.77vw;
+            background-color: #0F51C9;
+        }
+
+        #adminMenu .menuItem-normal .bottom-left-corner {
+            width: 0.3vw;
+            height: 0.5vh;
+            position: absolute;
+            top: 3.3vh;
+            left: -0.2vw;
+            background-color: #0F51C9;
+        }
+
+        #adminMenu .menuItem-normal .bottom-right-corner {
+            width: 0.3vw;
+            height: 0.5vh;
+            position: absolute;
+            top: 3.3vh;
+            left: 15.77vw;
+            background-color: #0F51C9;
+        }
+
+        #adminMenu .menuItem-normal .center-container {
+            width: 100%;
+            height: 3.5vh;
+            line-height: 2.7vh;
+            font-family: 'Microsoft YaHei UI';
+            font-size: 1vw;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            border: 0px solid red;
+            margin: 0.4vh auto;
+            float: left;
+        }
+
+            #adminMenu .menuItem-normal .center-container:hover {
+                color: aqua;
+            }
+
+    #adminMenu .menuItem-click {
+        width: 98%;
+        height: 3.7vh;
+        margin: 0 auto;
+        margin-top: 1vh;
+        position: relative;
+        cursor: pointer;
+        border: 1px solid #0F51C9;
+        background-color: #0b5dbdb5;
+    }
+
+        #adminMenu .menuItem-click .top-left-corner {
+            width: 0.3vw;
+            height: 0.5vh;
+            position: absolute;
+            top: -0.3vh;
+            left: -0.2vw;
+            background-color: #0F51C9;
+        }
+
+        #adminMenu .menuItem-click .top-right-corner {
+            width: 0.3vw;
+            height: 0.5vh;
+            position: absolute;
+            top: -0.3vh;
+            left: 15.77vw;
+            background-color: #0F51C9;
+        }
+
+        #adminMenu .menuItem-click .bottom-left-corner {
+            width: 0.3vw;
+            height: 0.5vh;
+            position: absolute;
+            top: 3.3vh;
+            left: -0.2vw;
+            background-color: #0F51C9;
+        }
+
+        #adminMenu .menuItem-click .bottom-right-corner {
+            width: 0.3vw;
+            height: 0.5vh;
+            position: absolute;
+            top: 3.3vh;
+            left: 15.77vw;
+            background-color: #0F51C9;
+        }
+
+        #adminMenu .menuItem-click .center-container {
+            width:100%;
+            height: 3.5vh;
+            line-height: 2.7vh;
+            font-family: 'Microsoft YaHei UI';
+            font-size: 1vw;
+            color: aqua;
+            font-weight: 700;
+            text-align: center;
+            border: 0px solid red;
+            margin-top: 0.4vh;
+            float:left;
+        }
+
+            #adminMenu .menuItem-click .center-container:hover {
+                color: aqua;
+            }
+
+#adminPage {
+    width: 79vw;
+    height: 88vh;
+    margin-left: 0.3vw;
+    margin-top: 3vh;
+    border: 0px solid red;
+    float: left;
+}

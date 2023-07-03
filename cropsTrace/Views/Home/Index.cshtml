@@ -1,0 +1,366 @@
+﻿@using Microsoft.Extensions.Configuration
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<el-container class="elContainer">
+    <div class="left-container">
+        <!--溯源记录列表-->
+        <div style="height:32%" class="content-container">
+            <div class="title-container">
+                <div class="title-text">
+                    溯源记录
+                </div>
+            </div>
+            <div class="middle-container">
+                <!--年份列表-->
+                <div @@click="showYearList" class="year-dropdownlist-container">
+                    {{growthCurrentYear}}&nbsp;&or;
+                </div>
+                <div id="year-list">
+                    <div v-for="(item,index) in growthAllYear" :key="index" @@click="changeCurrentYear(item)" class="year-item">
+                        {{item}}
+                    </div>
+                </div>
+                <!--/年份列表-->
+                <!--农作物列表-->
+                <div @@click="showIndexCropsList" class="crops-dropdownlist-container">
+                    {{cropsDefault.cropsName}}&nbsp;&or;
+                </div>
+                <div id="crops-list">
+                    <div v-for="(item,index) in cropsIndexList" @@click="changeIndexCrops(item)" :key="index" class="crops-item">
+                        {{item.seedName}}
+                    </div>
+                </div>
+                <!--/农作物列表-->
+                <!--搜索框-->
+                <div class="search-container">
+                    <input v-model="homeSearchKeyWord" type="text" placeholder="溯源编号" class="txt-search" />
+                    <img @@click="homeSearch" class="search-icon" :src="'/images/magnifier50x50.png'" />
+                </div>
+                <!--/搜索框-->
+                <!--流程步骤-->
+                <div class="Process-List-Container">
+                    <!--普通流程-->
+                    <div @@click="changeGrowthInfo({growthName:'seedling',showName:'播种'})" :class="currentGrowth.growthName=='seedling'?'process-click-container':'process-normal-container'">
+                        <!--四个角亮点-->
+                        <div class="top-left-corner"></div>
+                        <div class="bottom-left-corner"></div>
+                        <div class="top-right-corner"></div>
+                        <div class="bottom-right-corner"></div>
+                        <!--/四个角亮点-->
+                        <!--文本框-->
+                        <div class="center-container">
+                            <img v-if="currentGrowth.growthName=='seedling'" class="icon" src="~/images/seedling-green.png" />
+                            <img v-if="currentGrowth.growthName!='seedling'" class="icon" src="~/images/seedling-white.png" />
+                            播&nbsp;种
+                        </div>
+                        <!--/文本框-->
+                    </div>
+                    <!--/普通流程-->
+                    <!--分割线-->
+                    <div class="split-line"></div>
+                    <!--/分割线-->
+                    <!--点击后流程-->
+                    <div @@click="changeGrowthInfo({growthName:'seedlingStage',showName:'苗期'})" :class="currentGrowth.growthName=='seedlingStage'?'process-click-container':'process-normal-container'">
+                        <!--四个角亮点-->
+                        <div class="top-left-corner"></div>
+                        <div class="bottom-left-corner"></div>
+                        <div class="top-right-corner"></div>
+                        <div class="bottom-right-corner"></div>
+                        <!--/四个角亮点-->
+                        <!--文本框-->
+                        <div class="center-container">
+                            <img v-if="currentGrowth.growthName!='seedlingStage'" class="icon" src="~/images/seedlingStage-white.png" />
+                            <img v-if="currentGrowth.growthName=='seedlingStage'" class="icon" src="~/images/seedlingStage-green.png" />
+                            苗&nbsp;期
+                        </div>
+                        <!--/文本框-->
+                    </div>
+                    <!--/点击后流程-->
+                    <!--分割线-->
+                    <div class="split-line"></div>
+                    <!--/分割线-->
+                    <!--普通流程-->
+                    <div @@click="changeGrowthInfo({growthName:'earStage',showName:'穗期'})" :class="currentGrowth.growthName=='earStage'?'process-click-container':'process-normal-container'">
+                        <!--四个角亮点-->
+                        <div class="top-left-corner"></div>
+                        <div class="bottom-left-corner"></div>
+                        <div class="top-right-corner"></div>
+                        <div class="bottom-right-corner"></div>
+                        <!--/四个角亮点-->
+                        <!--文本框-->
+                        <div class="center-container">
+                            <img v-if="currentGrowth.growthName!='earStage'" class="icon" src="~/images/earStage-white.png" />
+                            <img v-if="currentGrowth.growthName=='earStage'" class="icon" src="~/images/earStage-green.png" />
+                            穗&nbsp;期
+                        </div>
+                        <!--/文本框-->
+                    </div>
+                    <!--/普通流程-->
+                    <!--分割线-->
+                    <div class="split-line"></div>
+                    <!--/分割线-->
+                    <!--普通流程-->
+                    <div @@click="changeGrowthInfo({growthName:'florescence',showName:'花粒期'})" :class="currentGrowth.growthName=='florescence'?'process-click-container':'process-normal-container'">
+                        <!--四个角亮点-->
+                        <div class="top-left-corner"></div>
+                        <div class="bottom-left-corner"></div>
+                        <div class="top-right-corner"></div>
+                        <div class="bottom-right-corner"></div>
+                        <!--/四个角亮点-->
+                        <!--文本框-->
+                        <div class="center-container">
+                            <img v-if="currentGrowth.growthName!='florescence'" class="icon" src="~/images/florescence-white.png" />
+                            <img v-if="currentGrowth.growthName=='florescence'" class="icon" src="~/images/florescence-green.png" />
+                            花粒期
+                        </div>
+                        <!--/文本框-->
+                    </div>
+                    <!--/普通流程-->
+                    <!--分割线-->
+                    <div class="split-line"></div>
+                    <!--/分割线-->
+                    <!--普通流程-->
+                    <div @@click="changeGrowthInfo({growthName:'maturePeriod',showName:'成熟期'})" :class="currentGrowth.growthName=='maturePeriod'?'process-click-container':'process-normal-container'">
+                        <!--四个角亮点-->
+                        <div class="top-left-corner"></div>
+                        <div class="bottom-left-corner"></div>
+                        <div class="top-right-corner"></div>
+                        <div class="bottom-right-corner"></div>
+                        <!--/四个角亮点-->
+                        <!--文本框-->
+                        <div class="center-container">
+                            <img v-if="currentGrowth.growthName!='maturePeriod'" class="icon" src="~/images/maturePeriod-white.png" />
+                            <img v-if="currentGrowth.growthName=='maturePeriod'" class="icon" src="~/images/maturePeriod-green.png" />
+                            成熟期
+                        </div>
+                        <!--/文本框-->
+                    </div>
+                    <!--/普通流程-->
+                    <!--分割线-->
+                    <div class="split-line"></div>
+                    <!--/分割线-->
+                    <!--普通流程-->
+                    <div @@click="changeGrowthInfo({growthName:'recovery',showName:'采收'})" :class="currentGrowth.growthName=='recovery'?'process-click-container':'process-normal-container'">
+                        <!--四个角亮点-->
+                        <div class="top-left-corner"></div>
+                        <div class="bottom-left-corner"></div>
+                        <div class="top-right-corner"></div>
+                        <div class="bottom-right-corner"></div>
+                        <!--/四个角亮点-->
+                        <!--文本框-->
+                        <div class="center-container">
+                            <img v-if="currentGrowth.growthName!='recovery'" class="icon" src="~/images/recovery-white.png" />
+                            <img v-if="currentGrowth.growthName=='recovery'" class="icon" src="~/images/recovery-green.png" />
+                            采&nbsp;收
+                        </div>
+                        <!--/文本框-->
+                    </div>
+                    <!--/普通流程-->
+                    <!--分割线-->
+                    <div class="split-line"></div>
+                    <!--/分割线-->
+                    <!--普通流程-->
+                    <div @@click="changeGrowthInfo({growthName:'storage',showName:'存储'})" :class="currentGrowth.growthName=='storage'?'process-click-container':'process-normal-container'">
+                        <!--四个角亮点-->
+                        <div class="top-left-corner"></div>
+                        <div class="bottom-left-corner"></div>
+                        <div class="top-right-corner"></div>
+                        <div class="bottom-right-corner"></div>
+                        <!--/四个角亮点-->
+                        <!--文本框-->
+                        <div class="center-container">
+                            <img v-if="currentGrowth.growthName!='storage'" class="icon" src="~/images/storage-white.png" />
+                            <img v-if="currentGrowth.growthName=='storage'" class="icon" src="~/images/storage-green.png" />
+                            存&nbsp;储
+                        </div>
+                        <!--/文本框-->
+                    </div>
+                    <!--/普通流程-->
+                </div>
+                <!--/流程步骤-->
+            </div>
+            <!--底部层-->
+            <div class="bottom-container"></div>
+            <!--/底部层-->
+        </div>
+        <!--/溯源记录列表-->
+    </div>
+    <div class="middle-container">
+        <!--溯源信息主层-->
+        <div class="traceability-container">
+            <!--标题层-->
+            <div class="title-container">
+                <!--泵房选择-->
+                <div class="button-container">
+                    <div v-for="(item,index) in HomeData.pumpHouse" :key="index" @@click="changePumpHouseInfo(item)" :class="currentPumpHouse.pumpId==item.pumpHouseInfo.pumpId?'btnGrowthCycle-click':'btnGrowthCycle-normal'">
+                        {{item.pumpHouseInfo.pumpHouseName}}
+                    </div>
+                </div>
+                <!--泵房选择-->
+                <img @@click="gotoPage('/GrowthInfo/GrowthInfo')" class="btnEdit" src="/images/01_18.png" />
+            </div>
+            <!--/标题层-->
+            <!--内容层-->
+            <div class="bottom-container">
+                <!--焦点图-->
+                @{
+                    IConfiguration configuration = new ConfigurationBuilder()
+                    .AddJsonFile("appsettings.json")
+                    .Build();
+                    string apiUrlHost = configuration["ApiHost:Url"];
+                    var urlHeader = $"{apiUrlHost}/";
+                }
+                <div class="focus-image-container">
+                    <div class="box_img">
+                        <ul>
+                            <li v-for="(item,index) in currentPumpHouse.seedInfo.seedInfoFiles" :key="index">
+                                <a @@mouseover="homeFocusItemMouseOver(index)" @@mouseout="homeFocusItemMouseOut" v-if="item.fileInfo.fileUrl!=''"  @@click="showBigPictureViewDialog(item.fileInfo.fileUrl)" >
+                                    <img v-if="item.fileInfo.fileUrl!=''" :src="item.fileInfo.fileUrl" />
+                                </a>
+                                <a @@mouseover="homeFocusItemMouseOver(index)" @@mouseout="homeFocusItemMouseOut" v-if="item.fileInfo.fileUrl==''" href="#">
+                                    <img v-if="item.fileInfo.fileUrl==''" src="~/images/defaultImage.png" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="box_tab">
+                        <a v-for="(item,index) in currentPumpHouse.seedInfo.seedInfoFiles" :key="index" @@mouseover="homeFocusItemMouseOver(index)" @@mouseout="homeFocusItemMouseOut" href="javascript:(void)"></a>
+                    </div>
+                </div>
+                <!--/焦点图-->
+                <!--参数-->
+                <div class="parameter-container">
+                    <!--主要参数-->
+                    <div class="top-container">
+                        <!--品种-->
+                        <div class="parameter-item">
+                            <span class="label-color">品种：</span>{{currentPumpHouse.seedInfo.seedInfo.seedName}}
+                        </div>
+                        <!--/品种-->
+                        <!--种植面积-->
+                        <div style="text-indent:8.6%;" class="parameter-item">
+                            <span class="label-color">种植面积：</span>{{currentPumpHouse.seedInfo.seedInfo.plantArea}}亩
+                        </div>
+                        <!--/种植面积-->
+                        <!--地点-->
+                        <div class="parameter-item">
+                            <span class="label-color">地点：</span>{{currentPumpHouse.seedInfo.landName}}
+                        </div>
+                        <!--/地点-->
+                        <!--土壤类型-->
+                        <div style="text-indent:8.6%;" class="parameter-item">
+                            <span class="label-color">土壤类型：</span>{{currentPumpHouse.seedInfo.seedInfo.soilType}}
+                        </div>
+                        <!--/土壤类型-->
+                    </div>
+                    <!--/主要参数-->
+                    <!--参数列表-->
+                    <div class="parameter-detail-container">
+                        <!--单个参数-->
+                        <div v-for="(item,index) in homePictureParameter" :key="index" class="parm-detail-item">
+                            <span class="label-color">{{item.parameterName}}</span>:{{item.parameterValue}}
+                        </div>
+                        <!--/单个参数-->
+                    </div>
+                    <!--/参数列表-->
+                </div>
+                <!--/参数-->
+            </div>
+            <!--/内容层-->
+        </div>
+        <!--/溯源信息主层-->
+        <!--信息介绍-->
+        <div class="Info-Introduction-container">
+            <div class="title-container">
+                <div class="title-text">
+                    信息介绍
+                </div>
+                <div @@click="showTraceDetailDialog" class="btnMoreDetail">
+                    溯源信息详情&gt;
+                </div>
+            </div>
+            <div class="info-content-container">
+                <!--二维码-->
+                <img :src="'/QRCode/GetLogoQRCode?companyId='+getHomeParam.companyId+'&year='+getHomeParam.year+'&cropsId='+getHomeParam.cropsId+'&pumpHouseID='+currentPumpHouse.pumpId+'&random='+qrcodeRadom" id="qrcodeImg" class="qrcodeImg" />
+                <!--简介-->
+                <div class="Introduction-text">
+                    <!--玉米品种为育丰五号，该品种具有营养丰富
+                    淀粉含量高的特点。<br/>
+                    种植地为山西省寿阳县景尚现代农业园。当
+                    地气候温和、土壤有机物含量丰富，非常适
+                    宜玉米、大豆等农作物的生长。园区采用无
+                    害化、自动化、科学化的全周期养护管理。-->
+                    {{currentPumpHouse.seedInfo.seedInfo.introduce}}
+                </div>
+                <!--/简介-->
+                <!--生长状态-->
+                <div class="GrowthState">
+                    <div class="data1_box">
+                        <div class="data1_val">
+                            @*株高:<span class="">{{currentPumpHouse.seedInfo.plantHeight}}cm</span>*@
+                              株高:<span class="">{{plantHeight}}cm</span>   
+                        </div>
+                        <div class="bevel"></div>
+                    </div>
+                    <div class="data2_box">
+                        <div class="data2_val">
+                            @*叶片数:<span class="">{{currentPumpHouse.seedInfo.numberOfBlades}}</span>*@
+                            叶片数:<span class="">{{leafNum}}</span>
+                        </div>
+                        <div class="bevel"></div>
+                    </div>
+                    <div class="data3_box">
+                        <div class="data3_val">
+                            @*胸径:<span class="">{{currentPumpHouse.seedInfo.dbh}}</span>*@
+                            胸径:<span class="">{{plantWidth}}</span>
+                        </div>
+                        <div class="bevel"></div>
+                    </div>
+                    <div class="data4_box">
+                        <div class="data4_val">
+                            @*出苗率:<span class="">{{currentPumpHouse.seedInfo.emergenceRate}}%</span>*@
+                            出苗率:<span class="">{{emeRate}}%</span>
+                        </div>
+                        <div class="bevel"></div>
+                    </div>
+                    <img v-if="growCyclesImage!=''" class="cropsImage" :src="growCyclesImage" />
+                </div>
+                <!--/生长状态-->
+            </div>
+        </div>
+        <!--/信息介绍-->
+        <!--现场监控-->
+        <div id="site-monitoring" class="content-container">
+            <div class="title-container">
+                <div class="title-text">
+                    现场监控
+                </div>
+            </div>
+            <div class="middle-container">
+                @*<video id="example_video" controls="controls" preload="none" autoplay="autoplay" class="video-js vjs-default-skin">
+                    <source src="/video/hangge.mp4" type="video/mp4">
+                    </video>*@
+                <video id="myPlayer1" style="width: 87%;height: 95%;object-fit: fill;margin-left: 6.5%;margin-top: 2%" controls="controls" preload="auto" autoplay="autoplay" class="video-js vjs-default-skin">
+                    <source 
+                    src="http://daxun.tpddns.cn:81/live/ch377_1_1.m3u8"
+                    type="application/x-mpegURL" />
+                </video>
+            </div>
+            <!--底部层-->
+            <div class="bottom-container"></div>
+            <!--/底部层-->
+        </div>
+        <!--/现场监控-->
+    </div>
+    <!--溯源详情对话框-->
+    <el-dialog :visible.sync="cropsTraceDetailDialog" custom-class="crops-trace-detail-dialog">
+        <iframe frameborder="1" class="iframePage" scrolling="no" :src="'/Mobile/MobilePage?companyId='+getHomeParam.companyId+'&year='+getHomeParam.year+'&cropsId='+getHomeParam.cropsId+'&pumpHouseID='+currentPumpHouse.pumpId"></iframe>
+    </el-dialog>
+    <!--/溯源详情对话框-->
+    <!--大图对话框-->
+    <el-dialog :visible.sync="bigPictureViewDialog" custom-class="bigPictureViewDialog" >
+        <img :src="bigPictureViewSrc" class="PreviewImage" />
+    </el-dialog>
+    <!--/大图对话框-->
+</el-container>
